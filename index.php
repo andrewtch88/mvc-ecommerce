@@ -5,7 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OG Tech PC</title>
-  <?php require "header.php"; ?>
+  <?php 
+    require "header.php"; 
+    require "includes/class_autoloader.php";
+
+    // database initialization
+    $dbinit = new InitDbExec();
+    $dbinit->initDbExec();
+  ?>
 </head>
 <body>
   <div class="slider" style="width: 90%; margin: auto;">

@@ -16,18 +16,26 @@
 ?>
 
 <div class="nav-wrapper" style="height: 100px">
-  <nav class="nav" style="height: 100px;">
+  <nav style="height: 100px;">
     <div class="nav-wrapper grey darken-4">
       <a href="index.php"><img src = "./static/logo.svg" alt="logo" id="logo" class="brand-logo glow-image" height="100"/></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="badges.html">Login</a></li>
-        <li><a href="collapsible.html">Sign Up</a></li>
+        <li><a class='login' href="login.php">Login</a></li>
+        <li><a class='signup' href="signup.php">Sign Up</a></li>
       </ul>
     </div>
   </nav>
 </div>
 
 <script>
+  // sticky nav
   $(document).ready(function(){$(window).scroll(function() { if($(window).scrollTop()>150){$('nav').addClass('sticky-nav');}})});
+
+  // underline current page
+  var path = window.location.pathname;
+  var page = path.split("/").pop().split(".")[0];
+
+  var links = document.getElementsByClassName(page);
+  if (links[0] != null) links[0].classList.add("underline");
 </script>
 </html>

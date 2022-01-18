@@ -12,9 +12,9 @@ nav {
   z-index: 5050;
 }
 
-.nav li a.active {
-  color: white;
-  text-decoration: aqua;
+.underline {
+  text-decoration: underline aqua;
+  font-weight: bold;
 }
 
 .sticky-nav {
