@@ -1,6 +1,129 @@
 @import url(../materialize/css/materialize.css);
 
+.page-title {
+  color: white;
+  text-shadow: black 4px 0px 8px, black -4px 0px 8px, black 0px 4px 8px,
+    black 0px -4px 8px;
+}
+
+/* nav */
 nav {
-  height: 100px;
   line-height: 100px;
+  z-index: 5050;
+}
+
+.nav li a.active {
+  color: white;
+  text-decoration: aqua;
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+}
+
+/* body */
+body {
+  background-color: black;
+}
+
+/* square card boxes */
+.selectable-card {
+  min-height: 350px;
+  background-color: black;
+  box-shadow: white 4px 4px 8px 2px;
+  backdrop-filter: blur(15px);
+  transition: 0.2s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.selectable-card img {
+  vertical-align: middle;
+  display: inline-block;
+  max-width: 100%;
+  border: none;
+  margin-top: 0;
+}
+
+.selectable-card:hover {
+  box-shadow: red 8px 8px 24px 4px;
+}
+
+/* containers */
+.content {
+  min-height: 100%;
+}
+
+.wide-container {
+  padding-top: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/* text bolding */
+.bold {
+  font-weight: bold;
+}
+
+/* grid box */
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+/* rounded card with hover effect */
+.rounded-card-parent {
+  box-shadow: white 4px 4px 8px 2px;
+  border-radius: 50px;
+  transition: 0.3s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.rounded-card-parent:hover {
+  border-radius: 20px;
+}
+
+.rounded-card {
+  color: white;
+  padding: 30px;
+  clip-path: inset(0px 0px round 50px 50px);
+  background-color: rgba(56, 56, 56, 0.7);
+  backdrop-filter: blur(10px);
+  transition: 0.3s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.rounded-card:hover {
+  clip-path: inset(0px 0px round 20px 20px);
+}
+
+.rounded-card.tint-glass-black {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.rounded-card.tint-glass-cyan {
+  background-color: rgba(0, 170, 200, 0.5);
+}
+.rounded-card.tint-glass-brown {
+  background-color: rgba(128, 73, 0, 0.5);
+}
+.rounded-card.blurer {
+  backdrop-filter: blur(20px);
+}
+
+/* logo glow */
+.glow-image {
+  animation: imageGlowColor 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.25, 0, 0.45, 1);
+}
+
+@keyframes imageGlowColor {
+  0% {
+    -webkit-filter: drop-shadow(0px 0px 4px white);
+    opacity: 60%;
+  }
+  100% {
+    -webkit-filter: drop-shadow(0px 0px 8px white);
+    opacity: 100%;
+  }
 }
