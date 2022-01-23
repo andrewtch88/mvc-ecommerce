@@ -1,0 +1,20 @@
+/* square card boxes */
+.selectable-card {
+  min-height: 350px;
+  background-color: black;
+  box-shadow: white 4px 4px 8px 2px;
+  backdrop-filter: blur(15px);
+  transition: 0.2s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.selectable-card img {
+  vertical-align: middle;
+  display: inline-block;
+  max-width: 100%;
+  border: none;
+  margin-top: 0;
+}
+
+.selectable-card:hover {
+  box-shadow: red 8px 8px 24px 4px;
+}

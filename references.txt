@@ -1,0 +1,9 @@
+https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+https://codepen.io/shivasurya/pen/FatiB
+https://codepen.io/rdhineshwaran/pen/QKmjKb
+7.	Allenhe. (n.d.). 5-star rating with css and html. Codepen. Retrieved November 13, 2021, from https://codepen.io/hesguru/pen/BaybqXv
+Suthar, Y., & Rout, I. (2013, March 24). How to fix “Headers already sent” error in PHP. Stackoverflow. Retrieved November 13, 2021, from https://stackoverflow.com/questions/8028957/how-to-fix-headers-already-sent-error-in-php
+9.	Jivani, Jay. (2014, November 25). How to get rating values when click on the stars in php? Stack Overflow. Retrieved November 13, 2021, from https://stackoverflow.com/questions/27124432/how-to-get-rating-values-when-click-on-the-stars-in-php
+10.	Edit fiddle - JSFiddle - Code Playground. (n.d.). 5 stars static ratings. Retrieved November 13, 2021, from https://jsfiddle.net/4qqspqxh/
+11.	Wang, A., Chang, A., Mark, A., & Louie, K. (2018). Documentation - Materialize. Materialize CSS Framework. Retrieved November 14, 2021, from https://materializecss.com/
+https://stackoverflow.com/questions/9877263/time-delayed-redirect/16541769

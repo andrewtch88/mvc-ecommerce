@@ -2,7 +2,7 @@
 
 // auto create database tables
 class InitDB extends Dbhandler{
-  protected function CreateNeededTables() {
+  private function CreateNeededTables() {
     $tables = array();
 
     //Members table
@@ -69,6 +69,10 @@ class InitDB extends Dbhandler{
 
     // execute table creation sql one by one
     for ($i=0; $i < count($tables); $i++)
-      $this->connect()->query($tables[$i]);
+      $this->conn()->query($tables[$i]);
+  }
+
+  public function initDbExec() {
+    $this->CreateNeededTables();
   }
 }

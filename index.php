@@ -7,15 +7,15 @@
   <title>OG Tech PC</title>
   <?php 
     require "header.php"; 
-    require "includes/class_autoloader.php";
+    require_once "includes/class_autoloader.php";
 
     // database initialization
-    $dbinit = new InitDbExec();
+    $dbinit = new InitDB();
     $dbinit->initDbExec();
   ?>
 </head>
 <body>
-  <div class="slider" style="width: 90%; margin: auto;">
+  <div class="slider" style="width: 60%; margin: auto;">
     <ul class="slides">
       <li>
         <img src="./static/images/carousel_1.gif"> 
@@ -25,7 +25,7 @@
         </div>
       </li>
       <li>
-        <img src="./static/images/carousel_2.jpg"> 
+        <img src="./static/images/category_3.jpg"> 
         <div class="caption center-align">
           <h3 class="bold page-title">At OG Tech</h3>
           <h5 class="bold page-title">From pc to peripherals, we got u covered.</h5>
@@ -47,34 +47,34 @@
   
   <div class="container" style="margin-top: 100px">
     <div class="row">
-      <div class="row">
+      <div class="row" style="margin-bottom: -20px">
         <h4 class="page-title white-text bold center">Categories</h4>
       </div>
       <div class="row">
         <div class="col">
-          <div class="selectable-card" style="width: 350px; margin: 20px;">
+          <div class="selectable-card" style="width: 300px; margin: 50px;">
             <a href="#">
-              <img src="./static/images/category_1.jpg"/>
+              <img src="static/images/category_1.gif"/>
             </a>
-            <h5 class="white-text center bold" style="margin-top: 30px">PC PACKAGES</h5>
+            <h5 class="white-text center bold">PC PACKAGES</h5>
           </div>
         </div>
 
         <div class="col">
-          <div class="selectable-card" style="width: 350px; margin: 20px;">
-            <<a href="#">
-              <img src="./static/images/category_2.jpg"/>
-            </a>
-            <h5 class="white-text center bold">PERIPHERALS</h5>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="selectable-card" style="width: 350px; margin: 20px;">
+          <div class="selectable-card" style="width: 300px; margin: 50px;">
             <a href="#">
               <img src="./static/images/category_3.jpg"/>
             </a>
-            <h5 class="white-text center bold">MONITOR & AUDIO</h5>
+            <h5 class="white-text center bold" style="margin-top : 120px">MONITOR & AUDIO</h5>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="selectable-card" style="width: 300px; margin: 50px;">
+            <a href="#">
+              <img src="./static/images/category_2.gif"/>
+            </a>
+            <h5 class="white-text center bold">PERIPHERALS</h5>
           </div>
         </div>
       </div>

@@ -1,0 +1,12 @@
+/* nav */
+nav {
+  line-height: 100px;
+  z-index: 5050;
+  position: fixed;
+  top: 0;
+}
+
+.underline {
+  text-decoration: underline aqua;
+  font-weight: bold;
+}

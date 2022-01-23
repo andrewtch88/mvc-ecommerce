@@ -59,7 +59,7 @@
               else if ($_GET["error"] == "none")
               {
                 echo "<p class='green-text bold'>You have signed up! Redirecting to login page...</p>";
-                header( "refresh:1.5;url=login.php" );
+                echo("<script>setTimeout('location.href = 'login.php';', 3000);</script>");
                 exit();
               }
             }

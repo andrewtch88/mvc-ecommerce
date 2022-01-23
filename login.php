@@ -37,7 +37,9 @@
                   echo "<p>*Fill in all fields!</p>";
                 else if ($_GET["error"] == "WrongLogin")
                   echo "<p>*Incorrect credentials!</p>";
-                else if ($_GET["error"] == "Statementfailed")
+                else if ($_GET["error"] == "usernotfound")
+                  echo "<p>*User does not exists!</p>";
+                else if ($_GET["error"] == "stmtfailed")
                   echo "<p>*SQL ERROR! Try Again Later.</p>";
               }
             ?>
