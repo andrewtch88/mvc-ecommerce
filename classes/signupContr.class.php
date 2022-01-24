@@ -50,7 +50,7 @@ class SignupContr extends Signup {
 
   private function uidExists() {
     $result = null;
-    if (!$this->checkUser($this->username, $this->email)) {
+    if ($this->checkUser($this->username, $this->email)) {
       $result = false;
     }
     else{

@@ -57,11 +57,9 @@
                 echo "<p>*Username/Email already taken!</p>";
 
               else if ($_GET["error"] == "none")
-              {
                 echo "<p class='green-text bold'>You have signed up! Redirecting to login page...</p>";
-                echo("<script>setTimeout('location.href = 'login.php';', 3000);</script>");
+                echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                 exit();
-              }
             }
           ?>
         </div>

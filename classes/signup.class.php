@@ -41,15 +41,11 @@ class Signup extends Dbhandler {
     $stmt->bind_param("ss", $username, $email);
     $stmt->execute();
     
-    $resultCheck = null;
+    $result = $stmt->get_result();
 
-    if ($stmt->num_rows > 0) {
-      $resultCheck = false;
-    }
-    else {
-      $resultCheck = true;
-    }
+    if ($row = $result->fetch_assoc()) return $row;
+    else return false;
 
-    return $resultCheck;
+    $stmt->close();
   }
 }
