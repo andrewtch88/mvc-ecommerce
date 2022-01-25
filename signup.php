@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>PETS.CO - Sign Up</title>
+<title>OG Tech - Sign Up</title>
 <?php include "header.php"; ?>
 
 <form action="includes/signup.inc.php" method="POST">
