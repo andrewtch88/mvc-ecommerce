@@ -7,3 +7,4 @@ Suthar, Y., & Rout, I. (2013, March 24). How to fix “Headers already sent” e
 10.	Edit fiddle - JSFiddle - Code Playground. (n.d.). 5 stars static ratings. Retrieved November 13, 2021, from https://jsfiddle.net/4qqspqxh/
 11.	Wang, A., Chang, A., Mark, A., & Louie, K. (2018). Documentation - Materialize. Materialize CSS Framework. Retrieved November 14, 2021, from https://materializecss.com/
 https://stackoverflow.com/questions/9877263/time-delayed-redirect/16541769
+https://stackoverflow.com/questions/44161171/how-does-one-center-align-a-button-using-materialize-css
