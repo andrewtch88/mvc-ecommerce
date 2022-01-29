@@ -16,31 +16,35 @@
       <div class="card rounded-card black" style="width: 650px; ">
         <div class="row">
           <button id="edit" style="text-align:left" class="btn orange " onclick="confirm_edit(this)" style="margin-right: 20px">Edit</button>
+          <div class="errormsg bold"><p id="msg"></p></div>
+
           <div class="errormsg">
             <?php
               if (isset($_GET["error"]))
               {
                 if ($_GET["error"] == "empty_input")
-                  echo "<p>*Fill in all fields!<p>";
+                  echo "<script>document.getElementById('msg').innerHTML = 'Fill in all fields!';</script>";
 
                 else if ($_GET["error"] == "invalid_uid")
-                  echo "<p>*Choose a proper username!</p>";
+                  echo "<script>document.getElementById('msg').innerHTML = '*Choose a proper username!';</script>";
 
                 else if ($_GET["error"] == "invalidemail")
-                  echo "<p>*Choose a proper email!</p>";
+                  echo "<script>document.getElementById('msg').innerHTML = '*Choose a proper email!';</script>";
 
                 else if ($_GET["error"] == "passwords_dont_match")
-                  echo "<p>*Passwords doesn't match!</p>";
+                  echo "<script>document.getElementById('msg').innerHTML = '*Passwords doesn't match!';</script>";
 
                 else if ($_GET["error"] == "stmtfailed")
-                  echo "<p>*Something went wrong, please try again!</p>";
+                  echo "<script>document.getElementById('msg').innerHTML = '*Something went wrong, please try again!';</script>";
 
                 else if ($_GET["error"] == "username_taken")
-                  echo "<p>*Username already taken!</p>";
+                  echo "<script>document.getElementById('msg').innerHTML = '*Username already taken!';</script>";
 
                 else if ($_GET["error"] == "none")
-                  echo "<p class='bold' style='color: green'>Profile updated!</p>";
+                  echo "<script>document.getElementById('msg').innerHTML = 'Profile updated!';</script>";
+                  echo "<script>document.getElementById('msg').style.color = 'green';</script>";
               }
+
             ?>
           </div>
         </div>
@@ -50,41 +54,41 @@
               <div class="input-field s6">
                 <i class="material-icons prefix">account_circle</i>
                 <?php
-                echo "<input name='id' type='hidden' value='$memberID'/>";
-                echo"<input class='white-text' name='username' type='text' value='$username'/>";
+                echo "<input disabled name='id' type='hidden' value='$memberID'/>";
+                echo"<input disabled class='validate white-text' minlength='5' maxlength='12' name='username' type='text' value='$username'/>";
                 ?>
                 <label class='cyan-text' for="username">Enter New Username</label>
-                <span class="helper-text grey-text" data-error="Min 5, Max 12 characters" data-success="correct">Min 5, Max 12 characters</span>
+                <span class="helper-text grey-text" data-error="Min 5, Max 12 characters" data-success="Min 5, Max 12 characters">Min 5, Max 12 characters</span>
               </div>
             </div>
             <div class="row">
               <div class="input-field s6">
                 <i class="material-icons prefix">email</i>
                 <?php
-                echo "<input class='white-text' name='email' type='text' value='$email'/>";
+                echo "<input disabled class='white-text validate' name='email' type='email' value='$email'/>";
                 ?>
                 <label class='cyan-text' for="email">Enter New Email</label>
                 <span class="helper-text white-text" data-error="wrong" data-success="correct"></span>
               </div>
             </div>
-            <div class="row" id="pwd">
+            <div class="row">
               <div class="input-field s6">
                 <i class="material-icons prefix"> password</i>
-                <input class='white-text' name="pwd" type="password" class="validate" minlength="6" maxlength="20">
+                <input disabled class='white-text validate' name="pwd" type="password" minlength="8" maxlength="20">
                 <label class='cyan-text' for="password">Enter New Password</label>
-                <span class="helper-text grey-text" data-error="Min 8, Max 20 characters" data-success="correct">Min 8, Max 20 characters</span>
+                <span class="helper-text grey-text" data-error="Min 8, Max 20 characters" data-success="Min 8, Max 20 characters">Min 8, Max 20 characters</span>
               </div>
             </div>
-            <div class="row" id="repeat_pwd">
+            <div class="row">
               <div class="input-field s6">
                 <i class="material-icons prefix"> password</i>
-                <input class='white-text' name="repeat_pwd" type="password" class="validate" maxlength="14">
+                <input disabled class='white-text validate' name="repeat_pwd" type="password" maxlength="20">
                 <label class='cyan-text' for="repeat_pwd"> Repeat New Password</label>
               </div>
             </div>
           <br>
           <p class="center-align">
-          <button id="update_acc" type="submit" name="update" class="btn orange darken-4">Update Account</button>
+          <button disabled id="update_acc" type="submit" name="update" class="btn orange darken-4">Update Account</button>
           </p>
           </form>
         </div>        
@@ -95,15 +99,13 @@
 <?php include "footer.php"; ?>
 
 <script>
+  // disable and enable input fields
   var id =  document.getElementsByName("id")[0];
-  var submitBtn = document.getElementById("update_acc");
-
-  $(document).ready(
-  () => {
-    id.disabled = true;
-    submitBtn.disabled = true;
-  }
-);
+  var username =  document.getElementsByName("username")[0];
+  var email =  document.getElementsByName("email")[0];
+  var pwd =  document.getElementsByName("pwd")[0];
+  var repeatPwd =  document.getElementsByName("repeat_pwd")[0];
+  var submitBtn = document.querySelector("#update_acc");
 
 function confirm_edit(btn)
 {
@@ -111,13 +113,28 @@ function confirm_edit(btn)
 
   if (id.disabled)
   {
+    username.disabled = true;
+    email.disabled = true;
+    pwd.disabled = true;
+    repeatPwd.disabled = true;
     submitBtn.disabled = true;
     btn.textContent = "Edit"
   } else
   {
+    username.disabled = false;
+    email.disabled = false;
+    pwd.disabled = false;
+    repeatPwd.disabled = false;
     submitBtn.disabled = false;
     btn.textContent = "Done"
   }
+}
+
+// timed message 
+setTimeout(fade_in, 2500);
+
+function fade_in() {
+  $("#msg").fadeIn().delay(2500).fadeOut();
 }
 
 </script>

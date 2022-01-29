@@ -1,4 +1,4 @@
-<footer class="page-footer grey darken-4" style="margin-top: 120px">
+<footer class="page-footer black" style="margin-top: 120px; box-shadow: 0px 0px 2px white;">
   <div class="row wide-container">
     <div class="col s3">
       <h4 class="white-text bold">OG Tech PC</h4>
@@ -24,9 +24,6 @@
       </a>
       <a class="waves-effect waves-light pink lighten-1 btn" style="margin: 2px;">
         <i class="fa fa-instagram fa-fw"></i> Instagram
-      </a>
-      <a class="waves-effect waves-light indigo lighten-1 btn" style="margin: 2px;">
-        <i class="fa fa-linkedin fa-fw"></i> Linkedin
       </a>
     </div>
   </div>
