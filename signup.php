@@ -5,7 +5,7 @@
 
 <form action="includes/signup.inc.php" method="POST">
   <div class="container">
-    <h3 class="page-title white-text">Register</h3>
+    <h3 class="page-title white-text grid">Sign Up</h3>
     <div class="rounded-card-parent center">
       <div class="card rounded-card">
         <div class="row">
@@ -39,7 +39,7 @@
             <span class="helper-text white-text" data-error="wrong" data-success="correct"></span>
           </div>
         </div>
-        <input class="btn" type="submit" name="submit" value="Register">
+        <input class="btn" type="submit" name="submit" value="Sign Up">
         <div class="errormsg">
           <?php
             if (isset($_GET["error"]))

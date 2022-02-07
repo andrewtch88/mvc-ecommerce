@@ -45,3 +45,31 @@ body {
   color: red;
   font-weight: bold;
 }
+
+.glow-text {
+  text-shadow: 0px 0px 5px cyan;
+  font-weight: bold;
+}
+
+.glow-title {
+  background-color: cyan;
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+  box-shadow: 2px 2px 20px cyan;
+}
+
+#bordershadow {
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 20%);
+  transition: all 200ms ease-out;
+}
+
+#bordershadow:hover {
+  border: 1px solid aqua;
+  box-shadow: 0 0 0 1px aqua;
+}

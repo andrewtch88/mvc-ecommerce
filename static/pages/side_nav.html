@@ -1,0 +1,61 @@
+<ul
+  class="sidenav grey darken-4"
+  style="height: 100%; margin-top: 200px;"
+  id="slide-out"
+>
+  <!-- admin profile -->
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <img
+          src="static/images/admin_image.jpg"
+          style="height: 180px; opacity: 70%;"
+        />
+      </div>
+      <span class="white-text glow-text"
+        ><?php echo "Welcome back, $username" ?></span
+      >
+      <span class="white-text glow-text"><?php echo "$email" ?></span>
+    </div>
+  </li>
+  <!-- admin profile end -->
+
+  <div>
+    <li>
+      <a class="glow-title">
+        <i class="material-icons black-text">supervisor_account</i>Account
+        Management
+      </a>
+    </li>
+
+    <li>
+      <a class="white-text" href="admin_manage_users.php">
+        <i class="material-icons blue-text">account_box</i>Manage Users
+      </a>
+    </li>
+
+    <li>
+      <a class="glow-title">
+        <i class="material-icons black-text">view_carousel</i>Product/Orders
+      </a>
+    </li>
+
+    <li>
+      <a class="white-text" href="admin_manage_products.php">
+        <i class="material-icons blue-text">border_color</i>Manage Products</a
+      >
+    </li>
+    <li>
+      <a class="white-text" href="admin_view_orders.php">
+        <i class="material-icons blue-text">view_agenda</i>View Customer
+        Cart/Orders
+      </a>
+    </li>
+  </div>
+</ul>
+
+<script>
+  $(document).ready(function () {
+    $(".sidenav").sidenav();
+  });
+</script>
