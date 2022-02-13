@@ -8,16 +8,10 @@
   <?php 
     include "header.php";
     include "static/pages/side_nav.html";
+    include "static/pages/admin_nav.php";
   ?>
 </head>
 <body>
-  <nav class="grey darken-4" style="margin-top: 102px; height: 100px">
-    <div class="nav wrapper">
-      <a href="admin.php" class="brand-logo center page-title">Admin Panel</a>
-      <a href="" data-target="slide-out" class="sidenav-trigger show-on-large" style="margin-top: 15px" data-activates="slide-out"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
   <div class="grid" style="margin-top: 150px;">
     <div class="grid">
       <div>
