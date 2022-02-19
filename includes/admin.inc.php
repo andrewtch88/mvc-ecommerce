@@ -1,6 +1,6 @@
 <?php
-
-if (isset($_POST["username"]))
+require_once "class_autoloader.php";
+if (isset($_POST["submit"]))
 {
   $username = $_POST["username"];
   $pass = $_POST["pwd"];
@@ -10,29 +10,34 @@ if (isset($_POST["username"]))
 
   $util = new CommonUtil;
 
-  if (EmptyInputCreateUser($username, $pass, $repeatPass, $email, $privilegeLevel))
+  if ($util->EmptyInputCreateUser($username, $pass, $repeatPass, $email, $privilegeLevel))
   {
-    echo("<script>location.href = 'admin_manage_users.php?error=empty_input';</script>");
+    echo "<script>document.getElementById('message').className = 'errormsg';</script>";
+    echo "<script>document.getElementById('message').innerHTML = '*Fill in all fields!';</script>";
     exit();
   }
   if ($util->pwdNotMatch($pass, $repeatPass))
   {
-    echo("<script>location.href = 'admin_manage_users.php?error=passwords_dont_match';</script>");
+    echo "<script>document.getElementById('message').className = 'errormsg';</script>";
+    echo "<script>document.getElementById('message').innerHTML = '*Passwords doesn't match!';</script>";
     exit();
   }
   if ($util->invalidUid($username))
   {
-    echo("<script>location.href = 'admin_manage_users.php?error=invalid_uid';</script>");
+    echo "<script>document.getElementById('message').className = 'errormsg';</script>";
+    echo "<script>document.getElementById('message').innerHTML = '*Choose a proper username!';</script>";
     exit();
   }
   if ($util->uidExists($username, $email))
   {
-    echo("<script>location.href = 'admin_manage_users.php?error=username_taken';</script>");
+    echo "<script>document.getElementById('message').className = 'errormsg';</script>";
+    echo "<script>document.getElementById('message').innerHTML = '*Username/Email already taken!';</script>";
     exit();
   }
 
   $privilegeLevel -= 1;
   $util->setUser($username, $pass, $email, $privilegeLevel);
-  echo("<script>location.href = 'admin_manage_users.php?error=none';</script>");
-  $this->conn()->close();
+  echo "<script>document.forms['create'].reset()</script>";
+  echo "<script>document.getElementById('message').className = 'green-text';</script>";
+  echo "<script>document.getElementById('message').innerHTML = 'Added User.';</script>";
 }

@@ -40,6 +40,7 @@ class CommonUtil extends Dbhandler{
     // create cart
     $sql = "INSERT INTO Orders(MemberID) VALUES ($memberID);";
     $result = $this->conn()->query($sql) or die("<p>*Cart creation error, please try again!</p>");
+    $this->conn()->close();
   }
 
   public function emptyInput($username, $pwd, $repeatPwd, $email)
@@ -50,4 +51,7 @@ class CommonUtil extends Dbhandler{
 
   public function pwdNotMatch($pwd, $repeatPwd)
   { return $pwd !== $repeatPwd; }
+
+  public function EmptyInputCreateUser($username, $pwd, $repeatPwd, $privilegeLevel, $email)
+    { return empty($username) || (empty($pwd)) || (empty($repeatPwd)) or ($privilegeLevel === "") || (empty($email));}
 }

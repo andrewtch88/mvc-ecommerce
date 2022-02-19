@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <title>OG Tech - Manage Users Panel</title>
   <?php
     include "header.php"; 
@@ -43,15 +44,15 @@
           <!-- search member input field end -->
           
           <!-- search member result list start -->
-          <form action="admin_manage_users.php" method="GET">
+          <form id="refresh" action="" method="GET">
             <table class="responsive-table">
               <thead class="text-primary">
                 <tr><th>Username</th></tr>
               </thead>
               <tbody>
-                <?php
-                  $oper = new adminContr;
-                  $oper->usersList();
+                <?php 
+                  $Table = new adminContr;
+                  $Table->usersList();
                 ?>
               </tbody>
             </table>
@@ -87,7 +88,7 @@
       <div class="card rounded-card">
         <div class="card-content">
           <span class="card-title orange-text bold">Create User</span>
-          <form id="create">
+          <form id="create" name="create" action="" method="post">
             <div class="row">
               <div class="input-field col s8 white-text">
                 <i class="material-icons prefix">account_circle</i>
@@ -114,7 +115,7 @@
             <div class="row">
               <div class="input-field col s8 white-text">
                 <i class="material-icons prefix white-text">assignment_ind</i>
-                <select name="level">
+                <select id="level" name="level">
                   <option value="" disabled selected>Choose your option</option>
                   <option value=1>Member</option>
                   <option value=2>Admin</option>
@@ -129,55 +130,38 @@
                 <label for="email" class="white-text">Email</label>
                 <span class="helper-text white-text" data-error="wrong" data-success="correct"></span>
                 <div id="message" class="errormsg">
-                  <?php
-                    if (isset($_GET["error"]))
-                    {
-                      if ($_GET["error"] == "empty_input")
-                        echo "<p>*Fill in all fields!<p>";
-
-                      else if ($_GET["error"] == "passwords_dont_match")
-                        echo "<p>*Passwords doesn't match!</p>";
-
-                      else if ($_GET["error"] == "invalid_uid")
-                        echo "<p>*Choose a proper username!</p>";
-
-                      else if ($_GET["error"] == "username_taken")
-                        echo "<p>*Username/Email already taken!</p>";
-
-                      else if ($_GET["error"] == "none")
-                        echo "<p class='green-text'>Added User.</p>";
-                    }
-                  ?>
+              
                 </div>
               </div>
             </div>
-            <input class="btn orange btn-block z-depth-5" type="submit" name="submit_user" id="submit_btn" value="Create User">
+            <input class="btn orange btn-block z-depth-5" type="submit" name="submit_user" id="submit_user" value="Create User">
           </form>
         </div>
       </div> 
     </div>
   </div>
 </body>
-
 <script>
   $(document).ready(function(){
     $('select').formSelect();
 
-    $("#submit_btn").click(function(){
-      var formData = new FormData($(form)[0]);
-      $.ajax({
-        url: "includes/admin.inc.php",
-        method: "POST",
-        data: formData,
-        processData: false,
-        contentType: false,
-
-        success: function(data) {
-          $('form').trigger("reset");  
-        }
+    $("#create").submit(function(e) {
+      event.preventDefault();
+      var username = $("#username").val();
+      var pwd = $("#pwd").val();
+      var repeat_pwd = $("#repeat_pwd").val();
+      var level = $("#level").val();
+      var email = $("#email").val();
+      var submit = $("#submit_user").val();
+      $("#message").load("includes/admin.inc.php", {
+        username: username,
+        pwd: pwd,
+        repeat_pwd: repeat_pwd,
+        level: level,
+        email: email,
+        submit: submit
       });
-      return false;
-    });
+    })
   });
 </script>
 

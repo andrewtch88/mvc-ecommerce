@@ -23,7 +23,7 @@
               if (isset($_GET["error"]))
               {
                 if ($_GET["error"] == "empty_input")
-                  echo "<script>document.getElementById('msg').innerHTML = 'Fill in all fields!';</script>";
+                  echo "<script>document.getElementById('msg').innerHTML = '*Fill in all fields!';</script>";
 
                 else if ($_GET["error"] == "invalid_uid")
                   echo "<script>document.getElementById('msg').innerHTML = '*Choose a proper username!';</script>";
