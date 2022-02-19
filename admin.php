@@ -25,7 +25,7 @@
               </div>
             </div>
             <div class="card-action">
-              <a href="#">Learn More</a>
+              <a href="admin_manage_users.php">Learn More</a>
             </div>
           </div>
         </div>

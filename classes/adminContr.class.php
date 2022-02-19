@@ -9,8 +9,4 @@ class adminContr extends Admin {
   public function showInspectedUser(){
     $this->inspectUser();
   }
-
-  public function setUser(){
-    $this->createUser();
-  }
 }

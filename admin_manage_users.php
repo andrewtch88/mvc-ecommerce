@@ -25,7 +25,7 @@
           <form id="search_user" action="admin_manage_users.php" method="POST">
             <div class="row" style="margin: 0px;">
               <div class="input-field col s3" style = "color:azure">
-                <input name="search_member" type="text" class="validate white-text" maxlength="20">
+                <input name="search_member" id="search_member" type="text" class="validate white-text" maxlength="20">
                 <label for="search_member">Search member by name</label>
                 <div class="errormsg">
                   <?php
@@ -87,11 +87,11 @@
       <div class="card rounded-card">
         <div class="card-content">
           <span class="card-title orange-text bold">Create User</span>
-          <form action="#" method="POST">
+          <form id="create">
             <div class="row">
               <div class="input-field col s8 white-text">
                 <i class="material-icons prefix">account_circle</i>
-                <input name="username" type="text" class="validate white-text" minlength="5" maxlength="12">
+                <input name="username" id="username" type="text" class="validate white-text" minlength="5" maxlength="12">
                 <span class="helper-text grey-text" data-error="Min 5, Max 12 characters" data-success="Min 5, Max 12 characters">Min 5, Max 12 characters</span>
                 <label for="username" class="white-text"> Username</label>
               </div>
@@ -99,7 +99,7 @@
             <div class="row">
               <div class="input-field col s8 white-text">
                 <i class="material-icons prefix"> password</i>
-                <input name="pwd" type="password" class="validate white-text" minlength="8" maxlength="20">
+                <input name="pwd" id="pwd" type="password" class="validate white-text" minlength="8" maxlength="20">
                 <span class="helper-text grey-text" data-error="Min 8, Max 20 characters" data-success="Min 8, Max 20 characters">Min 8, Max 20 characters</span>
                 <label for="pwd" class="white-text"> Password</label>
               </div>
@@ -107,7 +107,7 @@
             <div class="row">
               <div class="input-field col s8 white-text">
                 <i class="material-icons prefix"> password</i>
-                <input name="repeat_pwd" type="password" class="validate white-text" maxlength="14">
+                <input name="repeat_pwd" id="repeat_pwd" type="password" class="validate white-text" maxlength="14">
                 <label for="repeat_pwd" class="white-text"> Repeat Password</label>
               </div>
             </div>
@@ -125,10 +125,10 @@
             <div class="row">
               <div class="input-field col s8 white-text">
                 <i class="material-icons prefix">email</i>
-                <input name="email" type="email" class="validate white-text" maxlength="25">
+                <input name="email" id="email" type="email" class="validate white-text" maxlength="25">
                 <label for="email" class="white-text">Email</label>
                 <span class="helper-text white-text" data-error="wrong" data-success="correct"></span>
-                <div class="errormsg">
+                <div id="message" class="errormsg">
                   <?php
                     if (isset($_GET["error"]))
                     {
@@ -151,8 +151,7 @@
                 </div>
               </div>
             </div>
-            <input class="btn orange btn-block z-depth-5" type="submit" name="submit_user" value="Create User" onsubmit="return false;">
-            <?php $oper->setUser(); ?>
+            <input class="btn orange btn-block z-depth-5" type="submit" name="submit_user" id="submit_btn" value="Create User">
           </form>
         </div>
       </div> 
@@ -163,6 +162,22 @@
 <script>
   $(document).ready(function(){
     $('select').formSelect();
+
+    $("#submit_btn").click(function(){
+      var formData = new FormData($(form)[0]);
+      $.ajax({
+        url: "includes/admin.inc.php",
+        method: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+
+        success: function(data) {
+          $('form').trigger("reset");  
+        }
+      });
+      return false;
+    });
   });
 </script>
 

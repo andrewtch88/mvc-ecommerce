@@ -11,19 +11,19 @@
         <div class="row">
           <div class="input-field col s4 offset-s4">
           <i class="material-icons prefix white-text">account_circle</i>
-            <label class="white-text">Username or Email</label>
-            <input type="text" name="username" class="white-text">
+            <label class="white-text" for="username">Username or Email</label>
+            <input type="text" name="username" id="username" class="white-text">
           </div>
         </div>
         <div class="row">
           <div class="input-field col s4 offset-s4">
           <i class="material-icons prefix white-text">password</i>
-            <label class="white-text">Password</label>
-            <input type="password" name="pwd" class="white-text">
+            <label class="white-text" for="pwd">Password</label>
+            <input type="password" name="pwd" id="pwd" class="white-text">
           </div>
         </div>
         <div class="row">
-          <button type="submit" name="submit" class="btn" style="margin-left: 50px">Login</button>
+          <button type="submit" name="submit" class="btn" style="margin-left: 10px">Login</button>
         </div>
         <div class="row">
           <a href="recover_pass.php" style="margin-right: 10px">Forgot Password?</a>

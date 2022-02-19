@@ -1,4 +1,4 @@
-@import url(../materialize/css/materialize.css);
+@import url(../materialize/css/materialize.min.css);
 @import url(searchBar.css);
 @import url(nav.css);
 @import url(cards.css);
