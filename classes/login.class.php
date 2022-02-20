@@ -57,6 +57,7 @@ class Login extends CommonUtil{
       }
       else {
         header("location: ../login.php?error=attemptReached");
+        exit();
       }
     }
   }
