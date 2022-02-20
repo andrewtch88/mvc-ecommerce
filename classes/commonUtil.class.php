@@ -23,11 +23,11 @@ class CommonUtil extends Dbhandler{
     $stmt->close();
   }
 
-  public function setUser($username, $pwd, $email, $privilegeLevel=0) {
+  public function setUser($username, $pwd, $email, $privilegeLevel=0, $attempt=3) {
     // create member
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO Members(Username, Password, Email, PrivilegeLevel)
-      VALUES ('$username', '$hashedPwd', '$email', $privilegeLevel);";
+    $sql = "INSERT INTO Members(Username, Password, Email, PrivilegeLevel, Attempt)
+      VALUES ('$username', '$hashedPwd', '$email', $privilegeLevel, $attempt);";
     $this->conn()->query($sql) or die("<p>*User creation error, please try again!</p>");
 
     // get member id

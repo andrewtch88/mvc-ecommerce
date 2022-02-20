@@ -1,13 +1,13 @@
 <?php 
 
 class Signup extends Dbhandler {
-  protected function setUser($username, $pwd, $email, $privilegeLevel=0) {
-    $sql = "INSERT INTO Members (Username, Password, Email, PrivilegeLevel)
-      VALUES (?, ?, ?, ?);";
+  protected function setUser($username, $pwd, $email, $privilegeLevel=0, $attempt=3) {
+    $sql = "INSERT INTO Members (Username, Password, Email, PrivilegeLevel, Attempt)
+      VALUES (?, ?, ?, ?, ?);";
     $stmt = $this->conn()->prepare($sql);
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-    if (!$stmt->execute(array($username, $hashedPwd, $email, $privilegeLevel))) {
+    if (!$stmt->execute(array($username, $hashedPwd, $email, $privilegeLevel, $attempt))) {
       $stmt = null;
       header("location: ../signup.php?error=stmtfailed");
       exit();

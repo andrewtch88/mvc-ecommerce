@@ -13,7 +13,7 @@ class InitDB extends Dbhandler{
         Password VARCHAR(512) NOT NULL,
         Email VARCHAR(64) NOT NULL,
         PrivilegeLevel INT NOT NULL DEFAULT 0,
-        OTP INT NOT NULL
+        Attempt INT NOT NULL
       )"
     );
 

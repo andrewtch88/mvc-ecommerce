@@ -41,6 +41,8 @@
                   echo "<p>*User does not exists!</p>";
                 else if ($_GET["error"] == "stmtfailed")
                   echo "<p>*SQL ERROR! Try Again Later.</p>";
+                else if ($_GET["error"] == "attemptReached")
+                  echo "<p>*Too many failed login attempts! Try again after 15 seconds.</p>";
               }
             ?>
           </div>
