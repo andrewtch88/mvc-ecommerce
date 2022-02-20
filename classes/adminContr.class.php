@@ -9,4 +9,12 @@ class adminContr extends Admin {
   public function showInspectedUser(){
     $this->inspectUser();
   }
+
+  public function productsList(){
+    $this->showProduct();
+  }
+
+  public function showInspectedProduct(){
+    $this->inspectProduct();
+  }
 }

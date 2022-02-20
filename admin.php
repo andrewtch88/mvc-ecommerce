@@ -43,7 +43,7 @@
               </div>
             </div>
             <div class="card-action">
-              <a href="#">Learn More</a>
+              <a href="admin_manage_products.php">Learn More</a>
             </div>
           </div>
         </div>

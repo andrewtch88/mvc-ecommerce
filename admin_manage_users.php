@@ -45,17 +45,21 @@
           
           <!-- search member result list start -->
           <form id="refresh" action="" method="GET">
-            <table class="responsive-table">
+            <table class="responsive-table" id="pagination">
               <thead class="text-primary">
                 <tr><th>Username</th></tr>
               </thead>
               <tbody>
                 <?php 
-                  $Table = new adminContr;
-                  $Table->usersList();
+                  $oper = new adminContr;
+                  $oper->usersList();
                 ?>
               </tbody>
             </table>
+            <div class="col-md-12 center text-center">
+              <span class="left" id="total_reg"></span>
+              <ul class="pagination pager" id="myPager"></ul>
+            </div>
           </form>
         <!-- serach member result list end -->
         </div>
@@ -162,6 +166,17 @@
         submit: submit
       });
     })
+
+    $('#pagination').pageMe({
+      pagerSelector:'#myPager',
+      activeColor: 'blue',
+      prevText:'Previous',
+      nextText:'Next',
+      showPrevNext:true,
+      hidePageNumbers:false,
+      perPage:5
+    });
+
   });
 </script>
 

@@ -46,12 +46,12 @@ class CommonUtil extends Dbhandler{
   public function emptyInput($username, $pwd, $repeatPwd, $email)
   { return empty($username) || (empty($pwd)) || (empty($repeatPwd)) || (empty($email)); }
 
-  public function invalidUid($username)
-  { return !preg_match("/^[a-zA-Z0-9]*$/", $username); }
+  public function invalidUid($username) { return !preg_match("/^[a-zA-Z0-9]*$/", $username); }
 
-  public function pwdNotMatch($pwd, $repeatPwd)
-  { return $pwd !== $repeatPwd; }
+  public function pwdNotMatch($pwd, $repeatPwd) { return $pwd !== $repeatPwd; }
 
   public function EmptyInputCreateUser($username, $pwd, $repeatPwd, $privilegeLevel, $email)
     { return empty($username) || (empty($pwd)) || (empty($repeatPwd)) or ($privilegeLevel === "") || (empty($email));}
+
+  public function EmptyInputSelect($value) { return empty($value); }
 }
