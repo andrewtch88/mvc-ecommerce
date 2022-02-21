@@ -2,6 +2,26 @@
 
 class CommonUtil extends Dbhandler{
 
+  public function productExists($image){
+    $sql = "SELECT * FROM Items where Image = ?;";
+    $stmt = $this->conn()->stmt_init();
+    if (!$stmt->prepare($sql))
+    {
+      header("location: ../<script>window.location.href</script>?error=stmtfailed");
+      exit();
+    }
+
+    $stmt->bind_param("s", $image);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($row = $result->fetch_assoc()) return $row;
+    else return false;
+
+    $stmt->close();
+  }
+
   public function uidExists($loginName) {
     $sql = "SELECT * FROM Members where Username = ? OR Email = ?;";
     $stmt = $this->conn()->stmt_init();
@@ -49,6 +69,13 @@ class CommonUtil extends Dbhandler{
     $sql = "INSERT INTO Items(Name, Brand, Description, Category, SellingPrice, QuantityInStock, Image)
       VALUES ('$name', '$brand', '$description', $category, $sellingprice, $quantityinstock, '$image');";
     $this->conn()->query($sql) or die("<p>*Product creation error, please try again!</p>");
+  }
+
+  function EmptyInputCreateProduct($name, $brand, $description, $category, $sellingprice, $quantityinstock, $image)
+  {
+    return empty($name) || empty($brand) || empty($description) or
+    ($category === "") || empty($sellingprice) ||
+    empty($quantityinstock) || empty($image);
   }
 
   public function emptyInput($username, $pwd, $repeatPwd, $email)

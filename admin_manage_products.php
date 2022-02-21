@@ -15,7 +15,7 @@
   <div class="container" style="margin-top: 150px">
     <h3 class="page-title">Manage Products</h3>
 
-    <div class="blue darken-4 rounded-card-parent center" style="margin-bottom: 100px">
+    <div class="blue rounded-card-parent center" style="margin-bottom: 100px">
       <div class="card rounded-card">
         <div class="card-content black-text">
           <span class="orange-text bold" style="font-size: 24px">Products List</span>
@@ -94,7 +94,7 @@
   <!-- selected member details end -->
 
   <!-- create product start -->
-  <div class="rounded-card-parent">
+  <div class="rounded-card-parent" style="margin-top: 100px">
     <div class="card rounded-card">
       <div class="card-content">
         <span class="card-title orange-text bold">Create Product</span>
@@ -104,7 +104,7 @@
               <div class="row">
                 <div class="input-field white-text">
                   <i class="material-icons prefix">inventory_2</i>
-                  <input name="name" id="name" type="text" class="validate white-text" maxlength="30">
+                  <input name="name" id="name" type="text" class="validate white-text">
                   <label for="name" class="white-text">Product Name</label>
                 </div>
               </div>
@@ -128,7 +128,7 @@
                 <div class="input-field white-text">
                   <i class="material-icons prefix white-text">category</i>
                   <select name="category" id="category">
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>Choose category</option>
                     <option value=0>PC Packages</option>
                     <option value=1>Monitor & Audio</option>
                     <option value=2>Peripherals</option>
@@ -153,14 +153,15 @@
             </div>
           </div>
           <div class="row">
-            <div class="file-field">
-              <a class="waves-effect waves-light btn cyan">
-                <i class="material-icons prefix">image</i>
-                <input type="file" id="product_image">
+            <div class="file-field col s6">
+                <div class="btn">
+                  <span>File</span>
+                  <input type="file" id="product_image">
+                </div>
               </a>
               <div class="file-path-wrapper">
                 <input name="image" id="product_image" class="file-path validate white-text" type="text"
-                  placeholder="<- Choose Image" onchange="update_image(this)">
+                  placeholder="Choose Image" onchange="update_image(this)">
               </div>
             </div>
             <img class="shadow-img" id="image" src="" style="width: 300px;">

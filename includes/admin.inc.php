@@ -3,13 +3,6 @@ require_once "class_autoloader.php";
 
 $util = new CommonUtil;
 
-function EmptyInputCreateProduct($name, $brand, $description, $category, $sellingprice, $quantityinstock, $image)
-{
-  return empty($name) || empty($brand) || empty($description) or
-  ($category === "") || empty($sellingprice) ||
-  empty($quantityinstock) || empty($image);
-}
-
 // Manage User
 if (isset($_POST["submit"]))
 {
@@ -62,10 +55,16 @@ if (isset($_POST["submit_product"]))
   $quantityinstock = $_POST["quantityinstock"];
   $image = $_POST["image"];
 
-  if (EmptyInputCreateProduct($name, $brand, $description, $category, $sellingprice, $quantityinstock, $image))
+  if ($util->EmptyInputCreateProduct($name, $brand, $description, $category, $sellingprice, $quantityinstock, $image))
   {
     echo "<script>document.getElementById('message').className = 'errormsg';</script>";
     echo "<script>document.getElementById('message').innerHTML = '*Fill in all fields!';</script>";
+    exit();
+  }
+
+  if ($util->productExists($image)) {
+    echo "<script>document.getElementById('message').className = 'errormsg';</script>";
+    echo "<script>document.getElementById('message').innerHTML = '*Product exists! Please try another image.';</script>";
     exit();
   }
 

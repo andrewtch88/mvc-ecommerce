@@ -147,7 +147,7 @@ class Admin extends Dbhandler{
   protected function inspectProduct(){
     // inspect product
     $itemID = $_GET["inspect_product"];
-    $sql = "SELECT * FROM Items where ItemID = $itemID ORDER BY Brand";
+    $sql = "SELECT * FROM Items where ItemID = '$itemID' ORDER BY Brand";
     $result = $this->conn()->query($sql) or die("<p> * ItemID error, please try again!</p>");
     while ($row = mysqli_fetch_assoc($result))    
     {
@@ -159,12 +159,12 @@ class Admin extends Dbhandler{
       $category = $row["Category"];
       $category = Item::CATEGORY_ICON[(int)$category];
       $sellingprice = $row["SellingPrice"];
-      $sellingprice = "$ ". number_format($sellingprice, 2);
+      $sellingprice = "MYR ". number_format($sellingprice, 2);
       $quantityinstock = $row["QuantityInStock"];
 
       echo(
         "<tr>
-          <td><img class='shadow-img' src='images/$image' style='height:100px;'></td>
+          <td><img class='shadow-img' src='product_images/$image' style='height:100px;'></td>
           <td>$name</td>
           <td>$brand</td>
           <td>$description</td>
@@ -172,7 +172,7 @@ class Admin extends Dbhandler{
           <td>$sellingprice</td>
           <td>$quantityinstock</td>
           <td><a>
-            <a class='btn yellow darken-4 white-text' href='edit_products.php?item_id=$itemID'>Edit</a>
+            <a class='btn yellow darken-4 white-text' href='admin_edit_products.php?item_id=$itemID'>Edit</a>
             <button class='btn red darken-4' name='delete_product' value='$itemID'
             onclick=\"return confirm('Are you sure you want to delete record: \'$name, $brand\'?');\">Delete</button>
           </a></td>

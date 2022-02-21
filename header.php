@@ -82,13 +82,11 @@
   $(document).ready(function(){
     $('input.autocomplete').autocomplete({
       data: {
-        "Audio": 'static/images/audio.png',
         "Headset": "static/images/audio.png",
         "Keyboard": 'static/images/category_2.gif',
         "Mouse": "static/images/mouse.png",
         "Monitor": "static/images/monitor.jpg",
         "PC": 'static/images/category_1.gif',
-        "Peripherals": '/static/images/category_3.jpg',
         "Speaker": "static/images/speaker.jpg"
       },
     });
