@@ -10,4 +10,6 @@ class Item {
   private $quantityInStock;
   private $image;
   
+  public const CATEGORY = ["PC Packages", "Monitor & Audio", "Peripherals"];
+  public const CATEGORY_ICON = ["computer", "airplay headset", "mouse"];
 }

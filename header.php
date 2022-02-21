@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="./static/materialize/js/materialize.min.js"></script>
   <script type="text/javascript" src="static/js/pagination.js"></script>
   <link rel="stylesheet" href="./static/css/base.css">
@@ -40,7 +40,7 @@
           <form action="search_catalogue.php">
             <div class="white-text row" style="padding-left: 20px;">
               <input type="text" name="search_name" placeholder="Search for..."
-                class="white-text col s10 autocomplete-content"
+                class="input-field white-text col s10 autocomplete" id="autocomplete-input"
                 value="<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>"
                 style="font-size: 14px"
               />
@@ -79,6 +79,21 @@
 </div>
 
 <script>
+  $(document).ready(function(){
+    $('input.autocomplete').autocomplete({
+      data: {
+        "Audio": 'static/images/audio.png',
+        "Headset": "static/images/audio.png",
+        "Keyboard": 'static/images/category_2.gif',
+        "Mouse": "static/images/mouse.png",
+        "Monitor": "static/images/monitor.jpg",
+        "PC": 'static/images/category_1.gif',
+        "Peripherals": '/static/images/category_3.jpg',
+        "Speaker": "static/images/speaker.jpg"
+      },
+    });
+  });
+
   // underline current page
   var path = window.location.pathname;
   var page = path.split("/").pop().split(".")[0];

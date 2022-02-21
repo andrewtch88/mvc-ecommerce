@@ -23,8 +23,8 @@ class CommonUtil extends Dbhandler{
     $stmt->close();
   }
 
+  // create member
   public function setUser($username, $pwd, $email, $privilegeLevel=0, $attempt=3) {
-    // create member
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
     $sql = "INSERT INTO Members(Username, Password, Email, PrivilegeLevel, Attempt)
       VALUES ('$username', '$hashedPwd', '$email', $privilegeLevel, $attempt);";
@@ -41,6 +41,14 @@ class CommonUtil extends Dbhandler{
     $sql = "INSERT INTO Orders(MemberID) VALUES ($memberID);";
     $result = $this->conn()->query($sql) or die("<p>*Cart creation error, please try again!</p>");
     $this->conn()->close();
+  }
+
+  // create product
+  public function setProduct($name, $brand, $description, $category, $sellingprice, $quantityinstock, $image)
+  {
+    $sql = "INSERT INTO Items(Name, Brand, Description, Category, SellingPrice, QuantityInStock, Image)
+      VALUES ('$name', '$brand', '$description', $category, $sellingprice, $quantityinstock, '$image');";
+    $this->conn()->query($sql) or die("<p>*Product creation error, please try again!</p>");
   }
 
   public function emptyInput($username, $pwd, $repeatPwd, $email)

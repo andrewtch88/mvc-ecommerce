@@ -82,7 +82,6 @@ class Admin extends Dbhandler{
   protected function showProduct(){
     if (isset($_POST["search_product"]))
     {
-      require_once "includes/data/item.data.php";
       $searchProduct = $_POST["search_product"];
 
       $emptyInput = new CommonUtil();
@@ -91,19 +90,22 @@ class Admin extends Dbhandler{
         echo "<p class='prompt-warning'>Please enter a value</p>";
       else
       {
-        $sql = "SELECT ItemID, Name, Brand FROM Items
-          WHERE Brand LIKE '%$searchProduct%' OR Name LIKE '%$searchProduct%'";
+        // limited search to prevent page overflow
+        $sql = "SELECT ItemID, Name, Brand, QuantityInStock FROM Items
+          WHERE Brand LIKE '%$searchProduct%' OR Name LIKE '%$searchProduct%' LIMIT 20";
 
-        $result = $conn->query($sql) or die ("Product does not exists!");
+        $result = $this->conn()->query($sql) or die ("Product does not exists!");
         while ($row = mysqli_fetch_assoc($result) ) 
         {
           $itemID = $row["ItemID"]; 
           $name = $row["Name"];
           $brand = $row["Brand"];
+          $quantityinstock = $row["QuantityInStock"];
           echo(
             "<tr>
               <td class='white-text'>$name</td>
               <td class='white-text'>$brand</td>
+              <td class='white-text'>$quantityinstock</td>
               <td>
                 <button name='inspect_product' value='$itemID' class='btn'>
                   <i class='material-icons'>search</i>
@@ -117,18 +119,19 @@ class Admin extends Dbhandler{
 
     if (!isset($searchProduct) || $emptyInput->EmptyInputSelect($searchProduct))
     {
-      // limited search to prevent page overflow
-      $sql = "SELECT ItemID, Name, Brand FROM Items ORDER BY Brand LIMIT 20";
-      $result = $conn->query($sql) or die ($conn->error);
+      $sql = "SELECT ItemID, Name, Brand, QuantityInStock FROM Items ORDER BY Brand";
+      $result = $this->conn()->query($sql) or die ($this->conn()->error);
       while ($row = mysqli_fetch_assoc($result)) 
       {
         $itemID = $row["ItemID"]; 
         $name = $row["Name"];
         $brand = $row["Brand"];
+        $quantityinstock = $row["QuantityInStock"];
         echo(
           "<tr>
             <td class='white-text'>$name</td>
             <td class='white-text'>$brand</td>
+            <td class='white-text'>$quantityinstock</td>
             <td>
               <button name='inspect_product' value='$itemID' class='btn'>
                 <i class='material-icons'>search</i>
@@ -154,7 +157,7 @@ class Admin extends Dbhandler{
       $brand = $row["Brand"];
       $description = $row["Description"];
       $category = $row["Category"];
-      // $category = Item::CATEGORY_ICON[(int)$category];
+      $category = Item::CATEGORY_ICON[(int)$category];
       $sellingprice = $row["SellingPrice"];
       $sellingprice = "$ ". number_format($sellingprice, 2);
       $quantityinstock = $row["QuantityInStock"];

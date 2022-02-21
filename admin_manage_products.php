@@ -26,14 +26,8 @@
             <div class="input-field col s3" style = "color:azure">
                 <input name="search_product" id="search_product" type="text" class="validate white-text" maxlength="20">
                 <label for="search_product">Search product</label>
-                <div class="errormsg">
-                  <?php
-                    if (isset($_GET["error"]))
-                    {
-                      if ($_GET["error"] == "empty_search")
-                      echo "<p>Empty Input!</p>";
-                    }
-                    ?>
+                <div id="error" class="errormsg">
+                  
                 </div>
               </div>
             </div>
@@ -42,17 +36,21 @@
 
           <!-- search product result list start -->
           <form action="" method="GET">
-            <table class="responsive-table">
+            <table class="responsive-table" id="pagination">
               <thead class="text-primary">
-                <tr><th>Name</th><th>Brand</th><th></th></tr>
+                <tr><th>Name</th><th>Brand</th><th>Quantity In Stock</th></tr>
               </thead>
               <tbody>
                 <?php
                   $products = new adminContr();
-                  // $products->productsList();
+                  $products->productsList();
                 ?>
               </tbody>
             </table>
+            <div class="col-md-12 center text-center">
+              <span class="left" id="total_reg"></span>
+              <ul class="pagination pager white-text" id="myPager"></ul>
+            </div>
           </form>
           <!-- search product result list end -->
         </div>
@@ -66,16 +64,16 @@
     <div class="card rounded-card">
       <div class="card-content white-text">
         <span class="card-title orange-text bold">Selected Product Details</span>
-        <table class="responsive-table">
+        <table class="responsive-table center">
           <form action="admin_manage_products.php" method="GET">
-            <thead class="text-primary">
+            <thead class="text-primary center">
             <tr><th>Image</th><th>Name</th><th>Brand</th>
             <th>Description</th><th>Category</th><th>Selling Price</th><th>Qty In Stock</th></tr>
             </thead>
             <tbody>
               <?php
                 $showInspect = new adminContr();
-                // $showInspect->showInspectedProduct();
+                $showInspect->showInspectedProduct();
               ?>
             </tbody>
           </form>
@@ -89,7 +87,8 @@
     {
       $id = $_GET["delete_product"];
       $sql =  "DELETE FROM Items WHERE ItemID = $id";
-      $conn->query($sql) or die ("<p class='red-text'>*Delete statement FAILED!</p>");
+      $dbh = new Dbhandler();
+      $dbh->conn()->query($sql) or die ("<p class='red-text'>*Delete statement FAILED!</p>");
     }
   ?>
   <!-- selected member details end -->
@@ -99,27 +98,27 @@
     <div class="card rounded-card">
       <div class="card-content">
         <span class="card-title orange-text bold">Create Product</span>
-        <form action="admin_manage_products.php" method="POST">
+        <form id="create" name="create" action="" method="POST">
           <div class="row">
             <div class="col s6" style="padding-right: 40px;">
               <div class="row">
                 <div class="input-field white-text">
                   <i class="material-icons prefix">inventory_2</i>
-                  <input name="name" type="text" class="validate white-text" maxlength="30">
+                  <input name="name" id="name" type="text" class="validate white-text" maxlength="30">
                   <label for="name" class="white-text">Product Name</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field white-text">
                   <i class="material-icons prefix">branding_watermark</i>
-                  <input name="brand" type="text" class="validate white-text" maxlength="20">
+                  <input name="brand" id="brand" type="text" class="validate white-text" maxlength="20">
                   <label for="brand" class="white-text">Brand</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field white-text">
                   <i class="material-icons prefix">description</i>
-                  <input name="description" type="text" class="validate white-text" minlength="5" maxlength="100">
+                  <input name="description" id="description" type="text" class="validate white-text" minlength="5">
                   <label for="description" class="white-text">Description</label>
                 </div>
               </div>
@@ -128,11 +127,11 @@
               <div class="row">
                 <div class="input-field white-text">
                   <i class="material-icons prefix white-text">category</i>
-                  <select name="category">
+                  <select name="category" id="category">
                     <option value="" disabled selected>Choose your option</option>
-                    <option value=0>Dog</option>
-                    <option value=1>Food</option>
-                    <option value=2>Accessory</option>
+                    <option value=0>PC Packages</option>
+                    <option value=1>Monitor & Audio</option>
+                    <option value=2>Peripherals</option>
                   </select>
                   <label class="white-text">Category</label>
                 </div>
@@ -140,46 +139,37 @@
               <div class="row">
                 <div class="input-field white-text">
                   <i class="material-icons prefix">attach_money</i>
-                  <input name="sellingprice" type="number" step=".01" class="validate white-text" maxlength="30">
+                  <input name="sellingprice" id="sellingprice" type="number" step=".01" class="validate white-text" maxlength="30">
                   <label for="sellingprice" class="white-text">Selling Price</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field white-text">
                   <i class="material-icons prefix white-text">production_quantity_limits</i>
-                  <input name="quantityinstock" type="number" class="validate white-text" maxlength="30">
+                  <input name="quantityinstock" id="quantityinstock" type="number" class="validate white-text" maxlength="30">
                   <label for="quantityinstock" class="white-text">Quantity In Stock</label>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="file-field col s8">
+            <div class="file-field">
               <a class="waves-effect waves-light btn cyan">
                 <i class="material-icons prefix">image</i>
-                <input type="file">
+                <input type="file" id="product_image">
               </a>
               <div class="file-path-wrapper">
-                <input name="image" class="file-path validate white-text" type="text"
-                  placeholder="Choose Image" onchange="update_image(this)">
+                <input name="image" id="product_image" class="file-path validate white-text" type="text"
+                  placeholder="<- Choose Image" onchange="update_image(this)">
               </div>
             </div>
             <img class="shadow-img" id="image" src="" style="width: 300px;">
           </div>
 
-          <div class="errormsg">
-            <?php
-              if (isset($_GET["create_product"]))
-              {
-                if ($_GET["create_product"] == "empty_input")
-                  echo "<p>*Fill in all fields!<p>";
-
-                else if ($_GET["create_product"] == "successful")
-                  echo "<p class='green-text'>Added Product.</p>";
-              }
-            ?>
+          <div id="message" class="errormsg">
+            
           </div>
-          <input class="btn orange btn-block z-depth-5" type="submit" name="submit_product" value="Create Product">
+          <input class="btn orange btn-block z-depth-5" type="submit" name="submit_product" id="submit_product" value="Create Product">
         </form>
       </div>
     </div> 
@@ -188,19 +178,47 @@
   </div>
 </body>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
 
   $(document).ready(function(){
     $('select').formSelect();
+
+    $("#create").submit(function(e) {
+      event.preventDefault();
+      var productName = $("#name").val();
+      var brand = $("#brand").val();
+      var description = $("#description").val();
+      var category = $("#category").val();
+      var sellingprice = $("#sellingprice").val();
+      var quantityinstock = $("#quantityinstock").val();
+      var image = $("#product_image").val().replace(/C:\\fakepath\\/, '');
+      var submit_product = $("#submit_product").val();
+      $("#message").load("includes/admin.inc.php", {
+        productName: productName,
+        brand: brand,
+        description: description,
+        category: category,
+        sellingprice: sellingprice,
+        quantityinstock: quantityinstock,
+        image: image,
+        submit_product: submit_product
+      });
+    })
+
+    $('#pagination').pageMe({
+      pagerSelector:'#myPager',
+      activeColor: 'blue',
+      prevText:'Previous',
+      nextText:'Next',
+      showPrevNext:true,
+      hidePageNumbers:false,
+      perPage:5
+    });
   });
 
   function update_image(path)
   {
     var image = document.getElementById("image");
-    image.src = `images/${path.value}`;
+    image.src = `product_images/${path.value}`;
   }
 </script>
 

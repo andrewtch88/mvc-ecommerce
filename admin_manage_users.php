@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <title>OG Tech - Manage Users Panel</title>
   <?php
     include "header.php"; 
@@ -75,7 +74,7 @@
             <span class="card-title orange-text bold">Selected Member Details</span>
             <table class="responsive-table">
               <form action="admin_manage_users.php" method="GET">
-                <thead class="text-primary">
+                <thead class="text-primary center">
                   <tr><th>MemberID</th><th>Username</th><th>Email</th><th>Privilege Level</th></tr>
                 </thead>
                 <tbody>

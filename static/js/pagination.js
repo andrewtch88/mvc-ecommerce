@@ -25,7 +25,7 @@ $.fn.pageMe = function(opts){
     pager = $(settings.pagerSelector);
   }
 
-  var numItems = children.size();
+  var numItems = children.length;
   var numPages = Math.ceil(numItems/perPage);
   
   $("#total_reg").html(numItems+" Entries in total");

@@ -10,3 +10,4 @@ https://stackoverflow.com/questions/9877263/time-delayed-redirect/16541769
 https://stackoverflow.com/questions/44161171/how-does-one-center-align-a-button-using-materialize-css
 https://stackoverflow.com/questions/37799242/how-to-make-p-tag-appear-at-x-time-and-disappear-at-x-time
 https://codepen.io/juan1992/pen/pwdoad?editors=1010
+https://stackoverflow.com/questions/37028799/cant-remove-c-fakepath-with-javascript-replace-and-regex
