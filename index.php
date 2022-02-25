@@ -115,7 +115,7 @@
   </div>
   <div style="display:none">
   <iframe style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" src="static/FROST Gaming PC.mp4" title="Frost PC Build" 
-    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
   </iframe>
   </div>
 

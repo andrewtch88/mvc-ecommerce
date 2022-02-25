@@ -5,6 +5,10 @@
 @import url(roundedCards.css);
 @import url(logo.css);
 
+.unglow {
+  -webkit-text-fill-color: white;
+}
+
 .page-title {
   color: white;
   text-shadow: black 4px 0px 8px, black -4px 0px 8px, black 0px 4px 8px,

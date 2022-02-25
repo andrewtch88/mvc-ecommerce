@@ -35,8 +35,8 @@
       $item = new Item($orderItem->GetItemID(), $conn);
       generateBoughtItem($item, $orderItem, $memberID);
 
-      $quantity = $orderItem->GetQuantity();
-      $price = $orderItem->GetPrice();
+      $quantity = $orderItem->getQuantity();
+      $price = $orderItem->getPrice();
       $sumTotal += $price * $quantity;
     }
     $sumTotal = number_format($sumTotal+5, 2);
