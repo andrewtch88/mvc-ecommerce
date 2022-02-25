@@ -48,7 +48,7 @@
   <div class="container" style="margin-top: 100px">
     <div class="row">
       <div class="row" style="margin-bottom: -20px">
-        <h4 class="page-title white-text bold center">Categories</h4>
+        <h4 class="underline white-text bold center">Categories</h4>
       </div>
       <div class="row">
         <div class="col">
@@ -114,7 +114,7 @@
     <img src="static/images/ice_pc.png" style="cursor:pointer; display:block; margin: 0 auto; " />
   </div>
   <div style="display:none">
-  <iframe allow="autoplay" style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" src="static/FROST Gaming PC.mp4?autoplay=1" title="Frost PC Build" 
+  <iframe style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" src="static/FROST Gaming PC.mp4" title="Frost PC Build" 
     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
   </iframe>
   </div>

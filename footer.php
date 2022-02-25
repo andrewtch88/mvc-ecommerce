@@ -1,7 +1,7 @@
 <footer class="page-footer" style="margin-top: 120px; box-shadow: 0px 0px 2px white; background-color: rgb(17,17,17)">
   <div class="row wide-container">
     <div class="col s3">
-      <h4 class="white-text bold">OG Tech PC</h4>
+      <h4 class="white-text bold underline">OG Tech PC</h4>
       <p class="grey-text text-lighten-4">Your favorite online PC store.</p>
     </div>
     <div class="col s2">
@@ -27,11 +27,11 @@
       </a>
     </div>
     <div class="col s3">
-      <h5 class="white-text bold">Our Partners</h5>
+      <h5 class="white-text bold ">Our Partners</h5>
       <img src="Partners.png" />
     </div>
   </div>
   <div class="footer-copyright" style="padding-bottom: 20px;">
-    <div class="wide-container">© 2021 OG Tech PC All rights reserved.</div>
+    <div class="wide-container underline">© 2021 OG Tech PC All rights reserved.</div>
   </div>
 </footer>

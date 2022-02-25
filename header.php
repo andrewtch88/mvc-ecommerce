@@ -45,7 +45,7 @@
                 style="font-size: 14px"
               />
               <button name='inspect' value='<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>' 
-                class='btn black' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
+                class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
                 <i class='material-icons'>search</i>
               </button>
             </div>
