@@ -109,6 +109,16 @@
     </div>
   </div>
 
+  <h3 class="white-text center">OG Tech PC - White PC Build</h3>
+  <div onclick="this.nextElementSibling.style.display='block'; this.style.display='none'" style="margin-bottom: 100px">
+    <img src="static/images/ice_pc.png" style="cursor:pointer; display:block; margin: 0 auto; " />
+  </div>
+  <div style="display:none">
+  <iframe allow="autoplay" style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" src="static/FROST Gaming PC.mp4?autoplay=1" title="Frost PC Build" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+  </iframe>
+  </div>
+
   <h3 class="white-text center">OUR DIFFERENCE</h3>
   <h6 class="white-text center">Compared to other PC builder services</h6>
 
