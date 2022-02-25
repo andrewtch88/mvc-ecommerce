@@ -15,20 +15,26 @@
   <div class="container" style="margin-top: 150px">
     <h3 class="page-title">Manage Products</h3>
 
-    <div class="blue rounded-card-parent center" style="margin-bottom: 100px">
+    <div class="rounded-card-parent center" style="margin-bottom: 100px">
       <div class="card rounded-card">
         <div class="card-content black-text">
-          <span class="orange-text bold" style="font-size: 24px">Products List</span>
+          <span class="orange-text" style="font-size: 24px">Products List - Sorted by latest
+          <th>
+            <button class='deep-orange btn'><a href="location.reload();"><i class='material-icons white-text'>refresh</i></a>
+            </button>
+          </th>
+          </span>
 
           <!-- search product input field start -->
           <form action="admin_manage_products.php" method="POST">
             <div class="row" style="margin: 0px;">
-            <div class="input-field col s3" style = "color:azure">
+              <div class="input-field col s3" style = "color:azure">
                 <input name="search_product" id="search_product" type="text" class="validate white-text" maxlength="20">
                 <label for="search_product">Search product</label>
                 <div id="error" class="errormsg">
                   
                 </div>
+                
               </div>
             </div>
           </form>
@@ -38,7 +44,9 @@
           <form action="" method="GET">
             <table class="responsive-table" id="pagination">
               <thead class="text-primary">
-                <tr><th>Name</th><th>Brand</th><th>Quantity In Stock</th></tr>
+                <tr>
+                  <th>Name</th><th>Brand</th><th>Quantity In Stock</th>
+                </tr>
               </thead>
               <tbody>
                 <?php

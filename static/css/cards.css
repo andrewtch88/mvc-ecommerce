@@ -18,3 +18,12 @@
 .selectable-card:hover {
   box-shadow: red 8px 8px 24px 4px;
 }
+
+.collapsible-card {
+  color: white;
+  background-color: rgba(0, 52, 63, 0.8);
+  backdrop-filter: blur(20px);
+}
+.collapsible-card:hover {
+  box-shadow: black 4px 4px 20px 2px;
+}

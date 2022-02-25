@@ -17,4 +17,8 @@ class adminContr extends Admin {
   public function showInspectedProduct(){
     $this->inspectProduct();
   }
+
+  public function showSearchMember(){
+    $this->searchMembers();
+  }
 }

@@ -3,16 +3,15 @@
 class Admin extends Dbhandler{
 
   protected function searchMember(){
-    function EmptyInputSelectUser($value) { return empty($value); }
-
+    $util = new CommonUtil();
     function EmptyInputCreateUser($username, $pwd, $repeatPwd, $privilegeLevel, $email)
     { return empty($username) || (empty($pwd)) || (empty($repeatPwd)) or ($privilegeLevel === "") || (empty($email));}
 
     if (isset($_POST["search_member"]))
     {
       $searchMember = $_POST["search_member"];
-      
-      if (EmptyInputSelectUser($searchMember))
+
+      if ($util->EmptyInputSelect($searchMember))
         echo "<p style='color: yellow'>Please enter a value</p>";
       else
       {
@@ -36,9 +35,9 @@ class Admin extends Dbhandler{
       }
     }
 
-    if (!isset($searchMember) || EmptyInputSelectUser($searchMember))
+    if (!isset($searchMember) || $util->EmptyInputSelect($searchMember))
     {
-      $sql = "SELECT Username, PrivilegeLevel FROM Members ORDER BY Username";
+      $sql = "SELECT Username, PrivilegeLevel FROM Members ORDER BY MemberID DESC";
       $result = $this->conn()->query($sql) or die ($this->conn()->error);
       while ($row = mysqli_fetch_assoc($result) ) 
       { 
@@ -119,7 +118,7 @@ class Admin extends Dbhandler{
 
     if (!isset($searchProduct) || $emptyInput->EmptyInputSelect($searchProduct))
     {
-      $sql = "SELECT ItemID, Name, Brand, QuantityInStock FROM Items ORDER BY Brand";
+      $sql = "SELECT ItemID, Name, Brand, QuantityInStock FROM Items ORDER BY ItemID DESC";
       $result = $this->conn()->query($sql) or die ($this->conn()->error);
       while ($row = mysqli_fetch_assoc($result)) 
       {
@@ -129,9 +128,9 @@ class Admin extends Dbhandler{
         $quantityinstock = $row["QuantityInStock"];
         echo(
           "<tr>
-            <td class='white-text'>$name</td>
-            <td class='white-text'>$brand</td>
-            <td class='white-text'>$quantityinstock</td>
+            <td class='blue-text'>$name</td>
+            <td class='blue-text'>$brand</td>
+            <td class='blue-text'>$quantityinstock</td>
             <td>
               <button name='inspect_product' value='$itemID' class='btn'>
                 <i class='material-icons'>search</i>
@@ -159,7 +158,7 @@ class Admin extends Dbhandler{
       $category = $row["Category"];
       $category = Item::CATEGORY_ICON[(int)$category];
       $sellingprice = $row["SellingPrice"];
-      $sellingprice = "MYR ". number_format($sellingprice, 2);
+      $sellingprice = "RM ". number_format($sellingprice, 2);
       $quantityinstock = $row["QuantityInStock"];
 
       echo(
@@ -178,6 +177,55 @@ class Admin extends Dbhandler{
           </a></td>
         </tr>"
       );
+    }
+  }
+
+  protected function searchMembers(){
+    if (isset($_POST["search_members"]))
+    {
+      $searchMember = $_POST["search_members"];
+
+      $util = new CommonUtil();
+
+      if ($util->EmptyInputSelect($searchMember))
+        echo "<p class='prompt-warning'>Please enter a value!<p>";
+      else
+      {
+        $sql = "SELECT M.Username, M.Email, M.MemberID, O.* FROM Members M, Orders O 
+          WHERE M.Username LIKE '%$searchMember%' AND M.MemberID = O.MemberID ORDER BY O.OrderID DESC";
+        $result = $this->conn()->query($sql) or die ("Select statement FAILED!");
+        while ($row = $result->fetch_assoc()) 
+        {
+          $searchMember = $row["Username"];
+          $email = $row["Email"];
+          $memberID = $row["MemberID"];
+          $orderID = $row["OrderID"];
+          $cartFlag = $row["CartFlag"];
+          
+          echo(
+            "<table class='responsive-table' style='table-layout: fixed; width: 100%;' id='pagination'>
+            <tbody>
+              <tr>
+                <td>$searchMember</td>
+                <td>$email</td>
+                <td>$orderID</td>
+                <td>$cartFlag</td>
+                <td>
+                  <form action='admin_view_orders.php' method='GET'>
+                    <input type='hidden' name='username' value='$searchMember'/>
+                    <input type='hidden' name='member_id' value='$memberID'/>
+                    <button name='view_order' value=1 class='btn' type='submit'>
+                      <i class='material-icons'>search</i>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>"
+          );
+          exit();
+        }
+      }
     }
   }
 }

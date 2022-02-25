@@ -23,7 +23,7 @@ class OrderItemContr extends Dbhandler{
     $this->addedDateTime = $row["AddedDatetime"];
   }
 
-  protected function DeleteOrders() {
+  protected function deleteOrders() {
     $sql = "DELETE * FROM OrderItems WHERE OrderItemID = ?";
     $stmt = $this->conn()->prepare($sql);
     $stmt->execute($this->orderItemID);
@@ -32,9 +32,9 @@ class OrderItemContr extends Dbhandler{
     return $stmt;
   }
 
-  public function GetOrderItemID() { return $this->orderItemID; }
-  public function GetItemID() { return $this->itemID; }
-  public function GetPrice() { return $this->price; }
-  public function GetQuantity() { return $this->quantity; }
-  public function GetAddedDateTime() { return $this->addedDateTime; }
+  public function getOrderItemID() { return $this->orderItemID; }
+  public function getItemID() { return $this->itemID; }
+  public function getPrice() { return $this->price; }
+  public function getQuantity() { return $this->quantity; }
+  public function getAddedDateTime() { return $this->addedDateTime; }
 }

@@ -2,6 +2,7 @@
 
 class OrderContr extends Dbhandler {
   private $orderID;
+  /** @var OrderItemContr[] $orderItems */
   private $orderItems;
 
   function __construct($orderID) {
@@ -17,7 +18,7 @@ class OrderContr extends Dbhandler {
     // create multiple OrderItem instances
     $this->orderItems = array();
     while ($row = $result->fetch_assoc())
-      array_push($this->orderItems, new OrderItem($row["OrderItemID"]));
+      array_push($this->orderItems, new OrderItemContr($row["OrderItemID"]));
   }
 
   public function getOrderID() { return $this->orderID; }

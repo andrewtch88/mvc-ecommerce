@@ -1,12 +1,15 @@
 <?php
 
-class Member {
+class Member extends Dbhandler{
   
   private $memberID;
   private $username;
   private $email;
   private $privilegeLevel;
+
+  /** @var OrderContr $cart */
   private $cart;
+  /** @var OrderContr[] $orders */
   private $orders;
 
   public function __construct($memberID, $username, $email, $privilegeLevel)
@@ -33,16 +36,14 @@ class Member {
 
   public function updateCart() {
     $sql = "SELECT OrderID FROM Orders WHERE MemberID = $this->memberID AND CartFlag = 1";
-    $conn = new Dbhandler();
-    $result = $conn->conn()->query($sql);
+    $result = $this->conn()->query($sql);
     $row = $result->fetch_assoc();
     $this->cart = new OrderContr($row["OrderID"]);
   }
 
   public function updatePreviousOrder() {
     $sql = "SELECT OrderID FROM Orders WHERE MemberID = $this->memberID AND CartFlag = 0";
-    $conn = new Dbhandler();
-    $result = $conn->conn()->query($sql);
+    $result = $this->conn()->query($sql);
 
     $this->orders = array();
     while ($row = $result->fetch_assoc())

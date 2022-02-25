@@ -19,7 +19,10 @@
     <div class="rounded-card-parent center" style="margin-bottom: 100px">
       <div class="card rounded-card">
         <div class="card-content white-text">
-          <span class="card-title orange-text bold">Users List</span>
+          <span class="card-title orange-text bold">Users List - Sorted by latest 
+            <button class='deep-orange btn'><a href="location.reload();"><i class='material-icons white-text'>refresh</i></a>
+            </button>
+          </span>
 
           <!-- search member input field start -->
           <form id="search_user" action="admin_manage_users.php" method="POST">
@@ -44,9 +47,11 @@
           
           <!-- search member result list start -->
           <form id="refresh" action="" method="GET">
-            <table class="responsive-table" id="pagination">
-              <thead class="text-primary">
-                <tr><th>Username</th></tr>
+            <table class="responsive-table center" id="pagination">
+              <thead class="text-primary center">
+                <tr>
+                  <th>Username</th>
+                </tr>
               </thead>
               <tbody>
                 <?php 
