@@ -3,6 +3,7 @@
     <div class="col s3">
       <h4 class="white-text bold">OG Tech PC</h4>
       <p class="grey-text text-lighten-4">Your favorite online PC store.</p>
+	  <button onclick="window.location.href='warranty page.php';">Warranty page</button>
     </div>
     <div class="col s2">
       <h5 class="white-text">Business Hours</h5>
