@@ -114,9 +114,9 @@
     <img src="static/images/ice_pc.png" style="cursor:pointer; display:block; margin: 0 auto; " />
   </div>
   <div style="display:none">
-  <iframe style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" src="static/FROST Gaming PC.mp4" title="Frost PC Build" 
-    frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-  </iframe>
+    <video style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" controls>
+      <source src="static/FROST Gaming PC.mp4" type="video/mp4">
+    </video>
   </div>
 
   <h3 class="white-text center">OUR DIFFERENCE</h3>

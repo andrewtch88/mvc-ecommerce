@@ -37,7 +37,7 @@
       <?php
         if (isset($cartItems))
         {
-          if ($cartItemCount <= 0) echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5>");
+          if ($cartItemCount <= 0) echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5><h6 class='grey-text page-title'><a href='index.php'>Shop Now!</a></h6>");
 
           $sumTotal = 0;
           for ($c=0; $c < $cartItemCount; $c++)
