@@ -5,7 +5,7 @@
 
 <form method="POST" action="includes/login.inc.php">
   <div class="container">
-    <h3 class="page-title grid">Login</h3>
+    <h3 class="grid underline">Login</h3>
     <div class="rounded-card-parent center">
       <div class="card rounded-card">
         <div class="row">

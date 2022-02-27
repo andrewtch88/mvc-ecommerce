@@ -48,7 +48,7 @@
   <div class="container" style="margin-top: 100px">
     <div class="row">
       <div class="row" style="margin-bottom: -20px">
-        <h4 class="page-title white-text bold center">Categories</h4>
+        <h4 class="underline white-text bold center">Categories</h4>
       </div>
       <div class="row">
         <div class="col">
@@ -107,6 +107,16 @@
       <h1 class="count red-text text-darken-4 bold center">100</h1>
       <h5 class="white-text center">% Satisfaction guaranteed</h5>
     </div>
+  </div>
+
+  <h3 class="white-text center">OG Tech PC - White PC Build</h3>
+  <div onclick="this.nextElementSibling.style.display='block'; this.style.display='none'" style="margin-bottom: 100px">
+    <img src="static/images/ice_pc.png" style="cursor:pointer; display:block; margin: 0 auto; " />
+  </div>
+  <div style="display:none">
+    <video style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" controls>
+      <source src="static/FROST Gaming PC.mp4" type="video/mp4">
+    </video>
   </div>
 
   <h3 class="white-text center">OUR DIFFERENCE</h3>

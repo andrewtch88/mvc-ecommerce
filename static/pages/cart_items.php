@@ -6,7 +6,7 @@
   if (isset($_GET["member_id"]))
   {
     $memberID = $_GET["member_id"];
-    $member = Member::CreateMemberFromID($memberId);
+    $member = Member::CreateMemberFromID($memberID);
     $cart = $member->getCart();
     $cartID = $cart->getOrderID();
     $cartItems = $cart->getOrderItems();
@@ -37,6 +37,8 @@
       <?php
         if (isset($cartItems))
         {
+          if ($cartItemCount <= 0) echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5><h6 class='grey-text page-title'><a href='index.php'>Shop Now!</a></h6>");
+
           $sumTotal = 0;
           for ($c=0; $c < $cartItemCount; $c++)
           {

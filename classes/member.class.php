@@ -50,6 +50,16 @@ class Member extends Dbhandler{
       array_push($this->orders, new OrderContr($row["OrderID"]));
   }
 
+  // check if member has cart (must have a cart, if cart does not exists, means there is something wrong)
+  public function hasCart() { return isset($this->cart); }
+
+  // check if there is any previous orders made by the member
+  public function hasPreviousOrder()
+  {
+    if (isset($this->orders) && count($this->orders) > 0) return true;
+    return false;
+  }
+
   public function getMemberID() { return $this->memberID; }
   public function getUsername() { return $this->username; }
   public function getEmail() { return $this->email; }

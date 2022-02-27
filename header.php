@@ -45,7 +45,7 @@
                 style="font-size: 14px"
               />
               <button name='inspect' value='<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>' 
-                class='btn black' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
+                class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
                 <i class='material-icons'>search</i>
               </button>
             </div>
@@ -62,13 +62,25 @@
               <a class='cart' href='cart.php?member_id=$memberID'>
                 Cart<span class='new badge unglow' id='cart_badge'>$orderItemCount</span></a>
             </li>
+            <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>Customer Care</a></li>
+            <ul id='dropdown1' class='dropdown-content black'>
+              <li><a href='aboutUs.php' class='white-text'>About Us</a></li>
+              <li class='divider' tabindex='-1'></li>
+              <li><a href='#!' class='white-text'>two</a></li>
+            </ul>
             <li><a class='manage_profile' href='manage_profile.php?email=$email'>Manage Profile</a></li>
             <li><a href='includes/logout.inc.php'>Logout</a></li>
             ");
           } else
           {
             echo(
-              "<li><a class='login' href='login.php'>Login</a></li>
+              "<li><a class='dropdown-trigger' href='#' data-target='dropdown1'>Customer Care</a></li>
+              <ul id='dropdown1' class='dropdown-content black'>
+                <li><a href='aboutUs.php' class='white-text'>About Us</a></li>
+                <li class='divider' tabindex='-1'></li>
+                <li><a href='#!' class='white-text'>two</a></li>
+              </ul>
+              <li><a class='login' href='login.php'>Login</a></li>
               <li><a class='signup' href='signup.php'>Sign Up</a></li>
             ");
           }
@@ -90,7 +102,12 @@
         "Speaker": "static/images/speaker.jpg"
       },
     });
-  });
+
+  
+    $('.dropdown-trigger').dropdown({
+      coverTrigger: false
+    });
+});
 
   // underline current page
   var path = window.location.pathname;

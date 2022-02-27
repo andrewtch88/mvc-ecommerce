@@ -5,7 +5,7 @@
 
 <form action="includes/signup.inc.php" method="POST">
   <div class="container">
-    <h3 class="page-title white-text grid">Sign Up</h3>
+    <h3 class="underline white-text grid">Sign Up</h3>
     <div class="rounded-card-parent center">
       <div class="card rounded-card">
         <div class="row">

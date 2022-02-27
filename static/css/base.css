@@ -5,6 +5,27 @@
 @import url(roundedCards.css);
 @import url(logo.css);
 
+.dropdown-content.row {
+  overflow: visible;
+  width: 60%;
+  height: auto;
+}
+.vertical-tab-target {
+  display: none;
+}
+.vertical-tabs {
+  border-left: #2196f3;
+  border-width: 2px;
+  padding: 0 !important;
+}
+.vertical-tabs li a {
+  color: black !important;
+}
+
+.unglow {
+  -webkit-text-fill-color: white;
+}
+
 .page-title {
   color: white;
   text-shadow: black 4px 0px 8px, black -4px 0px 8px, black 0px 4px 8px,
@@ -72,4 +93,12 @@ body {
 #bordershadow:hover {
   border: 1px solid aqua;
   box-shadow: 0 0 0 1px aqua;
+}
+
+.background-overlay {
+  background-image: url("../images/aboutusbgimg.jpg");
+  height: 40%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
