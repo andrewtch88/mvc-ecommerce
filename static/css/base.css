@@ -77,3 +77,12 @@ body {
   border: 1px solid aqua;
   box-shadow: 0 0 0 1px aqua;
 }
+
+.background-overlay {
+  background-image: url("../images/aboutusbgimg.jpg");
+  height: 40%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+ ;
+}
