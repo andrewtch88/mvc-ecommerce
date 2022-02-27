@@ -5,6 +5,23 @@
 @import url(roundedCards.css);
 @import url(logo.css);
 
+.dropdown-content.row {
+  overflow: visible;
+  width: 60%;
+  height: auto;
+}
+.vertical-tab-target {
+  display: none;
+}
+.vertical-tabs {
+  border-left: #2196f3;
+  border-width: 2px;
+  padding: 0 !important;
+}
+.vertical-tabs li a {
+  color: black !important;
+}
+
 .unglow {
   -webkit-text-fill-color: white;
 }
@@ -84,5 +101,4 @@ body {
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
- ;
 }
