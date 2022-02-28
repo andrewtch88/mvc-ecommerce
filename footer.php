@@ -12,7 +12,7 @@
       <ul id='dropdown1' class='dropdown-content white'>
         <li><a href='aboutUs.php' class='black-text bold'>About Us</a></li>
         <li class='divider' tabindex='-1'></li>
-        <li><a href='#!' class='black-text bold'>Warranty</a></li>
+        <li><a href='' class='black-text bold'>Warranty</a></li>
       </ul>
     </div>
     <div class="col s2">
