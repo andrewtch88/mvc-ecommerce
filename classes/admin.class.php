@@ -94,7 +94,7 @@ class Admin extends Dbhandler{
           WHERE Brand LIKE '%$searchProduct%' OR Name LIKE '%$searchProduct%' LIMIT 20";
 
         $result = $this->conn()->query($sql) or die ("Product does not exists!");
-        while ($row = mysqli_fetch_assoc($result) ) 
+        while ($row = $result->fetch_assoc() ) 
         {
           $itemID = $row["ItemID"]; 
           $name = $row["Name"];
@@ -148,7 +148,7 @@ class Admin extends Dbhandler{
     $itemID = $_GET["inspect_product"];
     $sql = "SELECT * FROM Items where ItemID = '$itemID' ORDER BY Brand";
     $result = $this->conn()->query($sql) or die("<p> * ItemID error, please try again!</p>");
-    while ($row = mysqli_fetch_assoc($result))    
+    while ($row = $result->fetch_assoc())    
     {
       $itemID = $row["ItemID"];
       $image = $row['Image'];

@@ -4,7 +4,6 @@ require_once "class_autoloader.php";
 
 /**
  * @param Item
- * @param ItemContr $item
  * @param OrderItemContr $cartItem
  * @param int $memberID
 */

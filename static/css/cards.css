@@ -19,6 +19,10 @@
   box-shadow: red 8px 8px 24px 4px;
 }
 
+.selectable-card.tint-glass-cyan {
+  background-color: rgba(0, 170, 200, 0.5);
+}
+
 .collapsible-card {
   color: white;
   background-color: rgba(0, 52, 63, 0.8);

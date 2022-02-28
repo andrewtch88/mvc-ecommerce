@@ -14,3 +14,4 @@ https://stackoverflow.com/questions/37028799/cant-remove-c-fakepath-with-javascr
 https://stackoverflow.com/questions/34201092/materialize-css-input-range-value-popup
 https://stackoverflow.com/questions/7199624/youtube-embedded-video-set-different-thumbnail
 https://stackoverflow.com/questions/51563809/materialize-css-navbar-menu-dropdown-wont-go-below-origin
+https://stackoverflow.com/questions/39907145/align-material-icon-with-text-on-materialize

@@ -20,7 +20,7 @@
         <div class="card-content black-text">
           <span class="orange-text" style="font-size: 24px">Products List - Sorted by latest
           <th>
-            <button class='deep-orange btn'><a href="location.reload();"><i class='material-icons white-text'>refresh</i></a>
+            <button class='deep-orange btn'><a href="admin_manage_products.php"><i class='material-icons white-text'>refresh</i></a>
             </button>
           </th>
           </span>

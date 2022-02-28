@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="./static/materialize/js/materialize.min.js"></script>
   <script type="text/javascript" src="static/js/pagination.js"></script>
@@ -39,12 +39,12 @@
         <li class="black" id="search-bar">
           <form action="search_catalogue.php">
             <div class="white-text row" style="padding-left: 20px;">
-              <input type="text" name="search_name" placeholder="Search for..."
+              <input type="text" name="search_name" placeholder="Browse products..."
                 class="input-field white-text col s10 autocomplete" id="autocomplete-input"
                 value="<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>"
                 style="font-size: 14px"
               />
-              <button name='inspect' value='<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>' 
+              <button value='<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>' 
                 class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
                 <i class='material-icons'>search</i>
               </button>
@@ -62,24 +62,13 @@
               <a class='cart' href='cart.php?member_id=$memberID'>
                 Cart<span class='new badge unglow' id='cart_badge'>$orderItemCount</span></a>
             </li>
-            <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>Customer Care</a></li>
-            <ul id='dropdown1' class='dropdown-content black'>
-              <li><a href='aboutUs.php' class='white-text'>About Us</a></li>
-              <li class='divider' tabindex='-1'></li>
-              <li><a href='#!' class='white-text'>two</a></li>
-            </ul>
             <li><a class='manage_profile' href='manage_profile.php?email=$email'>Manage Profile</a></li>
             <li><a href='includes/logout.inc.php'>Logout</a></li>
             ");
           } else
           {
             echo(
-              "<li><a class='dropdown-trigger' href='#' data-target='dropdown1'>Customer Care</a></li>
-              <ul id='dropdown1' class='dropdown-content black'>
-                <li><a href='aboutUs.php' class='white-text'>About Us</a></li>
-                <li class='divider' tabindex='-1'></li>
-                <li><a href='#!' class='white-text'>two</a></li>
-              </ul>
+              "
               <li><a class='login' href='login.php'>Login</a></li>
               <li><a class='signup' href='signup.php'>Sign Up</a></li>
             ");
@@ -94,6 +83,7 @@
   $(document).ready(function(){
     $('input.autocomplete').autocomplete({
       data: {
+        "Computer": 'static/images/category_1.gif',
         "Headset": "static/images/audio.png",
         "Keyboard": 'static/images/category_2.gif',
         "Mouse": "static/images/mouse.png",
@@ -101,11 +91,6 @@
         "PC": 'static/images/category_1.gif',
         "Speaker": "static/images/speaker.jpg"
       },
-    });
-
-  
-    $('.dropdown-trigger').dropdown({
-      coverTrigger: false
     });
 });
 

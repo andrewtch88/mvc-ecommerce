@@ -61,7 +61,7 @@
               </div>
             </div>
             <div class="card-action">
-              <a href="#">Learn More</a>
+              <a href="admin_view_orders.php">Learn More</a>
             </div>
           </div>
         </div>
