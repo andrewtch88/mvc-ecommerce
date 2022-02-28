@@ -36,7 +36,7 @@
     </div>
     <div class="col s3">
       <h5 class="white-text bold ">Our Partners</h5>
-      <img src="Partners.png" />
+      <img src="static/images/Partners.png" />
     </div>
   </div>
   <div class="footer-copyright" style="padding-bottom: 20px;">
