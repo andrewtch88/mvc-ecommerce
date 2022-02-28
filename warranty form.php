@@ -55,7 +55,8 @@
 </div>
 
 <div class="textbox">
-	<p class="text">What a disaster! Your computer has failed, and you’re too busy to take it to the shop to get it ﬁx. Lucky for you, you’re covered with the OG TECH Pick-up & Return Service! We’ll pick-up your computer or hardware or replace it, and bring it back to you at your convenience, saving you time and money.</p>
+	<p class="text">What a disaster! Your computer has failed, and you’re too busy to take it to the shop to get it ﬁx. Lucky for you, 
+		you’re covered with the OG TECH Pick-up & Return Service! We’ll pick-up your computer or hardware or replace it, and bring it back to you at your convenience, saving you time and money.</p>
 	<br><br>
 	<form method="post">
 	<table class="text">
