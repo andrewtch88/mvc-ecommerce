@@ -10,6 +10,7 @@
   <script src="./static/materialize/js/materialize.min.js"></script>
   <script type="text/javascript" src="static/js/pagination.js"></script>
   <link rel="stylesheet" href="./static/css/base.css">
+  <link rel="icon" type="image/png" style="border-radius: 50%;" href="./static/logoicon.png">
 </head>
 
 <?php

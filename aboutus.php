@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OG Tech - About Us</title>
   <?php include "header.php"; ?>
-  <style>
-
-  </style>
 </head>
 <body>
   <h1 class="page-title grid background-overlay" style="margin:1px;padding-top: 140px;padding-bottom: 140px;">About Us</h1>
