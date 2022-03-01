@@ -99,6 +99,7 @@
         'PC': 'static/images/category_1.gif',
         'Razer': 'static/images/razer.png',
         'Speaker': 'static/images/speaker.jpg',
+        'Steelseries': 'product_images/steelseries l.png',
         'Viewsonic': 'static/images/viewsonic.jpeg'
       }
     });
