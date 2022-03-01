@@ -88,7 +88,6 @@
         'Acer': 'static/images/acer.png',
         'Asus': 'static/images/asus.jpg',
         'Corsair': 'static/images/corsair.png',
-        'Computer': 'static/images/category_1.gif',
         'Headset': 'static/images/audio.png',
         'HyperX': 'static/images/hyperx.jpg',
         'Keyboard': 'static/images/category_2.gif',
