@@ -14,4 +14,11 @@ https://stackoverflow.com/questions/37028799/cant-remove-c-fakepath-with-javascr
 https://stackoverflow.com/questions/34201092/materialize-css-input-range-value-popup
 https://stackoverflow.com/questions/7199624/youtube-embedded-video-set-different-thumbnail
 https://stackoverflow.com/questions/51563809/materialize-css-navbar-menu-dropdown-wont-go-below-origin
+<<<<<<< Updated upstream
 https://stackoverflow.com/questions/16156594/how-to-change-border-color-of-textarea-on-focus
+=======
+https://stackoverflow.com/questions/39907145/align-material-icon-with-text-on-materialize
+https://stackoverflow.com/questions/16156594/how-to-change-border-color-of-textarea-on-focus
+https://stackoverflow.com/questions/9980531/center-image-in-div-horizontally
+https://stackoverflow.com/questions/16965170/html5-video-autoplay-not-working-correctly
+>>>>>>> Stashed changes
