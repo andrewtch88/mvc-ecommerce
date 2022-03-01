@@ -2,7 +2,7 @@
   require_once "class_autoloader.php";
 
   const CATEGORY_NAMES = ["PC Packages", "Monitor & Audio", "Peripherals"];
-  const BRAND_NAMES = ["Asus", "MSI", "Razer", "Logitech", "Viewsonic", "Acer", "HyperX", "Corsair"];
+  const BRAND_NAMES = ["Asus", "MSI", "Razer", "Logitech", "Viewsonic", "Acer", "HyperX", "Steelseries", "Corsair"];
   const SORT_NAMES = ["Price low to high", "Price high to low"];
 
   function searchItems($category, $brand, $sort){
@@ -71,8 +71,6 @@
         $brand = $item->getBrand();
         $price = $item->getSellingPrice();
         $price = "RM" . number_format($price, 2);
-        $category = $item->getCategory();
-        $category = Item::CATEGORY_ICON[(int)$category];
         $avgRating = $item->getAvgRatings();
         echo(
           "
@@ -85,7 +83,6 @@
                   <tbody class='center'>
                     <tr><th>Brand: </th><td>$brand</td></tr>
                     <tr><th>Price: </th><td>$price</td></tr>
-                    <tr><th>Category: </th><td><i class='material-icons prefix'>$category</i></td></tr>
                     <tr>
                       <th>Avg Rating: </th>
                       <td>
