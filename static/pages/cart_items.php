@@ -69,6 +69,7 @@
                 echo("<tr><th>Total Items:</th><td>$cartItemCount</td></tr>");
                 echo("<tr><th>Delivery Charges:</th><td>RM10.00</td></tr>");
                 echo("<tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>");
+                echo("<tr><th>Status: </th><td>Pending Checkout</td></tr>");
               ?>
             </tbody>
           </table>

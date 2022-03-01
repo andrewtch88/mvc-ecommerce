@@ -2,19 +2,25 @@
   require_once "class_autoloader.php";
 
   const CATEGORY_NAMES = ["PC Packages", "Monitor & Audio", "Peripherals"];
-  const SORT_NAMES = ["Price low to high", "Price high to low", "Rating high to low"];
+  const BRAND_NAMES = ["Asus", "MSI", "Razer", "Logitech", "Viewsonic", "Acer", "HyperX", "Corsair"];
+  const SORT_NAMES = ["Price low to high", "Price high to low"];
 
-  function searchItems($category, $sort){
+  function searchItems($category, $brand, $sort){
     $searchName = "";
     if (isset($_GET["search_name"])) $searchName = $_GET["search_name"];
 
     /** 
      * @var Item[] $items
      */
-    $sql = "SELECT ItemID FROM Items WHERE (Name LIKE '%$searchName%' OR Brand LIKE '%$searchName%')";
+    $sql = "SELECT ItemID FROM Items WHERE (Name LIKE '%$searchName%')";
 
     // only limit to a number
     if ($category != -1) $sql .= " AND Category = $category";
+
+    if ($brand != -1){
+      $brandName = BRAND_NAMES[$brand];
+      $sql .= " AND Brand = '$brandName'";
+    }
 
     if ($sort == 0) $sql .= " ORDER BY SellingPrice ASC";
     else if ($sort == 1) $sql .= " ORDER BY SellingPrice DESC";
@@ -24,6 +30,11 @@
     $result = $conn->conn()->query($sql) or die($conn->conn()->error);
 
     $items = array();
+
+    if ($result->num_rows < 1)
+      echo "<h5 class='white-text bold' style='padding-top: 150px'>
+        0 result is returned. Please try other search result as the selected products is not available</h5>";
+
     while ($row = $result->fetch_assoc())
     {
       $itemID = $row["ItemID"];
@@ -47,7 +58,11 @@
 
         $item = $items[$itemIdx];
 
-        if ($item->GetQuantityInStock() <= 0) continue;
+        if ($item->getQuantityInStock() <= 0){
+          echo("No stock available, please try other filter options");
+          continue;
+        }
+
         $i++;
 
         $itemID = $item->getItemID();
@@ -60,17 +75,23 @@
         $category = Item::CATEGORY_ICON[(int)$category];
         $avgRating = $item->getAvgRatings();
         echo(
-          "<div class='col s3'>
+          "
+          <div class='col s3'>
             <a href='item_page.php?item_id=$itemID'>
               <div class='selectable-card' style='height: 480px; min-width: 300px'>
-                <img class='shadow-img' src='product_images/$image' style='max-height: 200px; max-width: 250px;'>
+                <img class='shadow-img center' src='product_images/$image' style='max-height: 200px; max-width: 300px; display: block; margin: 0 auto;'>
                 <p class='center bold white-text'>$name</p>
                 <table class='center'>
                   <tbody class='center'>
                     <tr><th>Brand: </th><td>$brand</td></tr>
                     <tr><th>Price: </th><td>$price</td></tr>
                     <tr><th>Category: </th><td><i class='material-icons prefix'>$category</i></td></tr>
-                    <tr><th>Avg Rating: </th><td>$avgRating</td><tr>
+                    <tr>
+                      <th>Avg Rating: </th>
+                      <td>
+                        $avgRating/5
+                      </td>
+                    <tr>
                   </tbody>
                 </table>
               </div>

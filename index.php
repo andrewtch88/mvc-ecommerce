@@ -52,30 +52,30 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="selectable-card" style="width: 300px; margin: 50px;">
-            <a href="#">
-              <img src="static/images/category_1.gif"/>
-            </a>
-            <h5 class="white-text center bold">PC PACKAGES</h5>
-          </div>
+          <a href="search_catalogue.php?category=0">
+            <div class="selectable-card" style="width: 300px; margin: 50px;">
+                <img src="static/images/category_1.gif"/>
+              <h5 class="white-text center bold">PC PACKAGES</h5>
+            </div>
+          </a>
         </div>
 
         <div class="col">
-          <div class="selectable-card" style="width: 300px; margin: 50px;">
-            <a href="#">
-              <img src="./static/images/category_3.jpg"/>
-            </a>
-            <h5 class="white-text center bold" style="margin-top : 120px">MONITOR & AUDIO</h5>
-          </div>
+          <a href="search_catalogue.php?category=1">
+            <div class="selectable-card" style="width: 300px; margin: 50px;">
+                <img src="./static/images/category_3.jpg"/>
+              <h5 class="white-text center bold" style="margin-top : 120px">MONITOR & AUDIO</h5>
+            </div>
+          </a>
         </div>
 
         <div class="col">
-          <div class="selectable-card" style="width: 300px; margin: 50px;">
-            <a href="#">
-              <img src="./static/images/category_2.gif"/>
-            </a>
-            <h5 class="white-text center bold">PERIPHERALS</h5>
-          </div>
+          <a href="search_catalogue.php?category=2">
+            <div class="selectable-card" style="width: 300px; margin: 50px;">
+                <img src="./static/images/category_2.gif"/>
+              <h5 class="white-text center bold">PERIPHERALS</h5>
+            </div>
+          </a>
         </div>
       </div>
     </div>

@@ -43,7 +43,7 @@
               <input type="text" name="search_name" placeholder="Browse products..."
                 class="input-field white-text col s10 autocomplete" id="autocomplete-input"
                 value="<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>"
-                style="font-size: 14px"
+                style="font-size: 14px; z-index: 5050;" href="search-catalogue.php"
               />
               <button value='<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>' 
                 class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
@@ -81,20 +81,31 @@
 </div>
 
 <script>
+  // auto generate recommended search results based on letter given
   $(document).ready(function(){
-    $('input.autocomplete').autocomplete({
+    $('input.autocomplete').addClass("nav").autocomplete({
       data: {
-        "Computer": 'static/images/category_1.gif',
-        "Headset": "static/images/audio.png",
-        "Keyboard": 'static/images/category_2.gif',
-        "Mouse": "static/images/mouse.png",
-        "Monitor": "static/images/monitor.jpg",
-        "PC": 'static/images/category_1.gif',
-        "Speaker": "static/images/speaker.jpg"
-      },
+        'Acer': 'static/images/acer.png',
+        'Asus': 'static/images/asus.jpg',
+        'Corsair': 'static/images/corsair.png',
+        'Computer': 'static/images/category_1.gif',
+        'Headset': 'static/images/audio.png',
+        'HyperX': 'static/images/hyperx.jpg',
+        'Keyboard': 'static/images/category_2.gif',
+        'Logitech': 'static/images/logitech.png',
+        'Mouse': 'static/images/mouse.png',
+        'Monitor': 'static/images/monitor.jpg',
+        'MSI': 'static/images/msi.png',
+        'PC': 'static/images/category_1.gif',
+        'Razer': 'static/images/razer.png',
+        'Speaker': 'static/images/speaker.jpg',
+        'Viewsonic': 'static/images/viewsonic.jpeg'
+      }
     });
-});
+  });
+</script>
 
+<script>
   // underline current page
   var path = window.location.pathname;
   var page = path.split("/").pop().split(".")[0];

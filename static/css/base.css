@@ -4,6 +4,7 @@
 @import url(cards.css);
 @import url(roundedCards.css);
 @import url(logo.css);
+@import url(rating.css);
 
 #rgb_hover:hover {
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);

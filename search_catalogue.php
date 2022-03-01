@@ -10,7 +10,7 @@
     require_once "includes/search_catalogue.inc.php";
   ?>
 </head>
-<body>
+<body id="stop-autocomplete">
   <div class="container" style="padding-top: 15px;">
     <div class="selectable-card tint-glass-cyan" id="rgb_hover" style="min-height: 80px; z-index: 5050; position: fixed; top: 10; min-width: 1300px">
       <form id="form-filter" action="" method="GET">
@@ -18,9 +18,9 @@
         echo($_GET["search_name"]); ?>">
 
       <div class="row">
-        <div class="col s6"  style="padding-top: 15px">
+        <div class="col s4"  style="padding-top: 15px">
           <div class="col white-text bold">
-            <h6>Filter:</h6>
+            <h6>Filter by:</h6>
           </div>
         
 
@@ -45,9 +45,41 @@
           </div>
         </div>
 
-        <div class="col s6"  style="padding-top: 15px">
+        <div class="col s4"  style="padding-top: 15px">
           <div class="col white-text bold">
-            <h6>Sort:</h6>
+            <h6>Choose:</h6>
+          </div>
+        
+
+          <div class="col unglow">
+            <ul id="choose_dropdown" class="dropdown-content black">
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">Clear</a></li>
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">Asus</a></li>
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">MSI</a></li>
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">Razer</a></li>
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">Logitech</a></li>
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">Viewsonic</a></li>
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">Acer</a></li>
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">HyperX</a></li>
+              <li><a class="cyan-text page-title" onclick="select_brand(this)">Corsair</a></li>
+            </ul>
+            <a class="btn dropdown-trigger cyan" data-target="choose_dropdown" style="margin-top: 5px;">
+              <?php
+                $brand = -1;
+                if (isset($_GET["brand"])) $brand = $_GET["brand"];
+
+                if ($brand != -1) echo(BRAND_NAMES[$brand]);
+                else echo("Select Brand");
+                echo("<input type='hidden' name='brand' value=$brand>");
+              ?>
+              <i class="material-icons right">arrow_drop_down</i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col s4"  style="padding-top: 15px">
+          <div class="col white-text bold">
+            <h6>Sort by:</h6>
           </div>
 
           <div class="col unglow">
@@ -74,9 +106,9 @@
     <!-- filter products attributes end -->
 
      <!-- item list start -->
-    <div style="margin-top: 260px;">
+    <div style="margin-top: 150px;">
       <?php
-        searchItems($category, $sort);
+        searchItems($category, $brand, $sort);
       ?>
     </div>
     <!-- item list end -->
@@ -87,11 +119,12 @@
   {
     form = document.getElementById("form-filter");
     category = document.getElementsByName("category")[0];
+    brand = document.getElementsByName("brand")[0];
     sort = document.getElementsByName("sort")[0];
   });
 
   // dropdown
-  var form, category, sort;
+  var form, category, brand, sort;
 
   var categoryBy = {
     "Clear": -1,
@@ -99,6 +132,18 @@
     "Monitor & Audio": 1,
     "Peripherals": 2
   };
+
+  var brandBy = {
+    "Clear": -1,
+    "Asus": 0,
+    "MSI": 1,
+    "Razer": 2,
+    "Logitech": 3,
+    "Viewsonic": 4,
+    "Acer": 5,
+    "HyperX": 6,
+    "Corsair": 7,
+  }
 
   var sortBy = {
     "Clear": -1,
@@ -112,6 +157,15 @@
     var categoryID = categoryBy[selectedItem.textContent];
     // assign current mapped index and output to url with GET method to handle form
     category.value = categoryID;
+    form.submit();
+  }
+
+  function select_brand(selectedItem)
+  {
+    // get current onclick event index
+    var brandID = brandBy[selectedItem.textContent];
+    // assign current mapped index and output to url with GET method to handle form
+    brand.value = brandID;
     form.submit();
   }
 
