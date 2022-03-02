@@ -114,7 +114,7 @@
     <img src="static/images/ice_pc.png" style="cursor:pointer; display:block; margin: 0 auto; " />
   </div>
   <div style="display:none">
-    <video style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" controls>
+    <video style="display:block; margin: 0 auto;" class="responsive-video" width="1280" height="720" autoplay="autoplay" controls muted>
       <source src="static/FROST Gaming PC.mp4" type="video/mp4">
     </video>
   </div>
