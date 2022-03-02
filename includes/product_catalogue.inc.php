@@ -7,7 +7,7 @@
 
   function searchItems($category, $brand, $sort){
     $searchName = "";
-    if (isset($_GET["search_name"])) $searchName = $_GET["search_name"];
+    if (isset($_GET["query"])) $searchName = $_GET["query"];
 
     /** 
      * @var Item[] $items

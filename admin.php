@@ -9,6 +9,7 @@
     include "header.php";
     include "static/pages/side_nav.html";
     include "static/pages/admin_nav.php";
+    require_once "includes/class_autoloader.php";
   ?>
 </head>
 <body>
@@ -21,7 +22,13 @@
               <span class="card-title ">SignUps</span>
               <div class="grid">
                 <i class="material-icons white-text">supervisor_account</i>
-                <p>11</p>
+                <?php 
+                  $sql = "SELECT * FROM Members";
+                  $conn = new Dbhandler();
+                  $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+                  $signUpCount = $result->num_rows;
+                ?>
+                <p><?php echo($signUpCount); ?></p>
               </div>
             </div>
             <div class="card-action">
@@ -39,7 +46,13 @@
               <span class="card-title ">Products</span>
               <div class="grid">
                 <i class="material-icons white-text">category</i>
-                <p>100</p>
+                <?php 
+                  $sql = "SELECT * FROM Items";
+                  $conn = new Dbhandler();
+                  $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+                  $productCount = $result->num_rows;
+                ?>
+                <p><?php echo($productCount); ?></p>
               </div>
             </div>
             <div class="card-action">
@@ -57,7 +70,13 @@
               <span class="card-title ">Orders</span>
               <div class="grid">
                 <i class="material-icons white-text">add_shopping_cart</i>
-                <p>1000</p>
+                <?php 
+                  $sql = "SELECT * FROM Orders WHERE CartFlag = 0";
+                  $conn = new Dbhandler();
+                  $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+                  $orderCount = $result->num_rows;
+                ?>
+                <p><?php echo($orderCount); ?></p>
               </div>
             </div>
             <div class="card-action">

@@ -38,14 +38,14 @@
       <a href="index.php"><img src = "./static/logo.svg" alt="logo" id="logo" class="brand-logo glow-image" height="100"/></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="black" id="search-bar">
-          <form action="search_catalogue.php">
+          <form action="product_catalogue.php">
             <div class="white-text row" style="padding-left: 20px;">
-              <input type="text" name="search_name" placeholder="Browse products..."
+              <input type="text" name="query" placeholder="Browse products..."
                 class="input-field white-text col s10 autocomplete" id="autocomplete-input"
-                value="<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>"
+                value="<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>"
                 style="font-size: 14px; z-index: 5050;" href="search-catalogue.php"
               />
-              <button value='<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>' 
+              <button value='<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>' 
                 class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
                 <i class='material-icons'>search</i>
               </button>

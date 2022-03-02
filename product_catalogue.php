@@ -7,15 +7,15 @@
   <title>OG Tech PC - Search Catalogue</title>
   <?php 
     require_once "header.php";
-    require_once "includes/search_catalogue.inc.php";
+    require_once "includes/product_catalogue.inc.php";
   ?>
 </head>
 <body id="stop-autocomplete">
   <div class="container" style="padding-top: 15px;">
     <div class="selectable-card tint-glass-cyan" id="rgb_hover" style="min-height: 80px; z-index: 5050; position: fixed; top: 10; min-width: 1280px">
       <form id="form-filter" action="" method="GET">
-      <input type="hidden" name="search_name" value="<?php if(isset($_GET["search_name"])) 
-        echo($_GET["search_name"]); ?>">
+      <input type="hidden" name="query" value="<?php if(isset($_GET["query"])) 
+        echo($_GET["query"]); ?>">
 
       <div class="row">
         <div class="col s4"  style="padding-top: 15px">
