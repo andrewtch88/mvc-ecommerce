@@ -20,7 +20,7 @@
                     <i class="medium material-icons" style="font-size: 65px;">place</i>
                 </div>
                 <p class="grey-text text-lighten-4 bold" style="margin:8px;font-size:16px">
-                    <strong class="grey-text text-lighten-4 bold" style="font-size:22px">OG Tech Company</strong><br>
+                    <strong class="grey-text text-lighten-4 bold" style="font-size:22px">OG Solutions (registered name)</strong><br>
                     B-2-16, SD2, Dataran SD PJU9, Jalan Dataran SD 2, Bandar Sri Damansara, 52200 Kuala Lumpur.
                 </p>
             </div>
@@ -38,7 +38,7 @@
                     <i class="medium material-icons" style="font-size: 65px;">email</i>
                 </div>
                 <p class="grey-text text-lighten-4 bold" style="margin:8px;font-size:16px">
-                    <strong class="grey-text text-lighten-4 bold" style="font-size:20px">OG Tech Company</strong><br>
+                    <strong class="grey-text text-lighten-4 bold" style="font-size:20px">OG Solutions</strong><br>
                     ogtech@gmail.com
                 </p>
             </div>
@@ -48,7 +48,7 @@
                 </div>
                 <p class="grey-text text-lighten-4 bold" style="margin:8px;font-size:16px">
                     <strong class="grey-text text-lighten-4 bold" style="font-size:20px">Business Hours</strong><br>
-                    Monday - Satuday : 9.00am - 6.00pm
+                    Monday to Sunday: 11.00am to 8.00pm
                 </p>
             </div>
         </div>

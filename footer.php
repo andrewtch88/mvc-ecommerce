@@ -13,6 +13,8 @@
         <li><a href='aboutUs.php' class='black-text bold'>About Us</a></li>
         <li class='divider' tabindex='-1'></li>
         <li><a href='warranty_page.php' class='black-text bold'>Warranty</a></li>
+        <li class='divider' tabindex='-1'></li>
+        <li><a href='contactUs.php' class='black-text bold'>Contact Us</a></li>
       </ul>
     </div>
     <div class="col s2">
