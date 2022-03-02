@@ -1,0 +1,35 @@
+#map {
+  height: 500px;
+  width: 100%;
+  padding: 20px;
+}
+
+#contactdetailscontainer {
+  height: 500px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contactdetails {
+  height: 100px;
+  width: 100%;
+  align-content: center;
+  align-items: center;
+  padding: 5px;
+  display: flex;
+  margin: 10px;
+}
+
+.iconcontainer {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: red;
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
