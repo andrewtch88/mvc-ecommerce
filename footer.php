@@ -6,7 +6,26 @@
 	  <a href="warranty page.php">Warranty page</a>
     </div>
     <div class="col s2">
+<<<<<<< Updated upstream
       <h5 class="white-text">Business Hours</h5>
+=======
+      <h5 class="white-text bold"  style=' text-decoration: underline'>Support</h5>
+      <p><a class='dropdown-trigger white-text bold' href='#' data-target='dropdown1'>Customer Care 
+        <i class='material-icons' style=' text-decoration: none !important; display: inline-flex; vertical-align: top;'>arrow_drop_down</i>
+      </a></p>
+      <ul id='dropdown1' class='dropdown-content white'>
+        <li><a href='aboutUs.php' class='black-text bold'>About Us</a></li>
+        <li class='divider' tabindex='-1'></li>
+        <li><a href='warranty_page.php' class='black-text bold'>Warranty</a></li>
+        <li class='divider' tabindex='-1'></li>
+        <li><a href='contactUs.php' class='black-text bold'>Contact Us</a></li>
+		<li class='divider' tabindex='-1'></li>
+        <li><a href='magnifier test.php' class='black-text bold'>Mag Us</a></li>
+      </ul>
+    </div>
+    <div class="col s2">
+      <h5 class="white-text bold">Find Us</h5>
+>>>>>>> Stashed changes
       <p class="bold">
         Monday to Sunday : <br> 11.00am to 8.00pm
       </p>
