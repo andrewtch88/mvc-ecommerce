@@ -3,6 +3,8 @@ require_once "class_autoloader.php";
 
 $util = new CommonUtil;
 
+// This page handles admin forms only
+
 // Manage User
 if (isset($_POST["submit"]))
 {

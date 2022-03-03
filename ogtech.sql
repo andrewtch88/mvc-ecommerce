@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2022 at 04:23 PM
+-- Generation Time: Mar 03, 2022 at 09:30 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -44,7 +44,7 @@ CREATE TABLE `items` (
 
 INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `SellingPrice`, `QuantityInStock`, `Image`) VALUES
 (7, 'OGTECH STREAMER PC NVIDIA GTX1660 SUPER w 32GB RAM', 'Mixed', 'CPU: INTEL i5 10400F MOBO: GIGABYTE B460M DS3H AC RAM: G.SKILL TridentZ RGB 2x16GB DDR4 3200MHz GPU: GIGABYTE GeForce GTX1660 SUPER WF OC PSU: ANTEC CSK550 GB 80+ BRONZE CASE: ZALMAN K1 ATX RGB CASE SSD: XPG SX8200 PRO M.2 1TB SSD HDD: WESTERN DIGITAL 2TB CAVIAR BLUE', 0, 3899, 5, 'RM4761_SE580E-scaled.jpg'),
-(8, 'Asus VG258QR', 'Asus', 'Panel size 24.5″. IPS Panel. Non-glare display surface. 16:9 aspect ratio. 1920 x 1080 resolution. Refresh rate 165hz, 0.5ms reponse time. Anti-Flicker.', 1, 888, 5, 'asus_monitor.jpg'),
+(8, 'Asus VG258QR (24.5\")', 'Asus', 'Panel size 24.5″. IPS Panel. Non-glare display surface. 16:9 aspect ratio. 1920 x 1080 resolution. Refresh rate 165hz, 0.5ms reponse time. Anti-Flicker.', 1, 888, 5, 'asus_monitor.jpg'),
 (9, 'OGTECH GEFORCE ESPORTS PC GTX1050Ti', 'Mixed', 'Processor : INTEL  Core I3-10105F Graphic Card : AFOX GEFORCE GTX1050TI 4GB Motherboard :GIGABYTE B460M DS3H V2 RAM : GSKILL AEGIS DDR4 3200Mhz (1 x8gb) SSD: GIGABYTE NVMe SSD 256GB Power Supply: ANTEC CSK550 Bronze Casing : ANTEC DP301M (x2 fans included)', 0, 2399, 5, 'pc-1050ti.png'),
 (10, 'OGTech Entry RTX™ PC NVIDIA® GeForce RTX™ 3050', 'Mixed', 'Graphic Card :Nvidia Geforce RTX™ 3050 8GB Processor : INTEL Core I3-10105F Motherboard : GIGABYTE B460M DS3H V2 RAM : GSKILL AEGIS 8GB DDR4 3200Mhz SSD: GIGABYTE NVMe SSD 256GB Power Supply :ANTEC CSK550 Bronze Casing : ANTEC NX270 RGB', 0, 3299, 10, 'pc-rtx3050.jpg'),
 (11, 'OGTech Best Value AMD RTX™ 3060 PC w 16GB Ram', 'Mixed', 'Graphic Card : GIGABYTE GeForce RTX™ 3060 12GB EAGLE OC Processor : AMD Ryzen 5 3600 Motherboard : MSI B450M-A Pro Max RAM : GSKILL AEGIS DDR4 3200Mhz  (2 x8gb) SSD: GIGABYTE NVMe SSD 256GB Power Supply :ANTEC CSK550 Bronze Casing : ANTEC NX410 Black or White', 0, 4599, 15, 'pc-rtx3060.jpg'),
@@ -60,14 +60,14 @@ INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `Sell
 (21, 'LOGITECH entry desktop mic', 'Logitech', 'Good audio quality. Anti vibration pad. Adjustable mic. ', 2, 39.99, 3, 'logi mic.jpg'),
 (22, 'LOGITECH Z250 RGB Speakers', 'Logitech', 'Simple yet stylish speakers. RGB makes listening music more fun. RGB can sync along music with logitech software.', 1, 299.99, 5, 'logi speaker.png'),
 (23, 'MSI DS502 gaming headset', 'MSI', 'Enhanced Virtual 7.1 Surround Sound. Intelligent Vibration System. Smart Audio Controller. Enhanced 40mm High Quality Drivers. Cool LED Light. Light weight & Self-adjusting Headband Design.', 1, 249.99, 20, 'msi headset.png'),
-(24, 'MSI Optix MPG341CQR Smart RGB Curved Gaming Monitor', 'MSI', '34 inch 3440x1440 Frameless design – Ultimate gameplay experience. 178° wide view angle. HDR 400 - Stunning Visuals with the Most Criterion Format. 1ms response time - eliminate screen tearing and choppy frame rates. 144Hz Refresh Rate – The real smooth gaming. Curved Gaming display (1800R) – The best gameplay immersion. UWQHD High Resolution - Game titles will even look better, displaying more details due to the UWQHD resolution.', 1, 2888, 5, 'msi monitor 2.jpg'),
+(24, 'MSI Optix MPG341CQR Smart RGB Curved Gaming Monitor (34\')', 'MSI', '34 inch 3440x1440 Frameless design – Ultimate gameplay experience. 178° wide view angle. HDR 400 - Stunning Visuals with the Most Criterion Format. 1ms response time - eliminate screen tearing and choppy frame rates. 144Hz Refresh Rate – The real smooth gaming. Curved Gaming display (1800R) – The best gameplay immersion. UWQHD High Resolution - Game titles will even look better, displaying more details due to the UWQHD resolution.', 1, 2888, 5, 'msi monitor 2.jpg'),
 (25, 'RAZER Kraken V2 Pro Headset', 'Razer', 'Custom-tuned 50 mm Drivers. Cooling Gel-Infused Cushions. Retractable Unidirectional Microphone. Clear & Powerful Sound Thicker Headband Padding Play Comfortably for Hours', 1, 399.99, 20, 'razer headset 2.jpg'),
 (26, 'RAZER Blackwidow Keyboard Green Switch 2019', 'Razer', 'Razer Green Mechanical Switches designed for gaming 80 million keystroke lifespan Razer Chroma customizable backlighting with 16.8 million color options Hybrid On-Board Memory and Cloud Storage – up to 5 profiles Razer Synapse 3 enabled Cable routingoptions N-key roll-over with built-in anti-ghosting Fully programmable keys with on-the-fly macro recording Gaming mode option 1000 Hz Ultrapolling Instant Trigger Technology', 2, 299.99, 5, 'razer keyboard.jfif'),
 (27, 'RAZER Seirēn X - Black', 'Razer', 'Ultra-Precise Pickup Pattern Shock Resistant Compact Form Factor', 2, 319.99, 10, 'razer mic.jfif'),
 (28, 'RAZER RAPTOR 27 1440P 165 HZ', 'Razer', 'VESA COMPATIBLE and cable management. WORLD’S FIRST THX® CERTIFIED GAMING MONITOR. 165HZ HIGH SPEED. QHD HIGH RESOLUTION. Gsync and Freesync compatible. ', 1, 3199.99, 2, 'razer monitor.jpg'),
 (29, 'RAZER BASILISK V3', 'Razer', 'PERFECTING SCROLLING. FULL SPECTRUM CUSTOMIZABILITY. 10+1 PROGRAMMABLE BUTTONS. Profile switching. ', 2, 259, 5, 'razer mouse.jfif'),
 (30, 'RAZER Nommo Pro', 'Razer', 'SOLID, UNRESTRICTED BASS. THX CERTIFIED PREMIUM AUDIO. Top notch Studio grade quality audio. POWERFUL CINEMATIC IMMERSION dolby audio certified.', 1, 3098, 2, 'razer speaker.jfif'),
-(31, 'Viewsonic XG2401 24', 'Viewsonic', '1ms response time. AMD FreeSync™ technology. SmartSync technology. Black stabilisation. 144Hz Refresh Rate', 1, 799.99, 10, 'view monitor.png'),
+(31, 'Viewsonic XG2401 (24\')', 'Viewsonic', '1ms response time. AMD FreeSync™ technology. SmartSync technology. Black stabilisation. 144Hz Refresh Rate', 1, 799.99, 10, 'view monitor.png'),
 (32, 'Viewsonic Elite XG350R-C 35” Curved ', 'Viewsonic', '100Hz refresh rate. ClearMotion backlight strobing technology. 3440 X 1440 Ultra Wide QHD resolution. ELITE RGB Alliance. Adaptive Sync & AMD FreeSync™ technology. ', 1, 2077, 5, 'viewsonic monitor.png'),
 (33, 'Logitech G102 RGB mouse', 'Logitech', '8,000 DPI. LIGHTSYNC RGB featuring color wave effects customizable across ~16.8 million colors.', 2, 79, 30, 'logi mouse.jpg'),
 (34, 'LOGITECH G502 Gaming Mouse', 'Logitech', 'The best selling mouse in the world, featuring customizable weight. 5 programmable buttons with rgb logo. Durable materials and comfortable engineered grip. 70 millions clicks life span.', 2, 159, 50, 'g502.jpg'),
@@ -109,8 +109,7 @@ INSERT INTO `members` (`MemberID`, `Username`, `Password`, `Email`, `PrivilegeLe
 (10, 'test6', '$2y$10$ieSbXKrOc4tmF.kSUtTCyO69Xp13lNCs.Fl.agTLYm3N0FAKdRWkC', 'test6@gmail.com', 0, 3),
 (15, 'test7', '$2y$10$wYZtt0RY/443JBq5UO0iGuDbUia/lIEWI0/iSGrDJ4Yrv3WpD5J1.', 'test7@gmail.com', 0, 3),
 (16, 'test8', '$2y$10$qYaWx7z6VHxgBtQxLm7leuo2sKv76Cg28UhmJaKZiF0eHXiMMcKCa', 'test8@gmail.com', 0, 3),
-(18, 'admin1', '$2y$10$O0a3vZBPu3kLzZnOW0MJTeVXJc865FDIfcDfxn.ddWbO6F2SpZlKi', 'admin123@gmail.com', 0, 3),
-(19, 'test9', '$2y$10$VDEN6GE/49oMJ6GIwCL/2Op6K6iTeuZbbf7QFn8Oj7WTPzTG3E2Nq', 'test4@gmail.com', 0, 3);
+(19, 'test9', '$2y$10$VDEN6GE/49oMJ6GIwCL/2Op6K6iTeuZbbf7QFn8Oj7WTPzTG3E2Nq', 'test9@gmail.com', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -155,7 +154,6 @@ INSERT INTO `orders` (`OrderID`, `MemberID`, `CartFlag`) VALUES
 (10, 10, b'1'),
 (15, 15, b'1'),
 (16, 16, b'1'),
-(19, 18, b'1'),
 (20, 19, b'1');
 
 -- --------------------------------------------------------
@@ -222,7 +220,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `MemberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `MemberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `orderitems`
@@ -234,7 +232,7 @@ ALTER TABLE `orderitems`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `payment`

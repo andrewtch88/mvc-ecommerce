@@ -30,7 +30,7 @@
             <div class="row" style="margin: 0px;">
               <div class="input-field col s3" style = "color:azure">
                 <input name="search_product" id="search_product" type="text" class="validate white-text" maxlength="20">
-                <label for="search_product">Search product</label>
+                <label for="search_product">Search product by Name or Brand</label>
                 <div id="error" class="errormsg">
                   
                 </div>

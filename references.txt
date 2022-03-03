@@ -19,3 +19,5 @@ https://stackoverflow.com/questions/39907145/align-material-icon-with-text-on-ma
 https://stackoverflow.com/questions/16156594/how-to-change-border-color-of-textarea-on-focus
 https://stackoverflow.com/questions/9980531/center-image-in-div-horizontally
 https://stackoverflow.com/questions/16965170/html5-video-autoplay-not-working-correctly
+https://idealtech.com.my - design inspiration
+https://developers.google.com/maps/documentation/javascript/adding-a-google-map

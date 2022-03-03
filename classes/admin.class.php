@@ -1,5 +1,7 @@
 <?php
 
+// This class handles search and display table only
+
 class Admin extends Dbhandler{
 
   protected function searchMember(){
@@ -192,7 +194,7 @@ class Admin extends Dbhandler{
       else
       {
         $sql = "SELECT M.Username, M.Email, M.MemberID, O.* FROM Members M, Orders O 
-          WHERE M.Username LIKE '%$searchMember%' AND M.MemberID = O.MemberID ORDER BY O.OrderID DESC";
+          WHERE (M.Username LIKE '%$searchMember%' OR M.Email LIKE '%$searchMember%') AND M.MemberID = O.MemberID ORDER BY O.OrderID DESC";
         $result = $this->conn()->query($sql) or die ("Select statement FAILED!");
         while ($row = $result->fetch_assoc()) 
         {
