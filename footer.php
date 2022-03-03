@@ -3,7 +3,7 @@
     <div class="col s3">
       <h4 class="white-text bold underline">OG Tech PC</h4>
       <p class="grey-text text-lighten-4">Your favorite online PC store.</p>
-	  <a href="warranty page.php">Warranty page</a>
+	  <a href="magnifier test.php">Mag page</a>
     </div>
     <div class="col s2">
 <<<<<<< Updated upstream
