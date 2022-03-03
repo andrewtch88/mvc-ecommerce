@@ -5,6 +5,28 @@ $util = new CommonUtil;
 
 // This page handles admin forms only
 
+function uidExists($username, $email, $util) {
+  $sql = "SELECT * FROM Members WHERE Username = ? 
+    OR Email = ?;";
+  $stmt = $util->conn()->stmt_init();
+
+  if (!$stmt->prepare($sql))
+  {
+    header("location: ../login.php?error=stmtfailed");
+    exit();
+  }
+
+  $stmt->bind_param("ss", $username, $email);
+  $stmt->execute();
+  
+  $result = $stmt->get_result();
+
+  if ($row = $result->fetch_assoc()) return $row;
+  else return false;
+
+  $stmt->close();
+}
+
 // Manage User
 if (isset($_POST["submit"]))
 {
@@ -32,7 +54,7 @@ if (isset($_POST["submit"]))
     echo "<script>document.getElementById('message').innerHTML = '*Choose a proper username!';</script>";
     exit();
   }
-  if ($util->uidExists($username, $email))
+  if (uidExists($username, $email, $util))
   {
     echo "<script>document.getElementById('message').className = 'errormsg';</script>";
     echo "<script>document.getElementById('message').innerHTML = '*Username/Email already taken!';</script>";

@@ -4,8 +4,9 @@
   const CATEGORY_NAMES = ["PC Packages", "Monitor & Audio", "Peripherals"];
   const BRAND_NAMES = ["Asus", "MSI", "Razer", "Logitech", "Viewsonic", "Acer", "HyperX", "Steelseries", "Corsair"];
   const SORT_NAMES = ["Price low to high", "Price high to low"];
+  const VIEW_NAMES = ["List"];
 
-  function searchItems($category, $brand, $sort){
+  function searchItems($category, $brand, $sort, $view){
     $searchName = "";
     if (isset($_GET["query"])) $searchName = $_GET["query"];
 
@@ -32,7 +33,7 @@
     $items = array();
 
     if ($result->num_rows < 1)
-      echo "<h5 class='white-text bold' style='padding-top: 150px'>
+      echo "<h5 class='white-text bold center' style='padding-top: 150px'>
         0 result is returned. Please try other search result as the selected products is not available</h5>";
 
     while ($row = $result->fetch_assoc())
@@ -41,13 +42,13 @@
       array_push($items, new Item($itemID));
     }
 
-    generateItemList($items);
+    generateItemList($items, $view);
   }
 
   /**
   * @param Item[] $items
   */
-  function generateItemList($items){
+  function generateItemList($items, $view){
     $itemCount = count($items);
 
     $itemIdx = 0;
@@ -72,6 +73,7 @@
         $price = $item->getSellingPrice();
         $price = "RM" . number_format($price, 2);
         $avgRating = $item->getAvgRatings();
+
         echo(
           "
           <div class='col s3'>
