@@ -22,19 +22,20 @@ class CommonUtil extends Dbhandler{
     $stmt->close();
   }
 
-  public function uidExists($loginName) {
-    $sql = "SELECT * FROM Members where Username = ? OR Email = ?;";
+  public function uidExists($username, $email) {
+    $sql = "SELECT Username FROM Members WHERE Username = ? 
+      OR Email = ?;";
     $stmt = $this->conn()->stmt_init();
-    
+
     if (!$stmt->prepare($sql))
     {
       header("location: ../login.php?error=stmtfailed");
       exit();
     }
-    
-    $stmt->bind_param("ss", $loginName, $loginName);
-    $stmt->execute();
 
+    $stmt->bind_param("ss", $username, $email);
+    $stmt->execute();
+    
     $result = $stmt->get_result();
 
     if ($row = $result->fetch_assoc()) return $row;

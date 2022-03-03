@@ -26,7 +26,6 @@
           <button type="submit" name="submit" class="btn" style="margin-left: 10px">Login</button>
         </div>
         <div class="row">
-          <a href="recover_pass.php" style="margin-right: 10px">Forgot Password?</a>
           <span class="white-text">Not yet a member?</span>
           <a href="signup.php">Sign Up!</a>
           <div class="errormsg">

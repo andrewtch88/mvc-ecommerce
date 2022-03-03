@@ -4,7 +4,6 @@ require_once "class_autoloader.php";
 
 /**
  * @param Item
- * @param ItemContr $item
  * @param OrderItemContr $cartItem
  * @param int $memberID
 */
@@ -155,6 +154,7 @@ function generateOrderSum($totalItems, $sumTotal)
                 <tr><th>Total Items:</th><td>$totalItems</td></tr>
                 <tr><th>Delivery Charges:</th><td>RM10.00</td></tr>
                 <tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>
+                <tr><th>Status:</th><td>Shipped (check email for status)</td></tr>
               </tbody>
             </table>
           </div>

@@ -10,10 +10,10 @@
   }
 ?>
 
-<h4 class="page-title">Previous Orders</h4>
+<h4 class="page-title">Payment History / Previous Orders</h4>
 
 <?php
-  if ($orderCount <= 0) echo("<h5 class='grey-text page-title'>There are no orders yet.</h5>");
+  if ($orderCount <= 0) echo("<h5 class='grey-text page-title'>There are no orders yet. How about making some orders? :)</h5>");
   for ($i=0; $i < $orderCount; $i++)
   {
     $idx = $i+1;

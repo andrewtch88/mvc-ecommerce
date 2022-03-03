@@ -20,7 +20,7 @@
         <div class="card-content black-text">
           <span class="orange-text" style="font-size: 24px">Products List - Sorted by latest
           <th>
-            <button class='deep-orange btn'><a href="location.reload();"><i class='material-icons white-text'>refresh</i></a>
+            <button class='deep-orange btn'><a href="admin_manage_products.php"><i class='material-icons white-text'>refresh</i></a>
             </button>
           </th>
           </span>
@@ -30,7 +30,7 @@
             <div class="row" style="margin: 0px;">
               <div class="input-field col s3" style = "color:azure">
                 <input name="search_product" id="search_product" type="text" class="validate white-text" maxlength="20">
-                <label for="search_product">Search product</label>
+                <label for="search_product">Search product by Name or Brand</label>
                 <div id="error" class="errormsg">
                   
                 </div>

@@ -6,6 +6,13 @@ nav {
   top: 0;
 }
 
+.nav {
+  line-height: 100px;
+  z-index: 9999;
+  position: relative;
+  top: 100;
+}
+
 .underline {
   font-weight: bold;
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);

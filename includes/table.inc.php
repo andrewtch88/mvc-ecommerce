@@ -3,10 +3,11 @@
 require_once "class_autoloader.php";
 $dbh = new Dbhandler();
 
+// Admin manage orders (autosync table only)
 // if searchMember is not set or searchMember is empty
 
 $sql = "SELECT M.Username, M.Email, M.MemberID, O.* FROM Members M, Orders O 
-  WHERE M.MemberID = O.MemberID AND O.CartFlag = 1 ORDER BY O.OrderID DESC";
+  WHERE M.PrivilegeLevel = 0 AND M.MemberID = O.MemberID AND O.CartFlag = 1 ORDER BY O.OrderID DESC";
 $result = $dbh->conn()->query($sql) or die($dbh->conn()->error);
 while ($row = $result->fetch_assoc()) 
 {

@@ -55,7 +55,7 @@
 		<br><li class="text">By submitting the FORM, you are hereby acknowledging and agreeing with the Terms and Condition above. </li>
 	</ul>
 	
-	<input class="button" type="button" onclick="window.location.href='warranty form.php'" value="Warranty Form"></input>
+	<input class="button" type="button" onclick="window.location.href='warranty_form.php'" value="Warranty Form"></input>
 </div>
 
 </body>

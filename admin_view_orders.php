@@ -26,7 +26,7 @@
             <form class="row" action="admin_view_orders.php" method="POST" style="margin: 0px;">
               <div class="input-field col s3 white-text">
                 <input name="search_members" id="search_members" type="text" class="validate; white-text" maxlength="20">
-                <label for="search_members">Search member by name</label>
+                <label for="search_members">Search member by Name or Email</label>
                 <span class="helper-text" data-error="text only" data-success="correct"></span>
               </div>
             </form>
