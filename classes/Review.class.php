@@ -12,7 +12,7 @@ class Review{
     $this->feedback = $feedback;
   }
 
-  public function GetUsername() { return $this->username; }
-  public function GetRating() { return $this->rating / 5 * 100; }
-  public function GetFeedback() { return $this->feedback; }
+  public function getUsername() { return $this->username; }
+  public function getRating() { return $this->rating / 5 * 100; }
+  public function getFeedback() { return $this->feedback; }
 }

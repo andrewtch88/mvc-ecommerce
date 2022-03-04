@@ -46,18 +46,18 @@ function generateItem($item, $cartItem, $memberID){
         <input type='hidden' name='item_id' value=$itemID>
         <input type='hidden' name='qty' value=$quantity>
         <input type='hidden' name='qty_stock' value=$quantityInStock>
-        <i class='material-icons'>$icon</i>
 
         <p class='col s4' style='padding: 0px; margin: 0px;'>
           <img class='shadow-img' src='product_images/$image'
             style='max-height: 50px; max-width: 50px;'>
         </p>
+
         <p class='col s4' style='padding: 0px; margin: 0px;'>$itemName</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$price</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
 
         <a class='btn orange darken-4 col s2 light-weight-text' style='margin-right: 5px; padding: 0px;'
-          href='item_page.php?item_id=$itemID'>
+          href='product.php?item_id=$itemID'>
           Inspect
         </a>"
   );
@@ -65,11 +65,11 @@ function generateItem($item, $cartItem, $memberID){
   if (!$view_order)
   {
     echo(
-          "<button class='btn red darken-4 col s2' style='padding: 0px; margin: 0px;'
-            name='remove_item' value='$orderItemID'
-            onclick=\"return confirm('Are you sure you want remove \'$itemName\'?');\">
-            Remove
-          </button>"
+      "<button class='btn red darken-4 col s2' style='padding: 0px; margin: 0px;'
+        name='remove_item' value='$orderItemID'
+        onclick=\"return confirm('Are you sure you want remove \'$itemName\'?');\">
+        Remove
+      </button>"
     );
   }
   echo(
@@ -97,22 +97,26 @@ function generateBoughtItem($item, $cartItem){
     $paymentDate = $row["PaymentDate"];
   }
 
-  [$itemID, $quantity, $quantityInStock, $icon, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName] 
+  [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $categoryName] 
     = generateOrderDetails($item, $cartItem);
 
   $view_order = isset($_GET["view_order"]);
 
   echo(
-    "<li>
+    "<div class='selectable-card center' style='height: 55px; margin-bottom: 10px'>
+      <p class='col s3' style='padding: 0px; margin: 0px;'>Product</p>
+      <p class='col s1' style='padding: 0px; margin: 0px;'>Unit Price</p>
+      <p class='col s5' style='padding: 0px; margin: 0px;'>Quantity</p>
+      <p class='col s1' style='padding: 0px; margin: 0px;'>Actions</p>
+    </div>
+    <li>
       <div class='collapsible-header collapsible-card bold'>
-        <i class='material-icons'>$icon</i>
-
         <p class='col s4' style='padding: 0px; margin: 0px;'>$itemName</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$price</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
         <a class='btn orange darken-4 col s2 light-weight-text' style='margin-right: 5px; padding: 0px;'
-            href='item_page.php?item_id=$itemID'>
-            Inspect
+          href='product.php?item_id=$itemID'>
+          Inspect
         </a>"
   );
 

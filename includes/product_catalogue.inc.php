@@ -77,7 +77,7 @@
         echo(
           "
           <div class='col s3'>
-            <a href='item_page.php?item_id=$itemID'>
+            <a href='product.php?item_id=$itemID'>
               <div class='selectable-card' style='height: 480px; min-width: 300px'>
                 <img class='shadow-img center' src='product_images/$image' style='max-height: 200px; max-width: 300px; display: block; margin: 0 auto;'>
                 <p class='center bold white-text'>$name</p>

@@ -38,20 +38,18 @@
         if (isset($cartItems))
         {
           if ($cartItemCount <= 0) 
-          echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5><h6 class='grey-text page-title'>
-            <a href='product_catalogue.php?query='>Shop Now!</a></h6>");
+            echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5><h6 class='grey-text page-title'>
+              <a href='product_catalogue.php?query='>Shop Now!</a></h6>");
 
           $sumTotal = 0;
           for ($c=0; $c < $cartItemCount; $c++)
           {
             $orderItem = $cartItems[$c];
-            $dbh = new Dbhandler();
-            $Dbh = $dbh->conn();
-            $item = new Item($orderItem->GetItemID(), $Dbh);
-            GenerateItem($item, $orderItem, $memberID);
+            $item = new Item($orderItem->getItemID());
+            generateItem($item, $orderItem, $memberID);
 
-            $quantity = $orderItem->GetQuantity();
-            $price = $orderItem->GetPrice();
+            $quantity = $orderItem->getQuantity();
+            $price = $orderItem->getPrice();
             $sumTotal = $sumTotal + $price * $quantity;
           }
           $sumTotal = number_format($sumTotal+10, 2);
@@ -59,7 +57,7 @@
       ?>
     </ul>
   </div>
-
+  
   <div class="col s4">
     <div class="rounded-card-parent">
       <div class="card rounded-card tint-glass-cyan blurer">
@@ -71,7 +69,24 @@
                 echo("<tr><th>Total Items:</th><td>$cartItemCount</td></tr>");
                 echo("<tr><th>Delivery Charges:</th><td>RM10.00</td></tr>");
                 echo("<tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>");
-                echo("<tr><th>Status: </th><td>Pending Checkout</td></tr>");
+                echo("<tr><th>Enter voucher code:</th>
+                  <td>
+                    <form id='form-filter' method='GET'>
+                      <ul id='filter_dropdown' class='dropdown-content black'>
+                        <li><a class='cyan-text page-title' onclick='select_category(this)'>Clear</a></li>
+                        <li><a class='cyan-text page-title' onclick='select_category(this)'>PC Packages</a></li>
+                        <li><a class='cyan-text page-title' onclick='select_category(this)'>Monitor & Audio</a></li>
+                        <li><a class='cyan-text page-title' onclick='select_category(this)'>Peripherals</a></li>
+                      </ul>
+                      <a class='btn dropdown-trigger cyan' data-target='filter_dropdown' style='margin-top: 5px;'>
+                        <?php
+                          if (!= -1) echo(CATEGORY_NAMES[]);
+                          else echo('Select Voucher');
+                        ?>
+                        <i class='material-icons right'>arrow_drop_down</i>
+                      </a>
+                    </form>
+                  </td></tr>");
               ?>
             </tbody>
           </table>
