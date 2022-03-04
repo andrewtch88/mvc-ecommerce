@@ -127,7 +127,16 @@
                   </tr>
                   <h4 class="amber-text"><?php echo($displayPrice); ?></h4>
                   <tr><th class='grey-text'>Brand: </th><td><?php echo($brand); ?></td></tr>
-                  <tr><th class='grey-text'>Description: </th><td><?php echo($description); ?></td></tr>
+                  <tr><th class='grey-text'>Description: </th>
+                    <td>
+                      <?php 
+                        $pTagDesc = explode(",", $description); 
+                        foreach ($pTagDesc as $pDesc) {
+                          echo "<p>$pDesc</p>";
+                        }
+                      ?>
+                    </td>
+                  </tr>
                   <tr><th class='grey-text'>Category: </th><td><?php echo($category); ?></td></tr>
                 </tbody>
               </table>
