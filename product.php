@@ -88,7 +88,7 @@
                 data-large-img-url="product_images/<?php echo($image); ?>"
                 data-large-img-wrapper="preview">
             </a>
-            <div class="magnifier-preview example heading" id="preview" style="width: 400px; height:300px"></div>
+            <div class="magnifier-preview example heading" id="preview" style="width: 600px; height:450px"></div>
           </div>
           <div class="col s8">
             <div class="row">
