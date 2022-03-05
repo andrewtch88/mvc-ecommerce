@@ -2,6 +2,7 @@
 require_once "class_autoloader.php";
 
 $util = new CommonUtil;
+$dbh = new Dbhandler;
 
 // This page handles admin forms only
 
@@ -107,7 +108,6 @@ if (isset($_GET['item_id']))
   $sql = "SELECT ItemID, Name, Brand, Description, Category, SellingPrice, QuantityInStock, Image
     FROM Items WHERE ItemID = $itemID";
 
-  $dbh = new Dbhandler;
   $result = $dbh->conn()->query($sql) or die ($dbh->conn()->error);
 
   list($item_id, $name, $brand, $description, $category, $sellingprice, $quantityinstock, $image)

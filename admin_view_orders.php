@@ -41,7 +41,7 @@
                 <h6 class="blue-text bold center">OrderID</h6>
               </div>
               <div class="grid" style="margin-right: 150px">
-                <h6 class="blue-text bold center">CartFlag</h6>
+                <h6 class="blue-text bold center">Payment Date</h6>
               </div>
             </div>
             <?php 

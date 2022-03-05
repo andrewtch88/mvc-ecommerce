@@ -26,7 +26,7 @@ class Admin extends Dbhandler{
           echo(
             "<tr>
               <td class='yellow-text'>$username</td>
-              <td class='left-align'>
+              <td class='center'>
                 <button name='inspect' value='$username' class='btn'>
                   <i class='material-icons'>search</i>
                 </button>
@@ -39,13 +39,15 @@ class Admin extends Dbhandler{
 
     if (!isset($searchMember) || $util->EmptyInputSelect($searchMember))
     {
-      $sql = "SELECT Username, PrivilegeLevel FROM Members ORDER BY MemberID DESC";
+      $sql = "SELECT Username, MemberID FROM Members ORDER BY MemberID DESC";
       $result = $this->conn()->query($sql) or die ($this->conn()->error);
       while ($row = mysqli_fetch_assoc($result) ) 
       { 
-        $username = $row["Username"]; 
+        $username = $row["Username"];
+        $memberID = $row["MemberID"];
         echo(
           "<tr>
+            <td class='blue-text'>$memberID</td>
             <td class='blue-text'>$username</td>
             <td class='left-align'>
               <button name='inspect' value='$username' class='btn'>
@@ -120,7 +122,7 @@ class Admin extends Dbhandler{
 
     if (!isset($searchProduct) || $emptyInput->EmptyInputSelect($searchProduct))
     {
-      $sql = "SELECT ItemID, Name, Brand, QuantityInStock FROM Items ORDER BY ItemID DESC";
+      $sql = "SELECT ItemID, Name, Brand, QuantityInStock FROM Items ORDER BY QuantityInStock";
       $result = $this->conn()->query($sql) or die ($this->conn()->error);
       while ($row = mysqli_fetch_assoc($result)) 
       {
@@ -128,12 +130,20 @@ class Admin extends Dbhandler{
         $name = $row["Name"];
         $brand = $row["Brand"];
         $quantityinstock = $row["QuantityInStock"];
+        
         echo(
           "<tr>
             <td class='blue-text'>$name</td>
             <td class='blue-text'>$brand</td>
-            <td class='blue-text'>$quantityinstock</td>
+            "
+        );
+        echo ("
+            <td class='center'>"); if ($quantityinstock < 10) echo("<p class='red-text bold'>$quantityinstock</p>");
+            else echo("<p class='green-text bold'>$quantityinstock</p>"); echo ("</td>");
+
+        echo ("
             <td>
+            
               <button name='inspect_product' value='$itemID' class='btn'>
                 <i class='material-icons'>search</i>
               </button>
@@ -193,16 +203,18 @@ class Admin extends Dbhandler{
         echo "<p class='prompt-warning'>Please enter a value!<p>";
       else
       {
-        $sql = "SELECT M.Username, M.Email, M.MemberID, O.* FROM Members M, Orders O 
-          WHERE (M.Username LIKE '%$searchMember%' OR M.Email LIKE '%$searchMember%') AND M.MemberID = O.MemberID ORDER BY O.OrderID DESC";
+        $sql = "SELECT M.*, O.*, P.* FROM Members M, Orders O, Payment P
+          WHERE (M.Username LIKE '%$searchMember%' OR M.Email LIKE '%$searchMember%') 
+          AND M.PrivilegeLevel = 0 AND P.OrderID = O.OrderID  AND M.MemberID = O.MemberID ORDER BY P.PaymentDate DESC";
+
         $result = $this->conn()->query($sql) or die ("Select statement FAILED!");
         while ($row = $result->fetch_assoc()) 
         {
+          $memberID = $row["MemberID"];
           $searchMember = $row["Username"];
           $email = $row["Email"];
-          $memberID = $row["MemberID"];
           $orderID = $row["OrderID"];
-          $cartFlag = $row["CartFlag"];
+          $paymentDate = $row["PaymentDate"];
           
           echo(
             "<table class='responsive-table' style='table-layout: fixed; width: 100%;' id='pagination'>
@@ -211,7 +223,7 @@ class Admin extends Dbhandler{
                 <td>$searchMember</td>
                 <td>$email</td>
                 <td>$orderID</td>
-                <td>$cartFlag</td>
+                <td>$paymentDate</td>
                 <td>
                   <form action='admin_view_orders.php' method='GET'>
                     <input type='hidden' name='username' value='$searchMember'/>

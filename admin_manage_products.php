@@ -18,7 +18,7 @@
     <div class="rounded-card-parent center" style="margin-bottom: 100px">
       <div class="card rounded-card">
         <div class="card-content black-text">
-          <span class="orange-text" style="font-size: 24px">Products List - Sorted by latest
+          <span class="orange-text" style="font-size: 24px">Products List - Sorted by quantity
           <th>
             <button class='deep-orange btn'><a href="admin_manage_products.php"><i class='material-icons white-text'>refresh</i></a>
             </button>
@@ -45,7 +45,7 @@
             <table class="responsive-table" id="pagination">
               <thead class="text-primary">
                 <tr>
-                  <th>Name</th><th>Brand</th><th>Quantity In Stock</th>
+                  <th>Name</th><th>Brand</th><th class='center'>Quantity In Stock</th>
                 </tr>
               </thead>
               <tbody>

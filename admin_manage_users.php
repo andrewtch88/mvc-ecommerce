@@ -50,6 +50,7 @@
             <table class="responsive-table center" id="pagination">
               <thead class="text-primary center">
                 <tr>
+                  <th>MemberID</th>
                   <th>Username</th>
                 </tr>
               </thead>
