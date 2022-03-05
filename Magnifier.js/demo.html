@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Magnifier.js demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="demo.css">
+<link rel="stylesheet" type="text/css" href="magnifier.css">
+
+</head>
+<body>
+    <a class="magnifier-thumb-wrapper demo">
+        <img id="thumb" style="height:300px;width: 300px;" src="../HotsTech/product_images/3080 pc.jpg"
+        data-large-img-url="../HotsTech/product_images/3080 pc.jpg"
+        data-large-img-wrapper="preview">
+    </a>
+    <div class="magnifier-preview example heading" id="preview" style="width: 400px; height:300px"></div>
+
+
+
+<script type="text/javascript" src="Event.js"></script>
+<script type="text/javascript" src="Magnifier.js"></script>
+<script>
+var evt = new Event(),
+    m = new Magnifier(evt, {
+        largeWrapper: document.getElementById('preview')
+    });
+
+m.attach({
+    thumb: '#thumb',
+    zoomable: true
+});
+
+</script>
+
+</body>
+</html>
