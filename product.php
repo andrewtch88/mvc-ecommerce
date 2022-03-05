@@ -157,10 +157,12 @@
                 onclick="addQty()">
                 <i class="material-icons">add</i>
               </button>
-              <?php 
-              if ($quantityInStock < 6) echo("<a class='red-text' style='margin-left: 10px'>$quantityInStock items left!</a>"); 
-              else echo("<a class='grey-text' style='margin-left: 10px'>$quantityInStock items left</a>");          
-              ?>
+              <div id="qtyHolder">
+                <?php 
+                  if ($quantityInStock < 6) echo("<a class='red-text' style='margin-left: 10px'>$quantityInStock items left!</a>"); 
+                  else echo("<a class='grey-text' style='margin-left: 10px'>$quantityInStock items left</a>");
+                ?>
+              </div>
             </div>
             <div class="row grid" style="margin-right: 10px">
               <button type="submit" class="btn waves-effect waves-light" onclick="return addToCart()">
@@ -177,4 +179,16 @@
   </div>
 </div>
 </body>
+<script>
+  $(document).ready(function(){
+    autoSyncQty();
+  });
+
+  function autoSyncQty(){
+    $('#qtyHolder').load(location.href + " #qtyHolder", function(){
+      setTimeout(autoSyncQty, 5000);
+    });
+  }
+</script>
+<?php include "footer.php"; ?>
 </html>

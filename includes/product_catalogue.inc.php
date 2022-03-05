@@ -42,13 +42,13 @@
       array_push($items, new Item($itemID));
     }
 
-    generateItemList($items, $view);
+    generateItemList($items);
   }
 
   /**
   * @param Item[] $items
   */
-  function generateItemList($items, $view){
+  function generateItemList($items){
     $itemCount = count($items);
 
     $itemIdx = 0;
