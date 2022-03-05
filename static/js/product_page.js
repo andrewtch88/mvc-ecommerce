@@ -18,7 +18,7 @@ function addQty()
 
 function subtractQty()
 {
-  QTY.value = QTY.value - 1;
+  QTY.value = value - 1;
   numberChanged();
 }
 

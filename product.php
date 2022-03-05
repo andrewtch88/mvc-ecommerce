@@ -63,8 +63,8 @@
             $sql = "UPDATE OrderItems SET Quantity = $cartQty";
             $conn->conn()->query($sql) or die($conn->conn()->error);
           }
-
-          header("location: product.php?item_id=$itemID");
+          
+          echo ("<script> location.replace('product.php?item_id=$itemID'); </script>");
           exit();
         }
       }
@@ -190,9 +190,9 @@
           for ($r=0; $r < $reviewCount; $r++)
           {
             $review = $reviews[$r];
-            $username = $review->GetUsername();
-            $feedback = $review->GetFeedback();
-            $rating = $review->GetRating();
+            $username = $review->getUsername();
+            $feedback = $review->getFeedback();
+            $rating = $review->getRating();
             echo(
               "<div class='ratings'>
                 <div class='empty-stars'></div>
@@ -212,16 +212,11 @@
   </div>
 </div>
 </body>
+
 <script>
   $(document).ready(function(){
-    autoSyncQty();
+    $("#qtyHolder").load(location.href+" #qtyHolder>*","");
   });
-
-  function autoSyncQty(){
-    $('#qtyHolder').load(location.href + " #qtyHolder", function(){
-      setTimeout(autoSyncQty, 5000);
-    });
-  }
 </script>
 
 <script src="static/js/product_page.js"></script>

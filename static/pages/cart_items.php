@@ -18,13 +18,6 @@
     $sql = "DELETE FROM OrderItems WHERE OrderItemID = $orderItemID";
     $conn = new Dbhandler();
     $conn->conn()->query($sql) or die($conn->conn()->error);
-
-    $itemID = $_GET["item_id"];
-    $quantity = $_GET["qty"];
-    $quantityInStock = $_GET["qty_stock"];
-    $quantityInStock = $quantityInStock + $quantity;
-    $sql = "UPDATE Items SET QuantityInStock = $quantityInStock WHERE ItemID = $itemID";
-    $conn->conn()->query($sql) or die($conn->conn()->error);
     header("location: cart.php?member_id=$memberID");
   }
 ?>
@@ -57,36 +50,19 @@
       ?>
     </ul>
   </div>
-  
+
   <div class="col s4">
     <div class="rounded-card-parent">
       <div class="card rounded-card tint-glass-cyan blurer">
         <span class="card-title bold">Cart Details</span>
-        <form action="checkout_payment.php" method="GET">
+        <form action="payment.php" method="GET">
           <table class="responsive-table">
             <tbody>
               <?php
                 echo("<tr><th>Total Items:</th><td>$cartItemCount</td></tr>");
                 echo("<tr><th>Delivery Charges:</th><td>RM10.00</td></tr>");
                 echo("<tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>");
-                echo("<tr><th>Enter voucher code:</th>
-                  <td>
-                    <form id='form-filter' method='GET'>
-                      <ul id='filter_dropdown' class='dropdown-content black'>
-                        <li><a class='cyan-text page-title' onclick='select_category(this)'>Clear</a></li>
-                        <li><a class='cyan-text page-title' onclick='select_category(this)'>PC Packages</a></li>
-                        <li><a class='cyan-text page-title' onclick='select_category(this)'>Monitor & Audio</a></li>
-                        <li><a class='cyan-text page-title' onclick='select_category(this)'>Peripherals</a></li>
-                      </ul>
-                      <a class='btn dropdown-trigger cyan' data-target='filter_dropdown' style='margin-top: 5px;'>
-                        <?php
-                          if (!= -1) echo(CATEGORY_NAMES[]);
-                          else echo('Select Voucher');
-                        ?>
-                        <i class='material-icons right'>arrow_drop_down</i>
-                      </a>
-                    </form>
-                  </td></tr>");
+                
               ?>
             </tbody>
           </table>
@@ -103,3 +79,4 @@
     </div>
   </div>
 </div>
+
