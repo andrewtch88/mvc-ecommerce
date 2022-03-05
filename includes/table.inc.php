@@ -3,10 +3,12 @@
 require_once "class_autoloader.php";
 $dbh = new Dbhandler();
 
+// Admin manage orders (autosync table only)
 // if searchMember is not set or searchMember is empty
+// only non admin users payment is shown
 
-$sql = "SELECT M.Username, M.Email, M.MemberID, O.* FROM Members M, Orders O 
-  WHERE M.MemberID = O.MemberID AND O.CartFlag = 1 ORDER BY O.OrderID DESC";
+$sql = "SELECT M.*, O.*, P.* FROM Members M, Orders O, Payment P
+  WHERE M.PrivilegeLevel = 0 AND P.OrderID = O.OrderID  AND M.MemberID = O.MemberID ORDER BY P.PaymentDate DESC";
 $result = $dbh->conn()->query($sql) or die($dbh->conn()->error);
 while ($row = $result->fetch_assoc()) 
 {
@@ -14,7 +16,7 @@ while ($row = $result->fetch_assoc())
   $searchMember = $row["Username"];
   $email = $row["Email"];
   $orderID = $row["OrderID"];
-  $cartFlag = $row["CartFlag"];
+  $paymentDate = $row["PaymentDate"];
     
     echo(
     "
@@ -23,8 +25,9 @@ while ($row = $result->fetch_assoc())
         <tr>
           <td>$searchMember</td>
           <td>$email</td>
-          <td style='margin-left: 100px'>$orderID</td>
-          <td>$cartFlag</td>
+          <td>$orderID</td>
+          <td>$paymentDate</td>
+          <td
           <td>
             <form action='admin_view_orders.php' method='GET'>
               <input type='hidden' name='username' value='$searchMember'/>

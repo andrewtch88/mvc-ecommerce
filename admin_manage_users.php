@@ -20,7 +20,7 @@
       <div class="card rounded-card">
         <div class="card-content white-text">
           <span class="card-title orange-text bold">Users List - Sorted by latest 
-            <button class='deep-orange btn'><a href="location.reload();"><i class='material-icons white-text'>refresh</i></a>
+            <button class='deep-orange btn'><a href="admin_manage_users.php"><i class='material-icons white-text'>refresh</i></a>
             </button>
           </span>
 
@@ -50,6 +50,7 @@
             <table class="responsive-table center" id="pagination">
               <thead class="text-primary center">
                 <tr>
+                  <th>MemberID</th>
                   <th>Username</th>
                 </tr>
               </thead>

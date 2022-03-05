@@ -1,5 +1,5 @@
 <!DOCTYPE  HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-            "http://www.w3.org/TR/html4/strict.dtd">
+  "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -65,8 +65,8 @@
             $sql = "UPDATE OrderItems SET Quantity = $cartQty";
             $conn->conn()->query($sql) or die($conn->conn()->error);
           }
-
-          header("location: product.php?item_id=$itemID");
+        
+          echo ("<script> location.replace('product.php?item_id=$itemID'); </script>");
           exit();
         }
       }
@@ -163,10 +163,12 @@
                 onclick="addQty()">
                 <i class="material-icons">add</i>
               </button>
-              <?php 
-              if ($quantityInStock < 6) echo("<a class='red-text' style='margin-left: 10px'>$quantityInStock items left!</a>"); 
-              else echo("<a class='grey-text' style='margin-left: 10px'>$quantityInStock items left</a>");          
-              ?>
+              <div id="qtyHolder">
+                <?php 
+                  if ($quantityInStock < 6) echo("<a class='red-text' style='margin-left: 10px'>$quantityInStock items left!</a>"); 
+                  else echo("<a class='grey-text' style='margin-left: 10px'>$quantityInStock items left</a>");
+                ?>
+              </div>
             </div>
             <div class="row grid" style="margin-right: 10px">
               <button type="submit" class="btn waves-effect waves-light" onclick="return addToCart()">
@@ -181,21 +183,61 @@
       </form>
     </div>
   </div>
-</div>
 
-<script type="text/javascript" src="../HotsTech/static/js/Event.js"></script>
-<script type="text/javascript" src="../HotsTech/static/js/Magnifier.js"></script>
+  <div class="rounded-card-parent" style="margin-top: 50px;">
+    <div class="card rounded-card">
+      <h4 class="white-text" style="margin-bottom: 40px;">Reviews</h4>
+
+      <?php
+        if ($hasReviews)
+        {
+          $reviews = $item->GetReviews();
+          $reviewCount = count($reviews);
+          for ($r=0; $r < $reviewCount; $r++)
+          {
+            $review = $reviews[$r];
+            $username = $review->getUsername();
+            $feedback = $review->getFeedback();
+            $rating = $review->getRating();
+            echo(
+              "<div class='ratings'>
+                <div class='empty-stars'></div>
+                <div class='full-stars' style='width: $rating%'></div>
+              </div>
+              <div class=input-field row'>
+              <i class='material-icons prefix cyan-text'>account_circle</i>
+              <textarea id='icon_prefix2' disabled type='text'
+                class='white-text materialize-textarea'>$feedback</textarea>
+              <label for='icon_prefix2' class='white-text'>$username</label>
+              </div>"
+            );
+          }
+        } else echo("<h6 class='grey-text'>There are no reviews yet... Be the first to leave a review!</h6>")
+      ?>
+    </div>
+  </div>
+</div>
+</body>
+
 <script>
-var evt = new Event(),
+  $(document).ready(function(){
+    $("#qtyHolder").load(location.href+" #qtyHolder>*","");
+    
+    var evt = new Event(),
     m = new Magnifier(evt, {
         largeWrapper: document.getElementById('preview')
     });
 
-m.attach({
-    thumb: '#thumb',
-    zoomable: true
-});
-
+    m.attach({
+        thumb: '#thumb',
+        zoomable: true
+    });
+  });
 </script>
-</body>
+
+<script src="static/js/product_page.js"></script>
+<script type="text/javascript" src="../HotsTech/static/js/Event.js"></script>
+<script type="text/javascript" src="../HotsTech/static/js/Magnifier.js"></script>
+
+<?php include "footer.php"; ?>
 </html>

@@ -2611,7 +2611,7 @@ ul:not(.browser-default) > li {
 a {
   color: #039be5;
   text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: black;
 }
 
 .valign-wrapper {
@@ -4353,7 +4353,6 @@ nav i.material-icons {
 }
 
 nav .nav-wrapper {
-  position: relative;
   height: 100%;
 }
 
@@ -5673,7 +5672,6 @@ button.btn-floating {
   opacity: 0;
   position: absolute;
   left: 0;
-  top: 0;
   z-index: 9999;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
@@ -5695,7 +5693,8 @@ button.btn-floating {
 
 .dropdown-content li:hover,
 .dropdown-content li.active {
-  background-color: #eee;
+  background-color: black;
+  fill: black;
 }
 
 .dropdown-content li:focus {
@@ -7435,7 +7434,7 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
 }
 
 .select-dropdown.dropdown-content li:hover {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: black;
 }
 
 .select-dropdown.dropdown-content li.selected {

@@ -5,11 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="./static/materialize/js/materialize.min.js"></script>
   <script type="text/javascript" src="static/js/pagination.js"></script>
   <link rel="stylesheet" href="./static/css/base.css">
+  <link rel="icon" type="image/png" style="border-radius: 50%;" href="./static/logoicon.png">
 </head>
 
 <?php
@@ -37,15 +38,15 @@
       <a href="index.php"><img src = "./static/logo.svg" alt="logo" id="logo" class="brand-logo glow-image" height="100"/></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="black" id="search-bar">
-          <form action="search_catalogue.php">
+          <form action="product_catalogue.php">
             <div class="white-text row" style="padding-left: 20px;">
-              <input type="text" name="search_name" placeholder="Search for..."
+              <input type="text" name="query" placeholder="Browse products..."
                 class="input-field white-text col s10 autocomplete" id="autocomplete-input"
-                value="<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>"
-                style="font-size: 14px"
+                value="<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>"
+                style="font-size: 14px; z-index: 5050;"
               />
-              <button name='inspect' value='<?php if (isset($_GET["search_name"])) echo($_GET["search_name"]); ?>' 
-                class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
+              <button value='<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>' 
+                class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px">
                 <i class='material-icons'>search</i>
               </button>
             </div>
@@ -68,7 +69,8 @@
           } else
           {
             echo(
-              "<li><a class='login' href='login.php'>Login</a></li>
+              "
+              <li><a class='login' href='login.php'>Login</a></li>
               <li><a class='signup' href='signup.php'>Sign Up</a></li>
             ");
           }
@@ -79,19 +81,31 @@
 </div>
 
 <script>
+  // auto generate recommended search results based on letter given
   $(document).ready(function(){
     $('input.autocomplete').autocomplete({
       data: {
-        "Headset": "static/images/audio.png",
-        "Keyboard": 'static/images/category_2.gif',
-        "Mouse": "static/images/mouse.png",
-        "Monitor": "static/images/monitor.jpg",
-        "PC": 'static/images/category_1.gif',
-        "Speaker": "static/images/speaker.jpg"
-      },
+        'Acer': 'static/images/acer.png',
+        'Asus': 'static/images/asus.jpg',
+        'Corsair': 'static/images/corsair.png',
+        'Headset': 'static/images/audio.png',
+        'HyperX': 'static/images/hyperx.jpg',
+        'Keyboard': 'static/images/category_2.gif',
+        'Logitech': 'static/images/logitech.png',
+        'Mouse': 'static/images/mouse.png',
+        'Monitor': 'static/images/monitor.jpg',
+        'MSI': 'static/images/msi.png',
+        'PC': 'static/images/category_1.gif',
+        'Razer': 'static/images/razer.png',
+        'Speaker': 'static/images/speaker.jpg',
+        'Steelseries': 'product_images/steelseries l.png',
+        'Viewsonic': 'static/images/viewsonic.jpeg'
+      }
     });
   });
+</script>
 
+<script>
   // underline current page
   var path = window.location.pathname;
   var page = path.split("/").pop().split(".")[0];

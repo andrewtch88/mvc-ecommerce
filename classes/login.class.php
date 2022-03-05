@@ -33,7 +33,6 @@ class Login extends CommonUtil{
           $updateAttempt = "UPDATE Members SET Attempt = 3 WHERE Username = '$username'";
           $this->conn()->query($updateAttempt) or die("<p>*Unknown Error!</p>");
           $this->conn()->close();
-          exit();
         }
       }
     }

@@ -4,6 +4,33 @@
 @import url(cards.css);
 @import url(roundedCards.css);
 @import url(logo.css);
+@import url(rating.css);
+@import url(contact_form.css);
+
+#rgb_hover:hover {
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 5s infinite linear;
+  text-shadow: 0px 0px 8px orange;
+}
+
+.dropdown-content.row {
+  overflow: visible;
+  width: 60%;
+  height: auto;
+}
+.vertical-tab-target {
+  display: none;
+}
+.vertical-tabs {
+  border-left: #2196f3;
+  border-width: 2px;
+  padding: 0 !important;
+}
+.vertical-tabs li a {
+  color: black !important;
+}
 
 .unglow {
   -webkit-text-fill-color: white;
@@ -60,7 +87,8 @@ body {
   color: white;
   font-weight: bold;
   pointer-events: none;
-  box-shadow: 2px 2px 20px cyan;
+  box-shadow: 2px 2px 10px white;
+  text-decoration: underline;
 }
 
 #bordershadow {
@@ -84,44 +112,4 @@ body {
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
-<<<<<<< Updated upstream
- ;
-=======
-}
-
-#map {
-  height: 500px;
-  width: 100%;
-  padding: 20px;
-}
-
-#contactdetailscontainer{
-  height: 500px;
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.contactdetails{
-  height: 100px;
-  width:100%;
-  align-content: center;
-  align-items: center;
-  padding: 5px;
-  display:flex;
-  margin:10px;
-}
-
-.iconcontainer{
-  height:100px;
-  width:100px;
-  border-radius: 50%;
-  background-color:red;
-  padding:15px;
-  text-align: center;
-  color: white;
->>>>>>> Stashed changes
 }
