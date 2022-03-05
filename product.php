@@ -156,7 +156,7 @@
               </button>
 
               <input id="qty" class="white-text" type="number" disabled
-                style="padding: 10px; width: 3%;" value=0></input>
+                style="padding: 10px; width: 5%;" value=0></input>
               <input id="sync-qty" name="qty" class="white-text" type="hidden" value=0></input>
 
               <button type="button" class="btn-small waves-effect waves-light green"
