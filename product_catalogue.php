@@ -97,7 +97,7 @@
       <div class="col s9" style="margin-bottom: 80px">
         <!-- item list start -->
         <?php
-          searchItems($category, $brand, $sort, $view);
+          searchItems($category, $brand, $sort);
         ?>
       </div>
     </div>

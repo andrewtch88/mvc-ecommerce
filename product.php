@@ -177,6 +177,39 @@
       </form>
     </div>
   </div>
+
+  <div class="rounded-card-parent" style="margin-top: 50px;">
+    <div class="card rounded-card">
+      <h4 class="white-text" style="margin-bottom: 40px;">Reviews</h4>
+
+      <?php
+        if ($hasReviews)
+        {
+          $reviews = $item->GetReviews();
+          $reviewCount = count($reviews);
+          for ($r=0; $r < $reviewCount; $r++)
+          {
+            $review = $reviews[$r];
+            $username = $review->GetUsername();
+            $feedback = $review->GetFeedback();
+            $rating = $review->GetRating();
+            echo(
+              "<div class='ratings'>
+                <div class='empty-stars'></div>
+                <div class='full-stars' style='width: $rating%'></div>
+              </div>
+              <div class=input-field row'>
+              <i class='material-icons prefix cyan-text'>account_circle</i>
+              <textarea id='icon_prefix2' disabled type='text'
+                class='white-text materialize-textarea'>$feedback</textarea>
+              <label for='icon_prefix2' class='white-text'>$username</label>
+              </div>"
+            );
+          }
+        } else echo("<h6 class='grey-text'>There are no reviews yet... Be the first to leave a review!</h6>")
+      ?>
+    </div>
+  </div>
 </div>
 </body>
 <script>
@@ -190,5 +223,8 @@
     });
   }
 </script>
+
+<script src="static/js/product_page.js"></script>
+
 <?php include "footer.php"; ?>
 </html>

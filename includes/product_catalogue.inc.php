@@ -6,7 +6,7 @@
   const SORT_NAMES = ["Price low to high", "Price high to low"];
   const VIEW_NAMES = ["List"];
 
-  function searchItems($category, $brand, $sort, $view){
+  function searchItems($category, $brand, $sort){
     $searchName = "";
     if (isset($_GET["query"])) $searchName = $_GET["query"];
 
@@ -72,31 +72,55 @@
         $brand = $item->getBrand();
         $price = $item->getSellingPrice();
         $price = "RM" . number_format($price, 2);
-        $avgRating = $item->getAvgRatings();
+
+        $hasReviews = $item->HasReviews();
+        $avgRatings = $item->getAvgRatings();
 
         echo(
           "
           <div class='col s3'>
             <a href='product.php?item_id=$itemID'>
               <div class='selectable-card' style='height: 480px; min-width: 300px'>
-                <img class='shadow-img center' src='product_images/$image' style='max-height: 200px; max-width: 300px; display: block; margin: 0 auto;'>
-                <p class='center bold white-text'>$name</p>
+                <img class='shadow-img center' src='product_images/$image' style='height: 300px; max-width: 300px; display: block; margin: 0 auto; object-fit:scale-down;'>
+                <h6 class='center bold white-text'>$name</h6>
                 <table class='center'>
                   <tbody class='center'>
-                    <tr><th>Brand: </th><td>$brand</td></tr>
-                    <tr><th>Price: </th><td>$price</td></tr>
-                    <tr>
-                      <th>Avg Rating: </th>
-                      <td>
-                        $avgRating/5
-                      </td>
-                    <tr>
+                    <h6 class='amber-text' style='padding-top: 60px'>$price</h6>
+                    <tr>");
+
+                    if ($hasReviews)
+                    {
+                      $intRating = $avgRatings * 5 / 100;
+                      echo(
+                        "$intRating.0
+                        <div class='ratings'>
+                          <div class='empty-stars'></div>
+                          <div class='full-stars' style='width: $avgRatings%'></div>
+                        </div>"
+                      );
+                    } else echo("- |");
+
+                    if ($hasReviews)
+                    {
+                      $reviews = $item->GetReviews();
+                      $reviewCount = count($reviews);
+                      echo(
+                        " | $reviewCount Ratings |"
+                      );
+                    } else echo(" 0 Ratings |");
+
+                    if ($item->checkSoldCount()){
+                      echo($item->checkSoldCount());
+                      echo(" Sold");
+                    }
+                    else echo(" 0 Sold");
+
+                  echo("</tr>
                   </tbody>
                 </table>
               </div>
             </a>
-          </div>"
-        );
+          </div>");
       }
       // closing div tag
       echo("</div>");
