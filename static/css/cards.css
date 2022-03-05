@@ -23,11 +23,24 @@
   background-color: rgba(0, 170, 200, 0.5);
 }
 
+/* cart cards */
 .collapsible-card {
   color: white;
   background-color: rgba(0, 52, 63, 0.8);
   backdrop-filter: blur(20px);
 }
+
 .collapsible-card:hover {
   box-shadow: black 4px 4px 20px 2px;
+}
+
+/* cart titles */
+.title-card {
+  color: white;
+  padding: 20px;
+  background-color: rgba(56, 56, 56, 0.7);
+  border-radius: 20px;
+  box-shadow: black 4px 4px 8px 2px;
+  backdrop-filter: blur(15px);
+  transition: 0.2s cubic-bezier(0.8, 0, 0.2, 1);
 }

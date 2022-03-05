@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2022 at 09:30 AM
+-- Generation Time: Mar 03, 2022 at 05:32 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -43,11 +43,15 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `SellingPrice`, `QuantityInStock`, `Image`) VALUES
+(3, 'RTX 3070 PC - Best price to performance PC', 'Mixed', 'CPU: INTEL CORE i5-10400F Cooler: CRYORIG H7 QUAD LUMI MOBO: ASUS TUF Gaming B460-PRO WIFI RAM: G.SKILL TRIDENT Z ROYAL 2X8GB CL18 DDR4 3600MHZ GPU: EVGA GeForce RTX 3070 XC3 ULTRAGAMING 8GB GDDR6 PSU: GIGABYTE P650B 80+ BRONZE NON-MODULAR Case: ANTEC NX410 BLACK SSD: CORSAIR Force Series MP510 480GB M.2 NVMe HDD: Western Digital WD BLUE 1TB SATA Monitor: ACER NITRO XV0-NITRO XV240Y FREE Lamptron Flexlight Multi Programmable ARGB LED Strip', 0, 6950, 20, '3070 pc.jpg'),
+(4, 'OGTECH RTX 3060TI PC ', 'Mixed', 'CPU: INTEL i5-10400F MOBO: GIGABYE B450M DS3H V2 RAM: G.SKILL AEGIS Series 8GB DDR4 3200MHz x2 GPU: GIGABYTE GeForce RTX 3060TI EAGLE OC 8G DDR6 PSU: ANTEC NE550C V2 80+ BRONZE CASE: ANTEC NX410 BLACK SSD: GIGABYTE 1TB SATA WIFI: ASUS PCE-AX3000 WIFI6 PCIE FREE Lamptron Flexlight Multi Programmable ARGB LED Strip', 0, 5991, 5, '3060 ti pc.jpg'),
+(5, 'Nvidia Geforce RTX 3080 PC King Value', 'Mixed', 'CPU: AMD RYZEN 7 3700X Cooler: CRYORIG H7 MOBO: GIGABYTE B450 AORUS PRO WIFI RAM: G.SKILL TRIDENT Z NEO 2X8GB CL16 DDR4 3200MHZ GPU: GIGABYTE GeForce RTX 3080 GAMING OC 10GB GDDR6X PSU: ANTEC HCG Gold Series 850W 80+ GOLD FULLY MODULAR Case: ANTEC DF700 FLUX SSD: CORSAIR Force Series MP510 480GB M.2 NVMe FREE Cablemod Premium Sleeved Cables FREE Lamptron Flexlight Multi Programmable ARGB LED Strip', 0, 8668, 5, '3080 pc.jpg'),
+(6, 'OGTech Best Value AMD RTX™ 3060 PC w 16GB Ram', 'Mixed', 'Graphic Card : GIGABYTE GeForce RTX™ 3060 12GB EAGLE OC Processor : AMD Ryzen 5 3600 Motherboard : MSI B450M-A Pro Max RAM : GSKILL AEGIS DDR4 3200Mhz  (2 x8gb) SSD: GIGABYTE NVMe SSD 256GB Power Supply :ANTEC CSK550 Bronze Casing : ANTEC NX410 Black or White', 0, 4599, 15, 'pc-rtx3060.jpg'),
 (7, 'OGTECH STREAMER PC NVIDIA GTX1660 SUPER w 32GB RAM', 'Mixed', 'CPU: INTEL i5 10400F MOBO: GIGABYTE B460M DS3H AC RAM: G.SKILL TridentZ RGB 2x16GB DDR4 3200MHz GPU: GIGABYTE GeForce GTX1660 SUPER WF OC PSU: ANTEC CSK550 GB 80+ BRONZE CASE: ZALMAN K1 ATX RGB CASE SSD: XPG SX8200 PRO M.2 1TB SSD HDD: WESTERN DIGITAL 2TB CAVIAR BLUE', 0, 3899, 5, 'RM4761_SE580E-scaled.jpg'),
 (8, 'Asus VG258QR (24.5\")', 'Asus', 'Panel size 24.5″. IPS Panel. Non-glare display surface. 16:9 aspect ratio. 1920 x 1080 resolution. Refresh rate 165hz, 0.5ms reponse time. Anti-Flicker.', 1, 888, 5, 'asus_monitor.jpg'),
 (9, 'OGTECH GEFORCE ESPORTS PC GTX1050Ti', 'Mixed', 'Processor : INTEL  Core I3-10105F Graphic Card : AFOX GEFORCE GTX1050TI 4GB Motherboard :GIGABYTE B460M DS3H V2 RAM : GSKILL AEGIS DDR4 3200Mhz (1 x8gb) SSD: GIGABYTE NVMe SSD 256GB Power Supply: ANTEC CSK550 Bronze Casing : ANTEC DP301M (x2 fans included)', 0, 2399, 5, 'pc-1050ti.png'),
 (10, 'OGTech Entry RTX™ PC NVIDIA® GeForce RTX™ 3050', 'Mixed', 'Graphic Card :Nvidia Geforce RTX™ 3050 8GB Processor : INTEL Core I3-10105F Motherboard : GIGABYTE B460M DS3H V2 RAM : GSKILL AEGIS 8GB DDR4 3200Mhz SSD: GIGABYTE NVMe SSD 256GB Power Supply :ANTEC CSK550 Bronze Casing : ANTEC NX270 RGB', 0, 3299, 10, 'pc-rtx3050.jpg'),
-(11, 'OGTech Best Value AMD RTX™ 3060 PC w 16GB Ram', 'Mixed', 'Graphic Card : GIGABYTE GeForce RTX™ 3060 12GB EAGLE OC Processor : AMD Ryzen 5 3600 Motherboard : MSI B450M-A Pro Max RAM : GSKILL AEGIS DDR4 3200Mhz  (2 x8gb) SSD: GIGABYTE NVMe SSD 256GB Power Supply :ANTEC CSK550 Bronze Casing : ANTEC NX410 Black or White', 0, 4599, 15, 'pc-rtx3060.jpg'),
+(11, 'Viewsonic XG2401 (24\')', 'Viewsonic', '1ms response time. AMD FreeSync™ technology. SmartSync technology. Black stabilisation. 144Hz Refresh Rate', 1, 799.99, 10, 'view monitor.png'),
 (12, 'ACER Predator Aethon 500 keyboard', 'Acer', 'Blue switch mechanical keys.  70 million keystroke-rated. Rgb controlled software. ', 2, 399, 2, 'acer keyboard.png'),
 (13, 'ACER basic speakers', 'Acer', 'Sufficient for daily use. Stylish design. ', 1, 39.99, 5, 'acer speaker.jpg'),
 (14, 'ASUS ROG Strix Magnus Mic @ Studio grade mic', 'Asus', 'ROG Strix Magnus USB condenser gaming microphone with AURA RGB lighting and environmental noise cancellation (ENC) for gaming/streaming  Three studio-grade condenser capsules for enhanced clarity and sensitivity Designed for live streamers with compact form factor and environmental noise cancellation (ENC) Stylish and customizable Aura RGB lighting effects Auxiliary port for recording audio from musical instruments and mobile devices Comes with external USB hub for connecting additional devices', 2, 699, 2, 'asus mic.jpg'),
@@ -67,7 +71,6 @@ INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `Sell
 (28, 'RAZER RAPTOR 27 1440P 165 HZ', 'Razer', 'VESA COMPATIBLE and cable management. WORLD’S FIRST THX® CERTIFIED GAMING MONITOR. 165HZ HIGH SPEED. QHD HIGH RESOLUTION. Gsync and Freesync compatible. ', 1, 3199.99, 2, 'razer monitor.jpg'),
 (29, 'RAZER BASILISK V3', 'Razer', 'PERFECTING SCROLLING. FULL SPECTRUM CUSTOMIZABILITY. 10+1 PROGRAMMABLE BUTTONS. Profile switching. ', 2, 259, 5, 'razer mouse.jfif'),
 (30, 'RAZER Nommo Pro', 'Razer', 'SOLID, UNRESTRICTED BASS. THX CERTIFIED PREMIUM AUDIO. Top notch Studio grade quality audio. POWERFUL CINEMATIC IMMERSION dolby audio certified.', 1, 3098, 2, 'razer speaker.jfif'),
-(31, 'Viewsonic XG2401 (24\')', 'Viewsonic', '1ms response time. AMD FreeSync™ technology. SmartSync technology. Black stabilisation. 144Hz Refresh Rate', 1, 799.99, 10, 'view monitor.png'),
 (32, 'Viewsonic Elite XG350R-C 35” Curved ', 'Viewsonic', '100Hz refresh rate. ClearMotion backlight strobing technology. 3440 X 1440 Ultra Wide QHD resolution. ELITE RGB Alliance. Adaptive Sync & AMD FreeSync™ technology. ', 1, 2077, 5, 'viewsonic monitor.png'),
 (33, 'Logitech G102 RGB mouse', 'Logitech', '8,000 DPI. LIGHTSYNC RGB featuring color wave effects customizable across ~16.8 million colors.', 2, 79, 30, 'logi mouse.jpg'),
 (34, 'LOGITECH G502 Gaming Mouse', 'Logitech', 'The best selling mouse in the world, featuring customizable weight. 5 programmable buttons with rgb logo. Durable materials and comfortable engineered grip. 70 millions clicks life span.', 2, 159, 50, 'g502.jpg'),
@@ -75,10 +78,7 @@ INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `Sell
 (36, 'Acer Aopen 24CV1Y Monitor (23.8\")', 'Acer', 'Full HD, VA Panel, 5ms(GTG) Respond Time, 75Hz Refresh Rate', 1, 499, 30, 'acer budget monitor.jfif'),
 (37, 'Steelseries QCK EDGE L - 450mm x 400mm x 2mm ', 'Steelseries', 'One of the best selling Cloth Gaming Mouse Pad in the world. Extremely smooth yet durable.', 2, 75, 30, 'steelseries l.png'),
 (38, 'Steelseries QCK EDGE - XL 900mm x 300mm x 2mm', 'Steelseries', 'One of the best selling mouse mat in the world. Made from premium woven and rubber. Anti slip back and smooth surface.', 2, 119, 50, 'steelseries xl.jfif'),
-(39, 'Nvidia Geforce RTX 3080 PC King Value', 'Mixed', 'CPU: AMD RYZEN 7 3700X Cooler: CRYORIG H7 MOBO: GIGABYTE B450 AORUS PRO WIFI RAM: G.SKILL TRIDENT Z NEO 2X8GB CL16 DDR4 3200MHZ GPU: GIGABYTE GeForce RTX 3080 GAMING OC 10GB GDDR6X PSU: ANTEC HCG Gold Series 850W 80+ GOLD FULLY MODULAR Case: ANTEC DF700 FLUX SSD: CORSAIR Force Series MP510 480GB M.2 NVMe FREE Cablemod Premium Sleeved Cables FREE Lamptron Flexlight Multi Programmable ARGB LED Strip', 0, 8668, 5, '3080 pc.jpg'),
-(40, 'RTX 3070 PC - Best price to performance PC', 'Mixed', 'CPU: INTEL CORE i5-10400F Cooler: CRYORIG H7 QUAD LUMI MOBO: ASUS TUF Gaming B460-PRO WIFI RAM: G.SKILL TRIDENT Z ROYAL 2X8GB CL18 DDR4 3600MHZ GPU: EVGA GeForce RTX 3070 XC3 ULTRAGAMING 8GB GDDR6 PSU: GIGABYTE P650B 80+ BRONZE NON-MODULAR Case: ANTEC NX410 BLACK SSD: CORSAIR Force Series MP510 480GB M.2 NVMe HDD: Western Digital WD BLUE 1TB SATA Monitor: ACER NITRO XV0-NITRO XV240Y FREE Lamptron Flexlight Multi Programmable ARGB LED Strip', 0, 6950, 20, '3070 pc.jpg'),
-(41, 'OGTECH OFFICE PC COMPACT', 'Mixed', 'Processor : AMD Ryzen 5 PRO 4650G Motherboard : ASROCK B550M ITX/AC (Wifi) RAM : GSKILL AEGIS DDR4 3200Mhz (1 x8gb) SSD: GIGABYTE NVMe SSD 256GB Casing : ANTEC ISK310-150 Mini-ITX CASE with psu', 0, 2099, 10, 'compact pc.png'),
-(42, 'OGTECH RTX 3060TI PC ', 'Mixed', 'CPU: INTEL i5-10400F MOBO: GIGABYE B450M DS3H V2 RAM: G.SKILL AEGIS Series 8GB DDR4 3200MHz x2 GPU: GIGABYTE GeForce RTX 3060TI EAGLE OC 8G DDR6 PSU: ANTEC NE550C V2 80+ BRONZE CASE: ANTEC NX410 BLACK SSD: GIGABYTE 1TB SATA WIFI: ASUS PCE-AX3000 WIFI6 PCIE FREE Lamptron Flexlight Multi Programmable ARGB LED Strip', 0, 5991, 5, '3060 ti pc.jpg');
+(39, 'OGTECH OFFICE PC COMPACT', 'Mixed', 'Processor : AMD Ryzen 5 PRO 4650G Motherboard : ASROCK B550M ITX/AC (Wifi) RAM : GSKILL AEGIS DDR4 3200Mhz (1 x8gb) SSD: GIGABYTE NVMe SSD 256GB Casing : ANTEC ISK310-150 Mini-ITX CASE with psu', 0, 2099, 10, 'compact pc.png');
 
 -- --------------------------------------------------------
 
@@ -214,7 +214,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `members`

@@ -22,9 +22,9 @@ class CommonUtil extends Dbhandler{
     $stmt->close();
   }
 
-  public function uidExists($username, $email) {
-    $sql = "SELECT Username FROM Members WHERE Username = ? 
-      OR Email = ?;";
+  public function uidExists($loginName) {
+    $sql = "SELECT * FROM Members WHERE Username = ? 
+      OR Email = ?";
     $stmt = $this->conn()->stmt_init();
 
     if (!$stmt->prepare($sql))
@@ -33,7 +33,7 @@ class CommonUtil extends Dbhandler{
       exit();
     }
 
-    $stmt->bind_param("ss", $username, $email);
+    $stmt->bind_param("ss", $loginName, $loginName);
     $stmt->execute();
     
     $result = $stmt->get_result();

@@ -42,11 +42,14 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field white-text">
-              <i class="material-icons prefix">description</i>
-              <input name="description" id="description" type="text" class="validate white-text" minlength="5"
-                value="<?php echo $description;?>">
-              <label for="description" class="white-text">Description</label>
+            <div class="row">
+              <div class="input-field white-text col s12">
+                <i class="material-icons prefix">description</i>
+                <textarea name="description" id="description" class="materialize-textarea white-text" minlength="5">
+                  <?php echo $description;?>
+                </textarea>
+                <label for="description" class="white-text">Description</label>
+              </div>
             </div>
           </div>
         </div>

@@ -18,13 +18,6 @@
     $sql = "DELETE FROM OrderItems WHERE OrderItemID = $orderItemID";
     $conn = new Dbhandler();
     $conn->conn()->query($sql) or die($conn->conn()->error);
-
-    $itemID = $_GET["item_id"];
-    $quantity = $_GET["qty"];
-    $quantityInStock = $_GET["qty_stock"];
-    $quantityInStock = $quantityInStock + $quantity;
-    $sql = "UPDATE Items SET QuantityInStock = $quantityInStock WHERE ItemID = $itemID";
-    $conn->conn()->query($sql) or die($conn->conn()->error);
     header("location: cart.php?member_id=$memberID");
   }
 ?>
@@ -38,20 +31,18 @@
         if (isset($cartItems))
         {
           if ($cartItemCount <= 0) 
-          echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5><h6 class='grey-text page-title'>
-            <a href='product_catalogue.php?query='>Shop Now!</a></h6>");
+            echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5><h6 class='grey-text page-title'>
+              <a href='product_catalogue.php?query='>Shop Now!</a></h6>");
 
           $sumTotal = 0;
           for ($c=0; $c < $cartItemCount; $c++)
           {
             $orderItem = $cartItems[$c];
-            $dbh = new Dbhandler();
-            $Dbh = $dbh->conn();
-            $item = new Item($orderItem->GetItemID(), $Dbh);
-            GenerateItem($item, $orderItem, $memberID);
+            $item = new Item($orderItem->getItemID());
+            generateItem($item, $orderItem, $memberID);
 
-            $quantity = $orderItem->GetQuantity();
-            $price = $orderItem->GetPrice();
+            $quantity = $orderItem->getQuantity();
+            $price = $orderItem->getPrice();
             $sumTotal = $sumTotal + $price * $quantity;
           }
           $sumTotal = number_format($sumTotal+10, 2);
@@ -64,14 +55,14 @@
     <div class="rounded-card-parent">
       <div class="card rounded-card tint-glass-cyan blurer">
         <span class="card-title bold">Cart Details</span>
-        <form action="checkout_payment.php" method="GET">
+        <form action="payment.php" method="GET">
           <table class="responsive-table">
             <tbody>
               <?php
                 echo("<tr><th>Total Items:</th><td>$cartItemCount</td></tr>");
                 echo("<tr><th>Delivery Charges:</th><td>RM10.00</td></tr>");
                 echo("<tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>");
-                echo("<tr><th>Status: </th><td>Pending Checkout</td></tr>");
+                
               ?>
             </tbody>
           </table>
@@ -88,3 +79,4 @@
     </div>
   </div>
 </div>
+

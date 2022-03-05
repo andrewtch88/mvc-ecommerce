@@ -43,10 +43,10 @@
               <input type="text" name="query" placeholder="Browse products..."
                 class="input-field white-text col s10 autocomplete" id="autocomplete-input"
                 value="<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>"
-                style="font-size: 14px; z-index: 5050;" href="search-catalogue.php"
+                style="font-size: 14px; z-index: 5050;"
               />
               <button value='<?php if (isset($_GET["query"])) echo($_GET["query"]); ?>' 
-                class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px" href="search-catalogue.php">
+                class='btn black underline' style="margin-bottom: 50px; padding-bottom: 50px">
                 <i class='material-icons'>search</i>
               </button>
             </div>
@@ -83,7 +83,7 @@
 <script>
   // auto generate recommended search results based on letter given
   $(document).ready(function(){
-    $('input.autocomplete').addClass("nav").autocomplete({
+    $('input.autocomplete').autocomplete({
       data: {
         'Acer': 'static/images/acer.png',
         'Asus': 'static/images/asus.jpg',

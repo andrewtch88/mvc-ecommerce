@@ -13,7 +13,6 @@ function generateOrderDetails($item, $cartItem){
   $quantityInStock = $item->getQuantityInStock();
   $itemName = $item->getName();
   $categoryIdx = $item->getCategory();
-  $icon = Item::CATEGORY_ICON[$categoryIdx];
   $categoryName = Item::CATEGORY[$categoryIdx];
   $dbh = new Dbhandler();
 
@@ -29,35 +28,41 @@ function generateOrderDetails($item, $cartItem){
   $quantityDisplay = "x" . $quantity;
   $orderItemID = $cartItem->getOrderItemID();
   
-  return [$itemID, $quantity, $quantityInStock, $icon, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName];
+  return [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName];
 }
 
 function generateItem($item, $cartItem, $memberID){
 
   // admin view orders
-  [$itemID, $quantity, $quantityInStock, $icon, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName] 
+  [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName] 
     = generateOrderDetails($item, $cartItem);
 
   $view_order = isset($_GET["view_order"]);
   echo(
-    "<li>
-      <form method='GET' class='collapsible-header collapsible-card bold'>
+    "<div class='title-card center' style='height: 55px; margin-bottom: 10px'>
+      <p class='col s3' style='padding: 0px; margin: 0px;'>Product</p>
+      <p class='col s2' style='padding: 0px; margin: 0px;'>Unit Price</p>
+      <p class='col s3' style='padding: 0px; margin: 0px;'>Quantity</p>
+      <p class='col s3' style='padding: 0px; margin: 0px;'>Actions</p>
+    </div>
+    <li>
+      <form method='GET' class='collapsible-header collapsible-card bold center'>
         <input type='hidden' name='member_id' value=$memberID>
         <input type='hidden' name='item_id' value=$itemID>
         <input type='hidden' name='qty' value=$quantity>
         <input type='hidden' name='qty_stock' value=$quantityInStock>
-        <i class='material-icons'>$icon</i>
 
-        <p class='col s4' style='padding: 0px; margin: 0px;'>
+        <p class='col s1' style='padding: 0px; margin: 0px;'>
           <img class='shadow-img' src='product_images/$image'
-            style='max-height: 50px; max-width: 50px;'>
+            style='height: 60px; width: 60px;'>
         </p>
-        <p class='col s4' style='padding: 0px; margin: 0px;'>$itemName</p>
-        <p class='col s3' style='padding: 0px; margin: 0px;'>$price</p>
+
+        <p class='col s2' style='padding: 0px; margin: 0px;'>$itemName</p>
+        <p class='col s2' style='padding: 0px; margin: 0px;'>$price</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
 
         <a class='btn orange darken-4 col s2 light-weight-text' style='margin-right: 5px; padding: 0px;'
-          href='item_page.php?item_id=$itemID'>
+          href='product.php?item_id=$itemID'>
           Inspect
         </a>"
   );
@@ -65,15 +70,15 @@ function generateItem($item, $cartItem, $memberID){
   if (!$view_order)
   {
     echo(
-          "<button class='btn red darken-4 col s2' style='padding: 0px; margin: 0px;'
-            name='remove_item' value='$orderItemID'
-            onclick=\"return confirm('Are you sure you want remove \'$itemName\'?');\">
-            Remove
-          </button>"
+      "<button class='btn red darken-4 col s2' style='padding: 0px; margin: 0px;'
+        name='remove_item' value='$orderItemID'
+        onclick=\"return confirm('Are you sure you want remove \'$itemName\'?');\">
+        Remove
+      </button>"
     );
   }
   echo(
-    "</div>
+    "</form>
     <div class='collapsible-body row collapsible-card bold' style='margin: 0px;'>
       <div class='col s6'>
         <span>Date Added:</span>
@@ -97,22 +102,26 @@ function generateBoughtItem($item, $cartItem){
     $paymentDate = $row["PaymentDate"];
   }
 
-  [$itemID, $quantity, $quantityInStock, $icon, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName] 
+  [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $categoryName] 
     = generateOrderDetails($item, $cartItem);
 
   $view_order = isset($_GET["view_order"]);
 
   echo(
-    "<li>
+    "<div class='selectable-card center' style='height: 55px; margin-bottom: 10px'>
+      <p class='col s3' style='padding: 0px; margin: 0px;'>Product</p>
+      <p class='col s1' style='padding: 0px; margin: 0px;'>Unit Price</p>
+      <p class='col s5' style='padding: 0px; margin: 0px;'>Quantity</p>
+      <p class='col s1' style='padding: 0px; margin: 0px;'>Actions</p>
+    </div>
+    <li>
       <div class='collapsible-header collapsible-card bold'>
-        <i class='material-icons'>$icon</i>
-
         <p class='col s4' style='padding: 0px; margin: 0px;'>$itemName</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$price</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
         <a class='btn orange darken-4 col s2 light-weight-text' style='margin-right: 5px; padding: 0px;'
-            href='item_page.php?item_id=$itemID'>
-            Inspect
+          href='product.php?item_id=$itemID'>
+          Inspect
         </a>"
   );
 
@@ -151,7 +160,7 @@ function generateOrderSum($totalItems, $sumTotal)
             <span class='card-title bold'>Order Details</span>
             <table class='responsive-table'>
               <tbody>
-                <tr><th>Total Items:</th><td>$totalItems</td></tr>
+                <tr><th>Total Items:</th><td class='left'>$totalItems</td></tr>
                 <tr><th>Delivery Charges:</th><td>RM10.00</td></tr>
                 <tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>
                 <tr><th>Status:</th><td>Shipped (check email for status)</td></tr>

@@ -72,10 +72,22 @@ class Item extends Dbhandler{
   }
 
   // check whether this item has any reviews
-  protected function HasReviews()
+  public function HasReviews()
   {
     if (isset($this->reviews) && count($this->reviews) > 0) return true;
     return false;
+  }
+
+  public function checkSoldCount()
+  {
+    $sql = "SELECT SUM(OI.Quantity), O.CartFlag FROM OrderItems OI, Orders O
+      WHERE ItemID = $this->itemID AND OI.OrderID = O.OrderID AND CartFlag = 0";
+
+    $result = $this->conn()->query($sql) or die($this->conn()->error);
+
+    while ($row = $result->fetch_assoc())
+    
+    return $row["SUM(OI.Quantity)"];
   }
 
   // copy object data to database
