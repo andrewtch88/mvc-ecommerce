@@ -91,14 +91,14 @@
         <div class="col s12 m6">
           <div class="card red lighten-1">
             <div class="card-content white-text">
-              <span class="card-title ">Emails</span>
+              <span class="card-title ">Report</span>
               <div class="grid">
                 <i class="material-icons white-text">email</i>
                 <p>0</p>
               </div>
             </div>
             <div class="card-action">
-              <a href="#">Learn More</a>
+              <a href="admin_report.php">Learn More</a>
             </div>
           </div>
         </div>
