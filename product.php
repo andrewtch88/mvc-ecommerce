@@ -46,28 +46,36 @@
       if ($cartQty > 0){
         // add into cart if qty in stock is larger than requested quantity
         if ($quantityInStock >= $cartQty){
-          $orderID = $cart->getOrderID();
-          // check if order has been added before
-          $sql = "SELECT OrderItemID, Quantity FROM OrderItems WHERE OrderID = $orderID AND ItemID = $itemID";
-          $result = $conn->conn()->query($sql) or die($conn->conn()->error);
-          $row = $result->fetch_assoc();
-          $orderItemID = $row["OrderItemID"];
+          if (isset($_SESSION["Member"])) 
+          {
+            $orderID = $cart->getOrderID();
+            // check if order has been added before
+            $sql = "SELECT OrderItemID, Quantity FROM OrderItems WHERE OrderID = $orderID AND ItemID = $itemID";
+            $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+            $row = $result->fetch_assoc();
+            $orderItemID = $row["OrderItemID"];
 
-          if ($orderItemID == NULL)
-          {
-            // add as new order
-            $sql = "INSERT INTO OrderItems(OrderID, ItemID, Price, Quantity, AddedDatetime)
-              VALUES ($orderID, $itemID, $price, $cartQty, CURRENT_TIME)";
-            $conn->conn()->query($sql) or die($conn->conn()->error);
-          } else
-          {
-            $cartQty += $row["Quantity"];
-            $sql = "UPDATE OrderItems SET Quantity = $cartQty";
-            $conn->conn()->query($sql) or die($conn->conn()->error);
+            if ($orderItemID == NULL)
+            {
+              // add as new order
+              $sql = "INSERT INTO OrderItems(OrderID, ItemID, Price, Quantity, AddedDatetime)
+                VALUES ($orderID, $itemID, $price, $cartQty, CURRENT_TIME)";
+              $conn->conn()->query($sql) or die($conn->conn()->error);
+            } else
+            {
+              $cartQty += $row["Quantity"];
+              $sql = "UPDATE OrderItems SET Quantity = $cartQty";
+              $conn->conn()->query($sql) or die($conn->conn()->error);
+            }
+          
+            echo ("<script> location.replace('product.php?item_id=$itemID'); </script>");
+            exit();
           }
-        
-          echo ("<script> location.replace('product.php?item_id=$itemID'); </script>");
-          exit();
+          else {
+            echo ("<script>alert('Login to add to cart.');</script>");
+            echo ("<script>window.location.href='login.php';</script>");
+          }
+
         }
       }
     } else die("<h5 class='container white-text page-title' style='margin-top: 50px'>No item selected...</h5>");
@@ -171,7 +179,7 @@
               </div>
             </div>
             <div class="row grid" style="margin-right: 10px">
-              <button type="submit" class="btn waves-effect waves-light" onclick="return addToCart()">
+              <button type="submit" class="btn waves-effect waves-light" onclick="return checkSession();">
                 <a class="white-text">
                   <i class="material-icons right">shopping_cart</i>
                   Add To Cart
@@ -219,23 +227,21 @@
 </div>
 </body>
 
-<script>
+<script type="text/javascript">
   $(document).ready(function(){
-    $("#qtyHolder").load(location.href+" #qtyHolder>*","");
-    
+    $("#qtyHolder").load(location.href+" #qtyHolder>*","");  
+
     var evt = new Event(),
-    m = new Magnifier(evt, {
-        largeWrapper: document.getElementById('preview')
-    });
+    m = new Magnifier(evt, { largeWrapper: document.getElementById('preview')});
 
     m.attach({
-        thumb: '#thumb',
-        zoomable: true
+      thumb: '#thumb',
+      zoomable: true
     });
   });
 </script>
 
-<script src="static/js/product_page.js"></script>
+<script type="text/javascript" src="static/js/product_page.js"></script>
 <script type="text/javascript" src="static/js/Event.js"></script>
 <script type="text/javascript" src="static/js/Magnifier.js"></script>
 

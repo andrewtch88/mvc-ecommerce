@@ -32,7 +32,7 @@
         </div>
       </li>
       <li>
-        <img src="https://idealtech.com.my/wp-content/uploads/2021/10/Nvidia-Home-Page-Banner2-1707x478-1.jpg"> 
+        <img src="static/images/Banner-Rebate-1.jfif"> 
       </li>
       <li>
         <img src="./static/images/carousel_3.jpg"> 
