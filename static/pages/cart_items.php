@@ -45,7 +45,6 @@
             $price = $orderItem->getPrice();
             $sumTotal = $sumTotal + $price * $quantity;
           }
-          $sumTotal = number_format($sumTotal+10, 2);
         }
       ?>
     </ul>
@@ -53,21 +52,48 @@
 
   <div class="col s4">
     <div class="rounded-card-parent">
-      <div class="card rounded-card tint-glass-cyan blurer">
-        <span class="card-title bold">Cart Details</span>
+      <div class="card rounded-card">
+        <h5 class="bold center">Cart Details</h5>
         <form action="payment.php" method="GET">
           <table class="responsive-table">
             <tbody>
               <?php
-                echo("<tr><th>Total Items:</th><td>$cartItemCount</td></tr>");
-                echo("<tr><th>Delivery Charges:</th><td>RM10.00</td></tr>");
+                
+                if ($sumTotal >= 200){
+                  $displayShipping = 0;
+                  $displaySVoucher = " <span class='yellow-text'>(Shipping voucher applied)</span>";
+                }
+                else if ($sumTotal < 200){
+                  $displayShipping = 25;
+                  $displaySVoucher = "";
+                } 
+                if ($displayShipping === 0) $displayShipping = "<span class='underline'>RM$displayShipping</span>";
+                else $displayShipping = "RM$displayShipping";
+
+                if ($sumTotal >= 2000){
+                  $shippingTotal = $sumTotal - 125;
+                  $displayPVoucher = "<span class='underline'>-RM100</span> <span class='yellow-text'>(Promo voucher applied)</span>";
+                }
+                else if ($sumTotal >= 200 && $sumTotal < 2000){ 
+                  $shippingTotal = $sumTotal;
+                  $displayPVoucher = "None (min spend not reached)";
+                }
+                else if ($sumTotal < 200){ 
+                  $shippingTotal = $sumTotal + 25;
+                  $displayPVoucher = "None (min spend not reached)";
+                }
+                $sumTotal = number_format($shippingTotal, 2);
+
+                echo("<tr><th >Total Items:</th><td >$cartItemCount</td></tr>");
+                echo("<tr><th >Delivery Charges:</th><td >");echo("$displayShipping $displaySVoucher</td></tr>");
+                echo("<tr><th >Promo Voucher:</th><td >$displayPVoucher</td></tr>");
                 echo("<tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>");
                 
               ?>
             </tbody>
           </table>
           <?php if (!isset($_GET["view_order"]) && $cartItemCount > 0) { ?>
-          <button class="btn orange darken-3" style="margin-top: 10px;">
+          <button class="btn amber darken-3" style="margin-top: 20px; margin-left: 200px">
             Checkout
           </button>
           <input type="hidden" name="order_id" value=<?php echo($cartID); ?>>

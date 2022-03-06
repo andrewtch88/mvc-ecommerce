@@ -32,6 +32,9 @@
         </div>
       </li>
       <li>
+        <img src="https://idealtech.com.my/wp-content/uploads/2021/10/Nvidia-Home-Page-Banner2-1707x478-1.jpg"> 
+      </li>
+      <li>
         <img src="./static/images/carousel_3.jpg"> 
         <div class="caption center-align">
           <h3 class="bold green-text page-title">RTX ON</h3>
@@ -50,12 +53,12 @@
       <div class="row" style="margin-bottom: -20px">
         <h4 class="underline white-text bold center">Categories</h4>
       </div>
-      <div class="row">
-        <div class="col">
-          <a href="product_catalogue.php?category=0">
-            <div class="selectable-card" style="width: 300px; margin: 50px;">
-                <img src="static/images/category_1.gif"/>
-              <h5 class="white-text center bold">PC PACKAGES</h5>
+      <div class="row hoverable">
+        <div class="col hoverable">
+          <a href="product_catalogue.php?category=0" class="hoverable">
+            <div class="selectable-card hoverable" style="width: 300px; margin: 50px;">
+                <img class="hoverable" src="static/images/category_1.gif"/>
+              <h5 class="white-text center bold hoverable">PC PACKAGES</h5>
             </div>
           </a>
         </div>

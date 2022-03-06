@@ -54,7 +54,7 @@ function generateItem($item, $cartItem, $memberID){
 
         <p class='col s1' style='padding: 0px; margin: 0px;'>
           <img class='shadow-img' src='product_images/$image'
-            style='height: 60px; width: 60px;'>
+            style='height: 60px; width: 80px;'>
         </p>
 
         <p class='col s2' style='padding: 0px; margin: 0px;'>$itemName</p>

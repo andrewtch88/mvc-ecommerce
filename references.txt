@@ -22,3 +22,4 @@ https://stackoverflow.com/questions/16965170/html5-video-autoplay-not-working-co
 https://idealtech.com.my, https://shopee.com.my - design inspiration
 https://developers.google.com/maps/documentation/javascript/adding-a-google-map
 https://stackoverflow.com/questions/19414856/how-can-i-make-all-images-of-different-height-and-width-the-same-via-css
+https://mark-rolich.github.io/Magnifier.js/
