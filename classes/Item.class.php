@@ -91,7 +91,7 @@ class Item extends Dbhandler{
   }
 
   // copy object data to database
-  protected function setData()
+  public function setData()
   {
     $sql = "UPDATE Items SET
       Name = '$this->name',

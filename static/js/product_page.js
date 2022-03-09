@@ -18,6 +18,7 @@ function addQty()
 
 function subtractQty()
 {
+  var value = parseInt(QTY.value);
   QTY.value = value - 1;
   numberChanged();
 }

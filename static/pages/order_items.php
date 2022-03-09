@@ -20,7 +20,16 @@
   for ($i=0; $i < $orderCount; $i++)
   {
     $idx = $i+1;
-    echo("<h5 class='white-text page-title'>#$idx</h5>");
+
+    $sql = "SELECT P.OrderID, P.PaymentDate, OI.OrderID FROM Payment P, OrderItems OI
+    WHERE P.OrderID = OI.OrderID";
+    $dbh = new Dbhandler();
+    $result = $dbh->conn()->query($sql);
+    while ($row = $result->fetch_assoc()) {
+      $paymentDate = $row["PaymentDate"];
+    }
+
+    echo("<h5 class='white-text page-title'>#$idx Paid: $paymentDate</h5>");
     // row starting point
     echo("<div class='row'>");
     // prev order list starting point
@@ -35,19 +44,43 @@
     for ($o=0; $o < $orderItemCount; $o++)
     {
       $orderItem = $orderItems[$o];
-      $item = new Item($orderItem->GetItemID(), $conn);
+      $item = new Item($orderItem->getItemID());
       generateBoughtItem($item, $orderItem, $memberID);
 
       $quantity = $orderItem->getQuantity();
       $price = $orderItem->getPrice();
       $sumTotal += $price * $quantity;
     }
-    $sumTotal = number_format($sumTotal+5, 2);
+
+    if ($sumTotal >= 200){
+      $displayShipping = 0;
+      $displaySVoucher = " <span class='yellow-text'>(Shipping voucher applied)</span>";
+    }
+    else if ($sumTotal < 200){
+      $displayShipping = 25;
+      $displaySVoucher = "";
+    } 
+    if ($displayShipping === 0) $displayShipping = "<span class='underline'>RM$displayShipping</span>";
+    else $displayShipping = "RM$displayShipping";
+
+    if ($sumTotal >= 2000){
+      $shippingTotal = $sumTotal - 100;
+      $displayPVoucher = "<span class='underline'>-RM100</span> <span class='yellow-text'>(Promo voucher applied)</span>";
+    }
+    else if ($sumTotal >= 200 && $sumTotal < 2000){ 
+      $shippingTotal = $sumTotal;
+      $displayPVoucher = "None (min spend not reached)";
+    }
+    else if ($sumTotal < 200){ 
+      $shippingTotal = $sumTotal + 25;
+      $displayPVoucher = "None (min spend not reached)";
+    }
+    $sumTotal = number_format($shippingTotal, 2);
 
     // order items list closing point
     echo("</ul></div>");
 
-    generateOrderDetails($orderItemCount, $sumTotal);
+    generateOrderSum($orderItemCount, $sumTotal, $displayShipping, $displaySVoucher, $displayPVoucher);
 
     // row closing point
     echo("</div>");
