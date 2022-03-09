@@ -56,7 +56,7 @@
           if (isset($_SESSION["Member"]))
           { ?>
           <?php if ($privilegeLevel == 1)
-            echo("<li><a class='admin admin_manage_users admin_view_orders' href='admin.php'>Admin Panel</a></li>");
+            echo("<li><a class='admin admin_manage_users admin_view_orders' href='admin.php' target='_blank'>Admin Panel</a></li>");
           echo
             ("
             <li>

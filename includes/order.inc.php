@@ -3,7 +3,7 @@
 require_once "class_autoloader.php";
 
 /**
- * @param Item
+ * @param Item $item
  * @param OrderItemContr $cartItem
  * @param int $memberID
 */
@@ -35,15 +35,15 @@ function generateItem($item, $cartItem, $memberID){
 
   // admin view orders
   [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName] 
-    = generateOrderDetails($item, $cartItem);
+    = generateOrderDetails($item, $cartItem, $memberID);
 
   $view_order = isset($_GET["view_order"]);
   echo(
     "<div class='title-card center' style='height: 55px; margin-bottom: 10px'>
       <p class='col s3' style='padding: 0px; margin: 0px;'>Product</p>
-      <p class='col s2' style='padding: 0px; margin: 0px;'>Unit Price</p>
-      <p class='col s3' style='padding: 0px; margin: 0px;'>Quantity</p>
-      <p class='col s3' style='padding: 0px; margin: 0px;'>Actions</p>
+      <p class='col s3' style='padding: 0px; margin: 0px;'>Unit Price</p>
+      <p class='col s2' style='padding: 0px; margin: 0px;'>Quantity</p>
+      <p class='col s4' style='padding: 0px; margin: 0px;'>Actions</p>
     </div>
     <li>
       <form method='GET' class='collapsible-header collapsible-card bold center'>
@@ -52,16 +52,16 @@ function generateItem($item, $cartItem, $memberID){
         <input type='hidden' name='qty' value=$quantity>
         <input type='hidden' name='qty_stock' value=$quantityInStock>
 
-        <p class='col s1' style='padding: 0px; margin: 0px;'>
+        <p class='col s2' style='padding: 0px; margin: 0px;'>
           <img class='shadow-img' src='product_images/$image'
-            style='height: 60px; width: 60px;'>
+            style='height: 60px; width: 80px;'>
         </p>
 
         <p class='col s2' style='padding: 0px; margin: 0px;'>$itemName</p>
         <p class='col s2' style='padding: 0px; margin: 0px;'>$price</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
 
-        <a class='btn orange darken-4 col s2 light-weight-text' style='margin-right: 5px; padding: 0px;'
+        <a class='btn orange darken-4 col s2 light-weight-text center' style='margin-right: 5px; padding: 0px;'
           href='product.php?item_id=$itemID'>
           Inspect
         </a>"
@@ -94,28 +94,25 @@ function generateItem($item, $cartItem, $memberID){
 }
 
 function generateBoughtItem($item, $cartItem){
-  $sql = "SELECT P.OrderID, P.PaymentDate, OI.OrderID FROM Payment P, OrderItems OI
-  WHERE P.OrderID = OI.OrderID";
-  $dbh = new Dbhandler();
-  $result = $dbh->conn()->query($sql);
-  while ($row = $result->fetch_assoc()) {
-    $paymentDate = $row["PaymentDate"];
-  }
-
   [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $categoryName] 
     = generateOrderDetails($item, $cartItem);
 
   $view_order = isset($_GET["view_order"]);
 
   echo(
-    "<div class='selectable-card center' style='height: 55px; margin-bottom: 10px'>
-      <p class='col s3' style='padding: 0px; margin: 0px;'>Product</p>
-      <p class='col s1' style='padding: 0px; margin: 0px;'>Unit Price</p>
-      <p class='col s5' style='padding: 0px; margin: 0px;'>Quantity</p>
-      <p class='col s1' style='padding: 0px; margin: 0px;'>Actions</p>
+    "<div class='title-card center' style='height: 55px; margin-bottom: 10px'>
+      <p class='col s4' style='padding: 0px; margin: 0px;'>Product</p>
+      <p class='col s2' style='padding: 0px; margin: 0px;'>Unit Price</p>
+      <p class='col s2' style='padding: 0px; margin: 0px;'>Quantity</p>
+      <p class='col s4' style='padding: 0px; margin: 0px;'>Actions</p>
     </div>
     <li>
       <div class='collapsible-header collapsible-card bold'>
+        <p class='col s2' style='padding: 0px; margin: 0px;'>
+        <img class='shadow-img' src='product_images/$image'
+          style='height: 60px; width: 80px;'>
+        </p>
+
         <p class='col s4' style='padding: 0px; margin: 0px;'>$itemName</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$price</p>
         <p class='col s3' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
@@ -136,34 +133,25 @@ function generateBoughtItem($item, $cartItem){
   }
   echo(
       "</div>
-      <div class='collapsible-body row collapsible-card bold' style='margin: 0px;'>
-        <div class='col s6'>
-          <span>Paid:</span>
-          <span class='light-weight-text'>$paymentDate</span>
-        </div>
-        <div class='col s6'>
-          <span>Category:</span>
-          <span class='light-weight-text'>$categoryName</span>
-        </div>
-      </div>
     </li>"
   );
 }
 
-function generateOrderSum($totalItems, $sumTotal)
+function generateOrderSum($totalItems, $sumTotal, $displayShipping, $displaySVoucher, $displayPVoucher)
 {
   echo(
     "<div class='col s4'>
       <div class='rounded-card-parent'>
         <div class='card rounded-card tint-glass-brown'>
           <div class='card-content white-text'>
-            <span class='card-title bold'>Order Details</span>
+            <h5 class='bold center'>Order Details</h5>
             <table class='responsive-table'>
               <tbody>
-                <tr><th>Total Items:</th><td class='left'>$totalItems</td></tr>
-                <tr><th>Delivery Charges:</th><td>RM10.00</td></tr>
-                <tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>
-                <tr><th>Status:</th><td>Shipped (check email for status)</td></tr>
+                <tr><th>Total Items:</th><td class='left'>$totalItems</td></tr>");
+                echo("<tr><th>Delivery Charges:</th><td>");echo("$displayShipping $displaySVoucher</td></tr>");
+                echo("<tr><th >Promo Voucher:</th><td >$displayPVoucher</td></tr>");
+                echo("<tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>");
+                echo("<tr><th>Status:</th><td>Shipped (check email for status)</td></tr>
               </tbody>
             </table>
           </div>

@@ -46,28 +46,36 @@
       if ($cartQty > 0){
         // add into cart if qty in stock is larger than requested quantity
         if ($quantityInStock >= $cartQty){
-          $orderID = $cart->getOrderID();
-          // check if order has been added before
-          $sql = "SELECT OrderItemID, Quantity FROM OrderItems WHERE OrderID = $orderID AND ItemID = $itemID";
-          $result = $conn->conn()->query($sql) or die($conn->conn()->error);
-          $row = $result->fetch_assoc();
-          $orderItemID = $row["OrderItemID"];
+          if (isset($_SESSION["Member"])) 
+          {
+            $orderID = $cart->getOrderID();
+            // check if order has been added before
+            $sql = "SELECT OrderItemID, Quantity FROM OrderItems WHERE OrderID = $orderID AND ItemID = $itemID";
+            $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+            $row = $result->fetch_assoc();
+            $orderItemID = $row["OrderItemID"];
 
-          if ($orderItemID == NULL)
-          {
-            // add as new order
-            $sql = "INSERT INTO OrderItems(OrderID, ItemID, Price, Quantity, AddedDatetime)
-              VALUES ($orderID, $itemID, $price, $cartQty, CURRENT_TIME)";
-            $conn->conn()->query($sql) or die($conn->conn()->error);
-          } else
-          {
-            $cartQty += $row["Quantity"];
-            $sql = "UPDATE OrderItems SET Quantity = $cartQty";
-            $conn->conn()->query($sql) or die($conn->conn()->error);
+            if ($orderItemID == NULL)
+            {
+              // add as new order
+              $sql = "INSERT INTO OrderItems(OrderID, ItemID, Price, Quantity, AddedDatetime)
+                VALUES ($orderID, $itemID, $price, $cartQty, CURRENT_TIME)";
+              $conn->conn()->query($sql) or die($conn->conn()->error);
+            } else
+            {
+              $cartQty += $row["Quantity"];
+              $sql = "UPDATE OrderItems SET Quantity = $cartQty";
+              $conn->conn()->query($sql) or die($conn->conn()->error);
+            }
+          
+            echo ("<script> location.replace('product.php?item_id=$itemID'); </script>");
+            exit();
           }
-        
-          echo ("<script> location.replace('product.php?item_id=$itemID'); </script>");
-          exit();
+          else {
+            echo ("<script>alert('Login to add to cart.');</script>");
+            echo ("<script>window.location.href='login.php';</script>");
+          }
+
         }
       }
     } else die("<h5 class='container white-text page-title' style='margin-top: 50px'>No item selected...</h5>");
@@ -77,8 +85,7 @@
 <div class="container" style="margin-top: 50px;">
   <div class="rounded-card-parent">
     <div class="card rounded-card">
-      <a class="btn red darken-2" href="product_catalogue.php?query=" style='margin-left: 20px'>
-        < BACK TO CATALOGUE</a>
+      <a class="btn red darken-2" href="product_catalogue.php?query=" style='margin-left: 20px'>< BACK TO CATALOGUE</a>
       <form action="product.php" method="GET" style="padding-left: 10px;">
         <input type="hidden" name="item_id" value=<?php echo($itemID) ?>>
         <div class="row">
@@ -88,7 +95,7 @@
                 data-large-img-url="product_images/<?php echo($image); ?>"
                 data-large-img-wrapper="preview">
             </a>
-            <div class="magnifier-preview example heading" id="preview" style="width: 400px; height:300px"></div>
+            <div class="magnifier-preview example heading" id="preview" style="width: 600px; height:450px"></div>
           </div>
           <div class="col s8">
             <div class="row">
@@ -156,7 +163,7 @@
               </button>
 
               <input id="qty" class="white-text" type="number" disabled
-                style="padding: 10px; width: 3%;" value=0></input>
+                style="padding: 10px; width: 5%;" value=0></input>
               <input id="sync-qty" name="qty" class="white-text" type="hidden" value=0></input>
 
               <button type="button" class="btn-small waves-effect waves-light green"
@@ -171,7 +178,7 @@
               </div>
             </div>
             <div class="row grid" style="margin-right: 10px">
-              <button type="submit" class="btn waves-effect waves-light" onclick="return addToCart()">
+              <button type="submit" class="btn waves-effect waves-light" onclick="return checkSession();">
                 <a class="white-text">
                   <i class="material-icons right">shopping_cart</i>
                   Add To Cart
@@ -219,23 +226,21 @@
 </div>
 </body>
 
-<script>
+<script type="text/javascript">
   $(document).ready(function(){
-    $("#qtyHolder").load(location.href+" #qtyHolder>*","");
-    
+    $("#qtyHolder").load(location.href+" #qtyHolder>*","");  
+
     var evt = new Event(),
-    m = new Magnifier(evt, {
-        largeWrapper: document.getElementById('preview')
-    });
+    m = new Magnifier(evt, { largeWrapper: document.getElementById('preview')});
 
     m.attach({
-        thumb: '#thumb',
-        zoomable: true
+      thumb: '#thumb',
+      zoomable: true
     });
   });
 </script>
 
-<script src="static/js/product_page.js"></script>
+<script type="text/javascript" src="static/js/product_page.js"></script>
 <script type="text/javascript" src="static/js/Event.js"></script>
 <script type="text/javascript" src="static/js/Magnifier.js"></script>
 

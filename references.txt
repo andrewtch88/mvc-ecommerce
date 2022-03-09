@@ -24,3 +24,4 @@ https://developers.google.com/maps/documentation/javascript/adding-a-google-map
 https://stackoverflow.com/questions/19414856/how-can-i-make-all-images-of-different-height-and-width-the-same-via-css
 https://www.w3schools.com/ai/ai_chartjs.asp
 https://stackoverflow.com/questions/37292423/chart-js-label-color
+https://mark-rolich.github.io/Magnifier.js/
