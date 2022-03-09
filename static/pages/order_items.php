@@ -64,7 +64,7 @@
     else $displayShipping = "RM$displayShipping";
 
     if ($sumTotal >= 2000){
-      $shippingTotal = $sumTotal - 125;
+      $shippingTotal = $sumTotal - 100;
       $displayPVoucher = "<span class='underline'>-RM100</span> <span class='yellow-text'>(Promo voucher applied)</span>";
     }
     else if ($sumTotal >= 200 && $sumTotal < 2000){ 
