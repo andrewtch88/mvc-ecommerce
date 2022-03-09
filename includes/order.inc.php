@@ -137,20 +137,21 @@ function generateBoughtItem($item, $cartItem){
   );
 }
 
-function generateOrderSum($totalItems, $sumTotal)
+function generateOrderSum($totalItems, $sumTotal, $displayShipping, $displaySVoucher, $displayPVoucher)
 {
   echo(
     "<div class='col s4'>
       <div class='rounded-card-parent'>
         <div class='card rounded-card tint-glass-brown'>
           <div class='card-content white-text'>
-            <span class='card-title bold'>Order Details</span>
+            <h5 class='bold center'>Order Details</h5>
             <table class='responsive-table'>
               <tbody>
-                <tr><th>Total Items:</th><td class='left'>$totalItems</td></tr>
-                <tr><th>Delivery Charges:</th><td>RM10.00</td></tr>
-                <tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>
-                <tr><th>Status:</th><td>Shipped (check email for status)</td></tr>
+                <tr><th>Total Items:</th><td class='left'>$totalItems</td></tr>");
+                echo("<tr><th>Delivery Charges:</th><td>");echo("$displayShipping $displaySVoucher</td></tr>");
+                echo("<tr><th >Promo Voucher:</th><td >$displayPVoucher</td></tr>");
+                echo("<tr><th>Sum Total:</th><td>RM$sumTotal</td></tr>");
+                echo("<tr><th>Status:</th><td>Shipped (check email for status)</td></tr>
               </tbody>
             </table>
           </div>

@@ -51,12 +51,36 @@
       $price = $orderItem->getPrice();
       $sumTotal += $price * $quantity;
     }
-    $sumTotal = number_format($sumTotal+5, 2);
+
+    if ($sumTotal >= 200){
+      $displayShipping = 0;
+      $displaySVoucher = " <span class='yellow-text'>(Shipping voucher applied)</span>";
+    }
+    else if ($sumTotal < 200){
+      $displayShipping = 25;
+      $displaySVoucher = "";
+    } 
+    if ($displayShipping === 0) $displayShipping = "<span class='underline'>RM$displayShipping</span>";
+    else $displayShipping = "RM$displayShipping";
+
+    if ($sumTotal >= 2000){
+      $shippingTotal = $sumTotal - 125;
+      $displayPVoucher = "<span class='underline'>-RM100</span> <span class='yellow-text'>(Promo voucher applied)</span>";
+    }
+    else if ($sumTotal >= 200 && $sumTotal < 2000){ 
+      $shippingTotal = $sumTotal;
+      $displayPVoucher = "None (min spend not reached)";
+    }
+    else if ($sumTotal < 200){ 
+      $shippingTotal = $sumTotal + 25;
+      $displayPVoucher = "None (min spend not reached)";
+    }
+    $sumTotal = number_format($shippingTotal, 2);
 
     // order items list closing point
     echo("</ul></div>");
 
-    generateOrderSum($orderItemCount, $sumTotal);
+    generateOrderSum($orderItemCount, $sumTotal, $displayShipping, $displaySVoucher, $displayPVoucher);
 
     // row closing point
     echo("</div>");
