@@ -85,8 +85,7 @@
 <div class="container" style="margin-top: 50px;">
   <div class="rounded-card-parent">
     <div class="card rounded-card">
-      <a class="btn red darken-2" href="product_catalogue.php?query=" style='margin-left: 20px'>
-        < BACK TO CATALOGUE</a>
+      <a class="btn red darken-2" href="product_catalogue.php?query=" style='margin-left: 20px'>< BACK TO CATALOGUE</a>
       <form action="product.php" method="GET" style="padding-left: 10px;">
         <input type="hidden" name="item_id" value=<?php echo($itemID) ?>>
         <div class="row">

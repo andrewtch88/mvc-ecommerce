@@ -15,6 +15,11 @@
   margin-top: 0;
 }
 
+#no-hover:hover {
+  box-shadow: white 4px 4px 8px 2px;
+  transition: 0.2s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
 .selectable-card:hover {
   box-shadow: red 8px 8px 24px 4px;
 }
@@ -43,4 +48,15 @@
   box-shadow: black 4px 4px 8px 2px;
   backdrop-filter: blur(15px);
   transition: 0.2s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.selectable-card.tint-glass-black {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.payable-cards {
+  background-color: white;
+  box-shadow: 0px 0px 10px;
+  border-radius: 5px;
+  padding: 5px;
 }
