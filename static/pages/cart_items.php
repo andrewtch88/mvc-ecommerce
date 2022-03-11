@@ -33,13 +33,6 @@
           if ($cartItemCount <= 0) 
             echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5><h6 class='grey-text page-title'>
               <a href='product_catalogue.php?query='>Shop Now!</a></h6>");
-          
-          echo("<div class='title-card center' style='height: 55px; margin-bottom: 10px'>
-                <p class='col s3' style='padding: 0px; margin: 0px;'>Product</p>
-                <p class='col s3' style='padding: 0px; margin: 0px;'>Unit Price</p>
-                <p class='col s2' style='padding: 0px; margin: 0px;'>Quantity</p>
-                <p class='col s4' style='padding: 0px; margin: 0px;'>Actions</p>
-              </div>");
               
           $sumTotal = 0;
           for ($c=0; $c < $cartItemCount; $c++)

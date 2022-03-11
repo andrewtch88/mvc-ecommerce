@@ -170,6 +170,7 @@
                 onclick="addQty()">
                 <i class="material-icons">add</i>
               </button>
+              
               <div id="qtyHolder">
                 <?php 
                   if ($quantityInStock < 6) echo("<a class='red-text' style='margin-left: 10px'>$quantityInStock items left!</a>"); 
@@ -178,7 +179,7 @@
               </div>
             </div>
             <div class="row grid" style="margin-right: 10px">
-              <button type="submit" class="btn waves-effect waves-light" onclick="return checkSession();">
+              <button type="submit" class="btn waves-effect waves-light" onclick="return addToCart()">
                 <a class="white-text">
                   <i class="material-icons right">shopping_cart</i>
                   Add To Cart

@@ -40,6 +40,12 @@ function generateItem($item, $cartItem, $memberID){
   $view_order = isset($_GET["view_order"]);
   echo(
     "
+    <div class='title-card center' style='height: 55px; margin-bottom: 10px'>
+      <p class='col s3' style='padding: 0px; margin: 0px;'>Product</p>
+      <p class='col s3' style='padding: 0px; margin: 0px;'>Unit Price</p>
+      <p class='col s2' style='padding: 0px; margin: 0px;'>Quantity</p>
+      <p class='col s4' style='padding: 0px; margin: 0px;'>Actions</p>
+    </div>
     <li>
       <form method='GET' class='collapsible-header collapsible-card bold center'>
         <input type='hidden' name='member_id' value=$memberID>
@@ -95,12 +101,7 @@ function generateBoughtItem($item, $cartItem){
   $view_order = isset($_GET["view_order"]);
 
   echo(
-    "<div class='title-card center' style='height: 55px; margin-bottom: 10px'>
-      <p class='col s4' style='padding: 0px; margin: 0px;'>Product</p>
-      <p class='col s2' style='padding: 0px; margin: 0px;'>Unit Price</p>
-      <p class='col s2' style='padding: 0px; margin: 0px;'>Quantity</p>
-      <p class='col s4' style='padding: 0px; margin: 0px;'>Actions</p>
-    </div>
+    "
     <li>
       <div class='collapsible-header collapsible-card bold'>
         <p class='col s2' style='padding: 0px; margin: 0px;'>
@@ -120,10 +121,10 @@ function generateBoughtItem($item, $cartItem){
   if (!$view_order)
   {
     echo(
-          "<a class='btn cyan darken-4 col s2' style='padding: 0px; margin: 0px;'
-            href='review.php?review_item=$orderItemID'>
-            Review
-          </a>"
+      "<a class='btn cyan darken-4 col s2' style='padding: 0px; margin: 0px;'
+        href='review.php?review_item=$orderItemID'>
+        Review
+      </a>"
     );
   }
   echo(
