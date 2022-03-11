@@ -40,11 +40,11 @@ function generateItem($item, $cartItem, $memberID){
   $view_order = isset($_GET["view_order"]);
   echo(
     "
-    <div class='title-card center' style='height: 55px; margin-bottom: 10px'>
-      <p class='col s3' style='padding: 0px; margin: 0px;'>Product</p>
-      <p class='col s3' style='padding: 0px; margin: 0px;'>Unit Price</p>
-      <p class='col s2' style='padding: 0px; margin: 0px;'>Quantity</p>
-      <p class='col s4' style='padding: 0px; margin: 0px;'>Actions</p>
+    <div class='title-card' style='height: 55px; margin-bottom: 10px'>
+      <p class='col s4 center' style='padding: 0px; margin: 0px;'>Product</p>
+      <p class='col s2 center' style='padding: 0px; margin: 0px;'>Unit Price</p>
+      <p class='col s2 center' style='padding: 0px; margin: 0px;'>Quantity</p>
+      <p class='col s4 center' style='padding: 0px; margin: 0px;'>Actions</p>
     </div>
     <li>
       <form method='GET' class='collapsible-header collapsible-card bold center'>
@@ -58,9 +58,9 @@ function generateItem($item, $cartItem, $memberID){
             style='height: 60px; width: 80px;'>
         </p>
 
-        <p class='col s2' style='padding: 0px; margin: 0px;'>$itemName</p>
-        <p class='col s2' style='padding: 0px; margin: 0px;'>$price</p>
-        <p class='col s3' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
+        <p class='col s3' style='padding: 0px; margin: 0px;'>$itemName</p>
+        <p class='col s2 center' style='padding: 0px; margin: 0px;'>$price</p>
+        <p class='col s3 center' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
 
         <a class='btn orange darken-4 col s2 light-weight-text center' style='margin-right: 5px; padding: 0px;'
           href='product.php?item_id=$itemID'>
@@ -109,9 +109,9 @@ function generateBoughtItem($item, $cartItem){
           style='height: 60px; width: 80px;'>
         </p>
 
-        <p class='col s4' style='padding: 0px; margin: 0px;'>$itemName</p>
-        <p class='col s3' style='padding: 0px; margin: 0px;'>$price</p>
-        <p class='col s3' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
+        <p class='col s3' style='padding: 0px; margin: 0px;'>$itemName</p>
+        <p class='col s2 center' style='padding: 0px; margin: 0px;'>$price</p>
+        <p class='col s3 center' style='padding: 0px; margin: 0px;'>$quantityDisplay</p>
         <a class='btn orange darken-4 col s2 light-weight-text' style='margin-right: 5px; padding: 0px;'
           href='product.php?item_id=$itemID'>
           Inspect

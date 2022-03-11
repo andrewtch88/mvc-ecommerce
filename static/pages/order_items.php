@@ -21,11 +21,11 @@
   {
     echo("
     <div class='row'>
-      <div class='title-card center col s8' style='height: 55px; margin-bottom: 10px'>
-        <p class='col s4' style='padding-top: 15px; margin: 0px;'>Date & Product</p>
-        <p class='col s2' style='padding-top: 15px; margin: 0px;'>Unit Price</p>
-        <p class='col s2' style='padding-top: 15px; margin: 0px;'>Quantity</p>
-        <p class='col s4' style='padding-top: 15px; margin: 0px;'>Actions</p>
+      <div class='title-card col s8' style='height: 55px; margin-bottom: 10px'>
+        <p class='col s4 center' style='padding-top: 15px; margin: 0px;'>Date & Product</p>
+        <p class='col s2 center ' style='padding-top: 15px; margin: 0px;'>Unit Price</p>
+        <p class='col s2 center' style='padding-top: 15px; margin: 0px;'>Quantity</p>
+        <p class='col s4 center' style='padding-top: 15px; margin: 0px;'>Actions</p>
       </div>
     </div>
     ");
