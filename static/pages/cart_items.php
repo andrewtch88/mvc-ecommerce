@@ -33,17 +33,27 @@
           if ($cartItemCount <= 0) 
             echo("<h5 class='grey-text page-title'>Your shopping cart is empty.</h5><h6 class='grey-text page-title'>
               <a href='product_catalogue.php?query='>Shop Now!</a></h6>");
-              
-          $sumTotal = 0;
-          for ($c=0; $c < $cartItemCount; $c++)
-          {
-            $orderItem = $cartItems[$c];
-            $item = new Item($orderItem->getItemID());
-            generateItem($item, $orderItem, $memberID);
+          
+          else if ($cartItemCount >= 0){
+            echo("
+            <div class='title-card' style='height: 55px; margin-bottom: 10px'>
+              <p class='col s4 center' style='padding: 0px; margin: 0px;'>Product</p>
+              <p class='col s2 center' style='padding: 0px; margin: 0px;'>Unit Price</p>
+              <p class='col s2 center' style='padding: 0px; margin: 0px;'>Quantity</p>
+              <p class='col s4 center' style='padding: 0px; margin: 0px;'>Actions</p>
+            </div>");
+            
+            $sumTotal = 0;
+            for ($c=0; $c < $cartItemCount; $c++)
+            {
+              $orderItem = $cartItems[$c];
+              $item = new Item($orderItem->getItemID());
+              generateItem($item, $orderItem, $memberID);
 
-            $quantity = $orderItem->getQuantity();
-            $price = $orderItem->getPrice();
-            $sumTotal = $sumTotal + $price * $quantity;
+              $quantity = $orderItem->getQuantity();
+              $price = $orderItem->getPrice();
+              $sumTotal = $sumTotal + $price * $quantity;
+            }
           }
         }
       ?>
