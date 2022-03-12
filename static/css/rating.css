@@ -33,7 +33,7 @@
 /* review page ratings (clickable) */
 .rate {
   float: left;
-  height: 46px;
+  height: 76px;
   padding: 0 10px;
 }
 .rate:not(:checked) > input {
@@ -46,7 +46,7 @@
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 50px;
   color: #ccc;
 }
 .rate:not(:checked) > label:before {

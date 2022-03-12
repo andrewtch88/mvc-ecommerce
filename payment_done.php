@@ -13,11 +13,9 @@
       <div class="rounded-card card-content">
         <h4 class="page-title green-text">We received your payment.</h4>
         <p>Thank you for your purchase. Your ordered items will be delivered accordingly. Please come again.</p>
-        <div class="card-action btn" style='margin-top: 40px'>
-          <div class="grid">
-            <a class="white-text grid" href="index.php">Return to Home Page</a>
-            <a class="white-text grid" href='cart.php?member_id=<?php echo($memberID); ?>'>Back to Cart</a>
-          </div>
+        <div class="card-action" style='margin-top: 50px'>
+          <a class="white-text btn" href="index.php">Return to Home Page</a>
+          <a style='margin-left: 20px' class="white-text btn" href='cart.php?member_id=<?php echo($memberID); ?>'>Back to Cart</a>
         </div>
       </div>
     </div>
