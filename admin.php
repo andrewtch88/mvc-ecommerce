@@ -52,7 +52,11 @@
                   $result = $conn->conn()->query($sql) or die($conn->conn()->error);
                   $productCount = $result->num_rows;
                 ?>
-                <p><?php echo($productCount); ?></p>
+                <p>
+                  <?php 
+                    echo($productCount);
+                  ?>
+                </p>
               </div>
             </div>
             <div class="card-action">

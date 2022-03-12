@@ -42,18 +42,17 @@
               <p class='col s2 center' style='padding: 0px; margin: 0px;'>Quantity</p>
               <p class='col s4 center' style='padding: 0px; margin: 0px;'>Actions</p>
             </div>");
-            
-            $sumTotal = 0;
-            for ($c=0; $c < $cartItemCount; $c++)
-            {
-              $orderItem = $cartItems[$c];
-              $item = new Item($orderItem->getItemID());
-              generateItem($item, $orderItem, $memberID);
+          }
+          $sumTotal = 0;
+          for ($c=0; $c < $cartItemCount; $c++)
+          {
+            $orderItem = $cartItems[$c];
+            $item = new Item($orderItem->getItemID());
+            generateItem($item, $orderItem, $memberID);
 
-              $quantity = $orderItem->getQuantity();
-              $price = $orderItem->getPrice();
-              $sumTotal = $sumTotal + $price * $quantity;
-            }
+            $quantity = $orderItem->getQuantity();
+            $price = $orderItem->getPrice();
+            $sumTotal = $sumTotal + $price * $quantity;
           }
         }
       ?>
