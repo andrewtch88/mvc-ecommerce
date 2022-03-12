@@ -102,19 +102,17 @@
         'Viewsonic': 'static/images/viewsonic.jpeg'
       }
     });
+
+    // underline current page
+    var path = window.location.pathname;
+    var page = path.split("/").pop().split(".")[0];
+
+    var links = document.getElementsByClassName(page);
+    if (links[0] != null) links[0].classList.add("underline");
+
+    // style search bar
+    var style = document.getElementById("search-bar");
+    style.classList.add("search");
   });
-</script>
-
-<script>
-  // underline current page
-  var path = window.location.pathname;
-  var page = path.split("/").pop().split(".")[0];
-
-  var links = document.getElementsByClassName(page);
-  if (links[0] != null) links[0].classList.add("underline");
-
-  // style search bar
-  var style = document.getElementById("search-bar");
-  style.classList.add("search");
 </script>
 </html>
