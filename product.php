@@ -229,7 +229,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#qtyHolder").load(location.href+" #qtyHolder>*","");  
+    autoSyncQty();
 
     var evt = new Event(),
     m = new Magnifier(evt, { largeWrapper: document.getElementById('preview')});
@@ -239,6 +239,12 @@
       zoomable: true
     });
   });
+
+  function autoSyncQty(){
+    $('#qtyHolder').load(location.href + " #qtyHolder", function(){
+      setTimeout(autoSyncQty, 5000);
+    });
+  }
 </script>
 
 <script type="text/javascript" src="static/js/product_page.js"></script>

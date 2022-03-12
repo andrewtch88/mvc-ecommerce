@@ -28,13 +28,13 @@ function generateOrderDetails($item, $cartItem){
   $quantityDisplay = "x" . $quantity;
   $orderItemID = $cartItem->getOrderItemID();
   
-  return [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName];
+  return [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded, $categoryName];
 }
 
 function generateItem($item, $cartItem, $memberID){
 
   // admin view orders
-  [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded,  $categoryName] 
+  [$itemID, $quantity, $quantityInStock, $image, $itemName, $price, $quantityDisplay, $orderItemID, $dateAdded, $categoryName] 
     = generateOrderDetails($item, $cartItem, $memberID);
 
   $view_order = isset($_GET["view_order"]);
