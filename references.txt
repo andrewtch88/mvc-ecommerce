@@ -25,3 +25,4 @@ https://stackoverflow.com/questions/19414856/how-can-i-make-all-images-of-differ
 https://www.w3schools.com/ai/ai_chartjs.asp
 https://stackoverflow.com/questions/37292423/chart-js-label-color
 https://mark-rolich.github.io/Magnifier.js/
+https://ubiq.co/database-blog/get-records-last-7-days-mysql/
