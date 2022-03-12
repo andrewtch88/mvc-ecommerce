@@ -10,6 +10,8 @@
     include "header.php";
     require_once "includes/class_autoloader.php";
     require_once "includes/product_catalogue.inc.php";
+    require_once "includes/buy_or_cart.inc.php";
+
     $conn = new Dbhandler();
 
     if (isset($_GET["item_id"]))
@@ -23,8 +25,8 @@
   <title>OG Tech PC — <?php echo htmlspecialchars($name) ?></title>
 </head>
 <body>
-  <?php 
 
+  <?php 
     if (isset($_GET["item_id"])){
       $itemID = $_GET["item_id"];
       
@@ -43,41 +45,16 @@
       // set amount of items to add into cart
       $cartQty = 0;
       if (isset($_GET["qty"])) $cartQty = $_GET["qty"];
-      if ($cartQty > 0){
-        // add into cart if qty in stock is larger than requested quantity
-        if ($quantityInStock >= $cartQty){
-          if (isset($_SESSION["Member"])) 
-          {
-            $orderID = $cart->getOrderID();
-            // check if order has been added before
-            $sql = "SELECT OrderItemID, Quantity FROM OrderItems WHERE OrderID = $orderID AND ItemID = $itemID";
-            $result = $conn->conn()->query($sql) or die($conn->conn()->error);
-            $row = $result->fetch_assoc();
-            $orderItemID = $row["OrderItemID"];
-
-            if ($orderItemID == NULL)
-            {
-              // add as new order
-              $sql = "INSERT INTO OrderItems(OrderID, ItemID, Price, Quantity, AddedDatetime)
-                VALUES ($orderID, $itemID, $price, $cartQty, CURRENT_TIME)";
-              $conn->conn()->query($sql) or die($conn->conn()->error);
-            } else
-            {
-              $cartQty += $row["Quantity"];
-              $sql = "UPDATE OrderItems SET Quantity = $cartQty";
-              $conn->conn()->query($sql) or die($conn->conn()->error);
-            }
-          
-            echo ("<script> location.replace('product.php?item_id=$itemID'); </script>");
-            exit();
-          }
-          else {
-            echo ("<script>alert('Login to add to cart.');</script>");
-            echo ("<script>window.location.href='login.php';</script>");
-          }
-
-        }
+      
+      if (isset($_GET["buy_now"])){
+        buyOrCart($conn, $quantityInStock, $cartQty+1, $itemID, $price, $cart);
+        echo("<script>location.href = 'cart.php?member_id=$memberID';</script>");
+        exit();
       }
+      
+      if ($cartQty > 0) 
+        buyOrCart($conn, $quantityInStock, $cartQty, $itemID, $price, $cart);
+
     } else die("<h5 class='container white-text page-title' style='margin-top: 50px'>No item selected...</h5>");
   ?>
 
@@ -179,12 +156,13 @@
               </div>
             </div>
             <div class="row grid" style="margin-right: 10px">
-              <button type="submit" class="btn waves-effect waves-light" onclick="return addToCart()">
+              <button type="submit" class="btn waves-effect waves-light " onclick="return addToCart()">
                 <a class="white-text">
                   <i class="material-icons right">shopping_cart</i>
                   Add To Cart
                 </a>
               </button>
+              <input class="btn white-text waves-effect amber darken-4" type="submit" name="buy_now" style='margin-left: 10px' value="Buy Now">
             </div>
           </div>
         </div>

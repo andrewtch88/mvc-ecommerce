@@ -14,7 +14,10 @@
         <h4 class="page-title green-text">We received your payment.</h4>
         <p>Thank you for your purchase. Your ordered items will be delivered accordingly. Please come again.</p>
         <div class="card-action btn" style='margin-top: 40px'>
-          <a class="white-text" href="index.php">Return to Home Page</a>
+          <div class="grid">
+            <a class="white-text grid" href="index.php">Return to Home Page</a>
+            <a class="white-text grid" href='cart.php?member_id=<?php echo($memberID); ?>'>Back to Cart</a>
+          </div>
         </div>
       </div>
     </div>
