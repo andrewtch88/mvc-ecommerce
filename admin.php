@@ -22,13 +22,13 @@
               <span class="card-title ">SignUps</span>
               <div class="grid">
                 <i class="material-icons white-text">supervisor_account</i>
-                <?php 
-                  $sql = "SELECT * FROM Members";
-                  $conn = new Dbhandler();
-                  $result = $conn->conn()->query($sql) or die($conn->conn()->error);
-                  $signUpCount = $result->num_rows;
-                ?>
                 <div id="signup">
+                  <?php 
+                    $sql = "SELECT * FROM Members";
+                    $conn = new Dbhandler();
+                    $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+                    $signUpCount = $result->num_rows;
+                  ?>
                   <a class='white-text'><?php echo($signUpCount); ?></a>
                 </div>
               </div>
@@ -74,14 +74,14 @@
               <span class="card-title ">Total Orders</span>
               <div class="grid">
                 <i class="material-icons white-text">shopping_cart</i>
-                <?php 
-                  $sql = "SELECT M.*, O.*, P.* FROM Members M, Orders O, Payment P
-                  WHERE M.PrivilegeLevel = 0 AND P.OrderID = O.OrderID  AND M.MemberID = O.MemberID ORDER BY P.PaymentDate DESC";
-                  $conn = new Dbhandler();
-                  $result = $conn->conn()->query($sql) or die($conn->conn()->error);
-                  $orderCount = $result->num_rows;
-                ?>
                 <div id="order">
+                  <?php 
+                    $sql = "SELECT M.*, O.*, P.* FROM Members M, Orders O, Payment P
+                    WHERE M.PrivilegeLevel = 0 AND P.OrderID = O.OrderID  AND M.MemberID = O.MemberID ORDER BY P.PaymentDate DESC";
+                    $conn = new Dbhandler();
+                    $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+                    $orderCount = $result->num_rows;
+                  ?>
                   <a class='white-text'><?php echo($orderCount); ?></a>
                 </div>
               </div>
@@ -101,17 +101,16 @@
             <div class="card-content white-text" style="height: 160px;">
               <span class="card-title">Today's Orders</span>
               <div class="grid">
-                <?php 
-                  $sql = "SELECT M.*, O.*, P.* FROM Members M, Orders O, Payment P
-                    WHERE M.PrivilegeLevel = 0 AND P.OrderID = O.OrderID  AND M.MemberID = O.MemberID 
-                    AND P.PaymentDate = CURDATE() ORDER BY P.PaymentDate DESC";
-
-                  $conn = new Dbhandler();
-                  $result = $conn->conn()->query($sql) or die($conn->conn()->error);
-                  $orderCountNew = $result->num_rows;
-                ?>
                 <div id="order1">
                   <?php 
+                    $sql = "SELECT M.*, O.*, P.* FROM Members M, Orders O, Payment P
+                      WHERE M.PrivilegeLevel = 0 AND P.OrderID = O.OrderID  AND M.MemberID = O.MemberID 
+                      AND P.PaymentDate = CURDATE() ORDER BY P.PaymentDate DESC";
+
+                    $conn = new Dbhandler();
+                    $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+                    $orderCountNew = $result->num_rows;
+
                     if ($orderCountNew === 1)
                       echo("
                         <a class='btn-floating cyan pulse'><i class='material-icons'>add_shopping_cart</i></a>
