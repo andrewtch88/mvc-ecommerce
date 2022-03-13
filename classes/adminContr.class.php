@@ -21,4 +21,8 @@ class adminContr extends Admin {
   public function showSearchMember(){
     $this->searchMembers();
   }
+
+  public function showReviews(){
+    $this->adminReviews();
+  }
 }

@@ -13,12 +13,12 @@
   ?>
 </head>
 <body>
-  <div class="grid" style="margin-top: 150px;">
+  <div class="grid" style="margin-top: 100px;">
     <div class="grid">
-      <div>
+      <div style="width: 198px; height: 238px">
         <div class="col s12 m6">
           <div class="card blue darken-1">
-            <div class="card-content white-text">
+            <div class="card-content white-text" style="width: 198px; height: 160px">
               <span class="card-title ">SignUps</span>
               <div class="grid">
                 <i class="material-icons white-text">supervisor_account</i>
@@ -41,10 +41,10 @@
       </div>
     </div>
     <div class="grid">
-      <div>
+      <div style="width: 198px; height: 238px">
         <div class="col s12 m6">
-          <div class="card orange darken-4">
-            <div class="card-content white-text">
+          <div class="card amber darken-4">
+            <div class="card-content white-text" style="width: 198px; height: 160px">
               <span class="card-title ">Products</span>
               <div class="grid">
                 <i class="material-icons white-text">category</i>
@@ -65,13 +65,13 @@
       </div>
     </div>
     <div class="grid">
-      <div>
+      <div style="width: 198px; height: 238px">
         <div class="col s12 m6">
           <div class="card green darken-1">
-            <div class="card-content white-text">
+            <div class="card-content white-text" style="width: 198px; height: 160px">
               <span class="card-title ">Total Orders</span>
               <div class="grid">
-                <i class="material-icons white-text">add_shopping_cart</i>
+                <i class="material-icons white-text">shopping_cart</i>
                 <?php 
                   $sql = "SELECT M.*, O.*, P.* FROM Members M, Orders O, Payment P
                   WHERE M.PrivilegeLevel = 0 AND P.OrderID = O.OrderID  AND M.MemberID = O.MemberID ORDER BY P.PaymentDate DESC";
@@ -96,9 +96,8 @@
         <div class="col s12 m6">
           <div class="card red lighten-1">
             <div class="card-content white-text">
-              <span class="card-title ">Today's Orders</span>
+              <span class="card-title">Today's Orders</span>
               <div class="grid">
-                <i class="material-icons white-text">add_shopping_cart</i>
                 <?php 
                   $sql = "SELECT M.*, O.*, P.* FROM Members M, Orders O, Payment P
                     WHERE M.PrivilegeLevel = 0 AND P.OrderID = O.OrderID  AND M.MemberID = O.MemberID 
@@ -111,11 +110,19 @@
                 <div id="order1">
                   <?php 
                     if ($orderCountNew === 1)
-                      echo("<a class='white-text' style='margin-left: 10px'>1 New ~</a>");
+                      echo("
+                        <a class='btn-floating cyan pulse'><i class='material-icons'>add_shopping_cart</i></a>
+                        <a class='white-text' style='margin-left: 10px'>1 New ~</a>
+                        ");
 
-                    else if ($orderCountNew > 1) echo("<a class='white-text' style='margin-left: 10px'>$orderCountNew</a><a class='white-text bold' style='margin-left: 5px'>New</a>");
+                    else if ($orderCountNew > 1) echo(
+                      "<a class='btn-floating cyan pulse'><i class='material-icons'>add_shopping_cart</i></a>
+                      <a class='white-text' style='margin-left: 10px'>$orderCountNew</a><a class='white-text bold' style='margin-left: 5px'>New</a>
+                      ");
 
-                    else echo("<a class='white-text' style='margin-left: 10px'>$orderCountNew</a>");
+                    else echo("
+                      <i class='material-icons white-text'>add_shopping_cart</i>
+                      <a class='white-text' style='margin-left: 10px'>$orderCountNew</a>");
                   ?>
                 </div>
               </div>
@@ -132,20 +139,27 @@
   <div class="row">
     <div class="container">
       <div class="grid">
-        <div class="card amber darken-2" style="width: 800px">
-          <div class="card-content white-text">
-            <span class="card-title ">Product Reviews</span>
-              <a href="#"><div id="bordershadow"><i class="material-icons white-text" style="margin-right: 10px">border_color</i>New Comment - 21 days ago</div></a>
+        <div class="rounded-card-parent">
+          <div class="rounded-card amber darken-2" style="width: 910px">
+            <div class="card-content white-text">
+              <table class="responsive-table center" id="pagination">
+                <thead class="text-primary center">
+                  <tr>
+                    <h5 class="white-text bold" style="padding-bottom: 20px">Product Reviews</h5>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php 
+                    $oper = new adminContr;
+                    $oper->showReviews();
+                  ?>
+                </tbody>
+              </table>
+              <div class="col-md-12 center text-center">
+                <span class="left" id="total_reg"></span>
+                <ul class="pagination pager" id="myPager"></ul>
+              </div>
             </div>
-            <ul class="pagination">
-              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-              <li class="active"><a href="#!">1</a></li>
-              <li class="waves-effect"><a href="#!">2</a></li>
-              <li class="waves-effect"><a href="#!">3</a></li>
-              <li class="waves-effect"><a href="#!">4</a></li>
-              <li class="waves-effect"><a href="#!">5</a></li>
-              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
           </div>
         </div>
       </div>
@@ -158,6 +172,16 @@
     autoSyncTotalOrder();
     autoSyncTodayOrder();
     autoSyncTotalSignUp();
+
+    $('#pagination').pageMe({
+      pagerSelector:'#myPager',
+      activeColor: 'blue',
+      prevText:'Previous',
+      nextText:'Next',
+      showPrevNext:true,
+      hidePageNumbers:false,
+      perPage:5
+    });
   });
 
   function autoSyncTotalOrder(){

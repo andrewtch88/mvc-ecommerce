@@ -63,7 +63,8 @@ class InitDB extends Dbhandler{
         Quantity INT NOT NULL,
         AddedDatetime DATETIME NOT NULL,
         Feedback VARCHAR(512),
-        Rating INT
+        Rating INT,
+        RatingDateTime DATETIME
       )"
     );
 

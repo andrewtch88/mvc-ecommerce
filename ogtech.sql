@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2022 at 11:09 AM
+-- Generation Time: Mar 13, 2022 at 09:44 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -43,10 +43,10 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `SellingPrice`, `QuantityInStock`, `Image`) VALUES
-(3, 'RTX 3070 PC - Best price to performance PC (16GB Ram 1TB SSD)', 'Mixed', 'CPU: INTEL CORE i5-10400F,\r\nCooler: CRYORIG H7 QUAD LUMI,\r\nMOBO: ASUS TUF Gaming B460-PRO WIFI, \r\nRAM: G.SKILL TRIDENT Z ROYAL 2X8GB CL18 DDR4 3600MHZ,\r\nGPU: EVGA GeForce RTX 3070 XC3 ULTRAGAMING 2x8GB GDDR6,\r\nPSU: GIGABYTE P650B 80+ BRONZE NON-MODULAR,\r\nCase: ANTEC NX410 BLACK, \r\nSSD: CORSAIR Force Series MP510 1TB M.2 NVMe, \r\nHDD: Western Digital WD BLUE 1TB SATA,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                               ', 0, 6950, 30, '3070 pc.jpg'),
+(3, 'RTX 3070 PC - Best price to performance PC (16GB Ram 1TB SSD)', 'Mixed', 'CPU: INTEL CORE i5-10400F,\r\nCooler: CRYORIG H7 QUAD LUMI,\r\nMOBO: ASUS TUF Gaming B460-PRO WIFI, \r\nRAM: G.SKILL TRIDENT Z ROYAL 2X8GB CL18 DDR4 3600MHZ,\r\nGPU: EVGA GeForce RTX 3070 XC3 ULTRAGAMING 2x8GB GDDR6,\r\nPSU: GIGABYTE P650B 80+ BRONZE NON-MODULAR,\r\nCase: ANTEC NX410 BLACK, \r\nSSD: CORSAIR Force Series MP510 1TB M.2 NVMe, \r\nHDD: Western Digital WD BLUE 1TB SATA,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                               ', 0, 6950, 26, '3070 pc.jpg'),
 (4, 'OGTECH EPIC All-Rounder RTX 3060TI PC (16GB Ram 1TB SSD)', 'Mixed', 'CPU: INTEL i5-10400F MOBO: GIGABYE B450M DS3H V2, \r\nRAM: G.SKILL AEGIS Series 8GB DDR4 3200MHz x2,\r\nGPU: GIGABYTE GeForce RTX 3060TI EAGLE OC 8G DDR6,\r\nPSU: ANTEC NE550C V2 80+ BRONZE,\r\nCASE: ANTEC NX410 BLACK\r\nSSD: GIGABYTE 1TB SATA,\r\nWIFI: ASUS PCE-AX3000 WIFI6 PCIE,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                                ', 0, 5991, 15, '3060 ti pc.jpg'),
-(5, 'Nvidia Geforce RTX 3080 PC King Value (16 GB Ram)', 'Mixed', 'CPU: AMD RYZEN 7 3700X, \r\nCooler: CRYORIG H7 MOBO: GIGABYTE B450 AORUS PRO WIFI,\r\nRAM: G.SKILL TRIDENT Z NEO 2X8GB CL16 DDR4 3200MHZ, \r\nGPU: GIGABYTE GeForce RTX 3080 GAMING OC 10GB GDDR6X,\r\nPSU: ANTEC HCG Gold Series 850W 80+ GOLD FULLY MODULAR,\r\nCase: ANTEC DF700 FLUX, \r\nSSD: CORSAIR Force Series MP510 480GB M.2 NVMe,\r\nFREE Cablemod Premium Sleeved Cables,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                ', 0, 8668, 15, '3080 pc.jpg'),
-(6, 'OGTech Best Value AMD RTX™ 3060 PC (16GB Ram)', 'Mixed', 'Graphic Card : GIGABYTE GeForce RTX™ 3060 12GB EAGLE OC,\r\nProcessor : AMD Ryzen 5 3600,\r\nMotherboard : MSI B450M-A Pro Max,\r\nRAM : GSKILL AEGIS DDR4 3200Mhz (2x8gb),\r\nSSD: GIGABYTE NVMe SSD 256GB,\r\nPower Supply :ANTEC CSK550 Bronze,\r\nCasing : ANTEC NX410 Black or White                ', 0, 4599, 15, 'pc-rtx3060.jpg'),
+(5, 'Nvidia Geforce RTX 3080 PC King Value (16 GB Ram)', 'Mixed', 'CPU: AMD RYZEN 7 3700X, \r\nCooler: CRYORIG H7 MOBO: GIGABYTE B450 AORUS PRO WIFI,\r\nRAM: G.SKILL TRIDENT Z NEO 2X8GB CL16 DDR4 3200MHZ, \r\nGPU: GIGABYTE GeForce RTX 3080 GAMING OC 10GB GDDR6X,\r\nPSU: ANTEC HCG Gold Series 850W 80+ GOLD FULLY MODULAR,\r\nCase: ANTEC DF700 FLUX, \r\nSSD: CORSAIR Force Series MP510 480GB M.2 NVMe,\r\nFREE Cablemod Premium Sleeved Cables,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                ', 0, 8668, 14, '3080 pc.jpg'),
+(6, 'OGTech Best Value AMD RTX™ 3060 PC (16GB Ram)', 'Mixed', 'Graphic Card : GIGABYTE GeForce RTX™ 3060 12GB EAGLE OC,\r\nProcessor : AMD Ryzen 5 3600,\r\nMotherboard : MSI B450M-A Pro Max,\r\nRAM : GSKILL AEGIS DDR4 3200Mhz (2x8gb),\r\nSSD: GIGABYTE NVMe SSD 256GB,\r\nPower Supply :ANTEC CSK550 Bronze,\r\nCasing : ANTEC NX410 Black or White                ', 0, 4599, 14, 'pc-rtx3060.jpg'),
 (7, 'OGTECH STREAMER PC NVIDIA GTX1660 SUPER w 32GB RAM', 'Mixed', 'CPU: INTEL i5 10400F MOBO: GIGABYTE B460M DS3H AC RAM: G.SKILL TridentZ RGB 2x16GB DDR4 3200MHz GPU: GIGABYTE GeForce GTX1660 SUPER WF OC PSU: ANTEC CSK550 GB 80+ BRONZE CASE: ZALMAN K1 ATX RGB CASE SSD: XPG SX8200 PRO M.2 1TB SSD HDD: WESTERN DIGITAL 2TB CAVIAR BLUE', 0, 3899, 5, 'RM4761_SE580E-scaled.jpg'),
 (8, 'Asus VG258QR (24.5\')', 'Asus', '                                    Panel size 24.5″. IPS Panel. Non-glare display surface. 16:9 aspect ratio. 1920 x 1080 resolution. Refresh rate 165hz, 0.5ms reponse time. Anti-Flicker.                                ', 1, 888, 25, 'asus_monitor.jpg'),
 (9, 'OGTECH GEFORCE ESPORTS PC GTX1050Ti', 'Mixed', 'Processor : INTEL  Core I3-10105F Graphic Card : AFOX GEFORCE GTX1050TI 4GB Motherboard :GIGABYTE B460M DS3H V2 RAM : GSKILL AEGIS DDR4 3200Mhz (1 x8gb) SSD: GIGABYTE NVMe SSD 256GB Power Supply: ANTEC CSK550 Bronze Casing : ANTEC DP301M (x2 fans included)', 0, 2399, 5, 'pc-1050ti.png'),
@@ -56,7 +56,7 @@ INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `Sell
 (13, 'ACER basic speakers', 'Acer', '                  Sufficient for daily use. Stylish design.                 ', 1, 39.99, 15, 'acer speaker.jpg'),
 (14, 'ASUS ROG Strix Magnus Mic @ Studio grade mic', 'Asus', 'ROG Strix Magnus USB condenser gaming microphone with AURA RGB lighting and environmental noise cancellation (ENC) for gaming/streaming  Three studio-grade condenser capsules for enhanced clarity and sensitivity Designed for live streamers with compact form factor and environmental noise cancellation (ENC) Stylish and customizable Aura RGB lighting effects Auxiliary port for recording audio from musical instruments and mobile devices Comes with external USB hub for connecting additional devices', 2, 699, 2, 'asus mic.jpg'),
 (15, 'CORSAIR VIRTUOSO RGB WIRELESS headset', 'Corsair', '                  A matched pair of precisely tuned 50mm high-density neodymium drivers boast a frequency range of 20Hz-40,000Hz – double what you’d get from most gaming headsets. Premium memory foam.  Made from aluminium for light weight. Wired option available.                ', 1, 737, 15, 'corsair headset.png'),
-(16, 'CORSAIR rgb mouse', 'Corsair', '                  Premium comfort mouse. Outstanding corsair rgb logo on lit. Rubber grip for more comfort.                ', 2, 69.99, 15, 'corsair mouse.jpg'),
+(16, 'CORSAIR rgb mouse', 'Corsair', '                                                      Premium comfort mouse. Outstanding corsair rgb logo on lit. Rubber grip for more comfort.                                                ', 2, 50, 15, 'corsair mouse.jpg'),
 (17, 'HYPERX cloud stinger headset', 'HyperX', '                  Outstanding mic and audio quality. Made from premium hard plastic for light weight. Comfortability is a must.                ', 1, 299, 15, 'hyper headset.jpg'),
 (18, 'HyperX Quadcast RGB mic', 'HyperX', '                  Built-in headphone jack. Internal pop filter. Convenient gain control adjustment. Four selectable polar patterns. Tap-to-Mute sensor with LED indicator. Dynamic RGB lighting effects customizable with HyperX NGENUITY Software. Anti-Vibration shock mount.                 ', 2, 599, 18, 'hyper mic.jpg'),
 (19, 'LOGITECH G550 RGB Headset', 'Logitech', '                  More ear room for maximum comfort. Made from light weight plastic for comfort. Premium mic and audio quality. RGB is pog.                ', 1, 399, 15, 'logi headset.jfif'),
@@ -66,17 +66,17 @@ INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `Sell
 (23, 'MSI DS502 gaming headset', 'MSI', 'Enhanced Virtual 7.1 Surround Sound. Intelligent Vibration System. Smart Audio Controller. Enhanced 40mm High Quality Drivers. Cool LED Light. Light weight & Self-adjusting Headband Design.', 1, 249.99, 20, 'msi headset.png'),
 (24, 'MSI Optix MPG341CQR Smart RGB Curved Gaming Monitor (34\')', 'MSI', '                  34 inch 3440x1440 Frameless design – Ultimate gameplay experience. 178° wide view angle. HDR 400 - Stunning Visuals with the Most Criterion Format. 1ms response time - eliminate screen tearing and choppy frame rates. 144Hz Refresh Rate – The real smooth gaming. Curved Gaming display (1800R) – The best gameplay immersion. UWQHD High Resolution - Game titles will even look better, displaying more details due to the UWQHD resolution.                ', 1, 2888, 15, 'msi monitor 2.jpg'),
 (25, 'RAZER Kraken V2 Pro Headset', 'Razer', 'Custom-tuned 50 mm Drivers. Cooling Gel-Infused Cushions. Retractable Unidirectional Microphone. Clear & Powerful Sound Thicker Headband Padding Play Comfortably for Hours', 1, 399.99, 20, 'razer headset 2.jpg'),
-(26, 'RAZER Blackwidow Keyboard Green Switch 2019', 'Razer', '                  Razer Green Mechanical Switches designed for gaming 80 million keystroke lifespan Razer Chroma customizable backlighting with 16.8 million color options Hybrid On-Board Memory and Cloud Storage – up to 5 profiles Razer Synapse 3 enabled Cable routingoptions N-key roll-over with built-in anti-ghosting Fully programmable keys with on-the-fly macro recording Gaming mode option 1000 Hz Ultrapolling Instant Trigger Technology                ', 2, 299.99, 15, 'razer keyboard.jfif'),
+(26, 'RAZER Blackwidow Keyboard Green Switch 2019', 'Razer', '                                    Razer Green Mechanical Switches designed for gaming 80 million keystroke lifespan Razer Chroma customizable backlighting with 16.8 million color options Hybrid On-Board Memory and Cloud Storage – up to 5 profiles Razer Synapse 3 enabled Cable routingoptions N-key roll-over with built-in anti-ghosting Fully programmable keys with on-the-fly macro recording Gaming mode option 1000 Hz Ultrapolling Instant Trigger Technology                                ', 2, 269.99, 15, 'razer keyboard.jfif'),
 (27, 'RAZER Seirēn X - Black', 'Razer', 'Ultra-Precise Pickup Pattern Shock Resistant Compact Form Factor', 2, 319.99, 10, 'razer mic.jfif'),
 (28, 'RAZER RAPTOR 27 1440P 165 HZ', 'Razer', 'VESA COMPATIBLE and cable management. WORLD’S FIRST THX® CERTIFIED GAMING MONITOR. 165HZ HIGH SPEED. QHD HIGH RESOLUTION. Gsync and Freesync compatible. ', 1, 3199.99, 2, 'razer monitor.jpg'),
 (29, 'RAZER BASILISK V3', 'Razer', '                  PERFECTING SCROLLING. FULL SPECTRUM CUSTOMIZABILITY. 10+1 PROGRAMMABLE BUTTONS. Profile switching.                 ', 2, 259, 15, 'razer mouse.jfif'),
 (30, 'RAZER Nommo Pro', 'Razer', 'SOLID, UNRESTRICTED BASS. THX CERTIFIED PREMIUM AUDIO. Top notch Studio grade quality audio. POWERFUL CINEMATIC IMMERSION dolby audio certified.', 1, 3098, 2, 'razer speaker.jfif'),
 (32, 'Viewsonic Elite XG350R-C 35” Curved ', 'Viewsonic', '                  100Hz refresh rate. ClearMotion backlight strobing technology. 3440 X 1440 Ultra Wide QHD resolution. ELITE RGB Alliance. Adaptive Sync & AMD FreeSync™ technology.                 ', 1, 2077, 15, 'viewsonic monitor.png'),
-(33, 'Logitech G102 RGB mouse', 'Logitech', '8,000 DPI. LIGHTSYNC RGB featuring color wave effects customizable across ~16.8 million colors.', 2, 79, 30, 'logi mouse.jpg'),
+(33, 'Logitech G102 RGB mouse', 'Logitech', '                  8,000 DPI. LIGHTSYNC RGB featuring color wave effects customizable across ~16.8 million colors.                ', 2, 69.99, 30, 'logi mouse.jpg'),
 (34, 'LOGITECH G502 Gaming Mouse', 'Logitech', 'The best selling mouse in the world, featuring customizable weight. 5 programmable buttons with rgb logo. Durable materials and comfortable engineered grip. 70 millions clicks life span.', 2, 159, 50, 'g502.jpg'),
 (35, 'ACER Nitro VG270 27\" 75hz', 'Acer', '1920x1080p IPS Freesync 1ms with virtual response boost up to 0.5ms', 1, 719.99, 30, 'acer monitor.jfif'),
 (36, 'Acer Aopen 24CV1Y Monitor (23.8\")', 'Acer', 'Full HD, VA Panel, 5ms(GTG) Respond Time, 75Hz Refresh Rate', 1, 499, 30, 'acer budget monitor.jfif'),
-(37, 'Steelseries QCK EDGE L - 450mm x 400mm x 2mm ', 'Steelseries', 'One of the best selling Cloth Gaming Mouse Pad in the world. Extremely smooth yet durable.', 2, 75, 30, 'steelseries l.png'),
+(37, 'Steelseries QCK EDGE L - 450mm x 400mm x 2mm ', 'Steelseries', '                  One of the best selling Cloth Gaming Mouse Pad in the world. Extremely smooth yet durable.                ', 2, 60, 30, 'steelseries l.png'),
 (38, 'Steelseries QCK EDGE - XL 900mm x 300mm x 2mm', 'Steelseries', 'One of the best selling mouse mat in the world. Made from premium woven and rubber. Anti slip back and smooth surface.', 2, 119, 50, 'steelseries xl.jfif'),
 (39, 'OGTECH OFFICE PC COMPACT', 'Mixed', 'Processor : AMD Ryzen 5 PRO 4650G Motherboard : ASROCK B550M ITX/AC (Wifi) RAM : GSKILL AEGIS DDR4 3200Mhz (1 x8gb) SSD: GIGABYTE NVMe SSD 256GB Casing : ANTEC ISK310-150 Mini-ITX CASE with psu', 0, 2099, 10, 'compact pc.png');
 
@@ -133,7 +133,10 @@ CREATE TABLE `orderitems` (
 --
 
 INSERT INTO `orderitems` (`OrderItemID`, `OrderID`, `ItemID`, `Price`, `Quantity`, `AddedDatetime`, `Feedback`, `Rating`) VALUES
-(7, 2, 3, 6950, 1, '2022-03-05 23:42:14', NULL, NULL);
+(26, 23, 3, 6950, 3, '2022-03-11 17:50:03', NULL, NULL),
+(27, 25, 6, 4599, 3, '2022-03-11 17:54:01', NULL, NULL),
+(29, 26, 5, 8668, 3, '2022-03-11 18:20:18', NULL, NULL),
+(37, 24, 3, 6950, 1, '2022-03-13 00:43:58', 'Best PC that i ever purchased. Thanks OGTECH', 5);
 
 -- --------------------------------------------------------
 
@@ -152,8 +155,6 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`OrderID`, `MemberID`, `CartFlag`) VALUES
-(2, 2, b'1'),
-(5, 5, b'1'),
 (6, 6, b'1'),
 (7, 7, b'1'),
 (8, 8, b'1'),
@@ -161,7 +162,13 @@ INSERT INTO `orders` (`OrderID`, `MemberID`, `CartFlag`) VALUES
 (10, 10, b'1'),
 (15, 15, b'1'),
 (16, 16, b'1'),
-(20, 19, b'1');
+(20, 19, b'1'),
+(23, 2, b'0'),
+(24, 5, b'0'),
+(25, 2, b'0'),
+(26, 2, b'0'),
+(27, 2, b'1'),
+(28, 5, b'1');
 
 -- --------------------------------------------------------
 
@@ -174,6 +181,16 @@ CREATE TABLE `payment` (
   `OrderID` int(11) NOT NULL,
   `PaymentDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`PaymentID`, `OrderID`, `PaymentDate`) VALUES
+(3, 23, '2022-03-11'),
+(4, 25, '2022-03-11'),
+(5, 26, '2022-03-12'),
+(6, 24, '2022-03-13');
 
 --
 -- Indexes for dumped tables
@@ -233,19 +250,19 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `orderitems`
 --
 ALTER TABLE `orderitems`
-  MODIFY `OrderItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `OrderItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

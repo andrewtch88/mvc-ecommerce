@@ -69,7 +69,6 @@
         $itemID = $item->getItemID();
         $image = $item->getImage();
         $name = $item->getName();
-        $brand = $item->getBrand();
         $price = $item->getSellingPrice();
         $price = "RM" . number_format($price, 2);
 

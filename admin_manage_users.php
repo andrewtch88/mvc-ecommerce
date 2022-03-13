@@ -46,7 +46,7 @@
           <!-- search member input field end -->
           
           <!-- search member result list start -->
-          <form id="refresh" action="" method="GET">
+          <form action="" method="GET">
             <table class="responsive-table center" id="pagination">
               <thead class="text-primary center">
                 <tr>

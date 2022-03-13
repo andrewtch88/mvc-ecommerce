@@ -4,6 +4,32 @@
 
 class Admin extends Dbhandler{
 
+  protected function adminReviews(){
+    $sql = "SELECT OI.ItemID, OI.RatingDateTime, I.Image FROM OrderItems OI, Items I
+      WHERE OI.ItemID = I.ItemID AND Rating IS NOT NULL ORDER BY OrderItemID DESC;";
+
+    $conn = new Dbhandler();
+    $result = $conn->conn()->query($sql) or die($conn->conn()->error);
+    while ($row = $result->fetch_assoc() ) 
+    { 
+      $itemID = $row["ItemID"];
+      $ratingDateTime = $row["RatingDateTime"];
+      $image = $row["Image"];
+
+      echo(
+        "<tr>
+          <a href='product.php?item_id=$itemID'>
+            <div id='bordershadow'>
+              <div><img class='shadow-img' src='product_images/$image' style='height: 68px; float: left'></div> 
+              <div class='white-text bold' style='height: 60px; float: left; margin-left: 150px'>New Comment on $ratingDateTime</div>
+              <div class='black-text' style='height: 60px; float: left; margin-left: 10px'><i class='material-icons'>create</i></div>
+            </div>
+          </a>
+        </tr>"
+      );
+    }
+  }
+
   protected function searchMember(){
     $util = new CommonUtil();
     function EmptyInputCreateUser($username, $pwd, $repeatPwd, $privilegeLevel, $email)
@@ -20,7 +46,7 @@ class Admin extends Dbhandler{
         // limited search to prevent page overflow
         $sql = "SELECT Username, MemberID FROM Members WHERE Username LIKE '%$searchMember%' ORDER BY Username LIMIT 20";
         $result = $this->conn()->query($sql) or die ("User does not exists!");
-        while ($row = mysqli_fetch_assoc($result) ) 
+        while ($row = $result->fetch_assoc() ) 
         { 
           $username = $row["Username"];
           $memberID = $row["MemberID"];
@@ -67,7 +93,7 @@ class Admin extends Dbhandler{
     $uid = $_GET["inspect"];
     $sql = "SELECT MemberID, Username, Email, PrivilegeLevel FROM Members WHERE Username = '$uid' ORDER BY Username";
     $result = $this->conn()->query($sql) or die ("Select statement FAILED!");
-    while ($row = mysqli_fetch_array($result))
+    while ($row = $result->fetch_array())
     {
       $deleteid = $row["MemberID"];
       $username = $row["Username"];
@@ -136,7 +162,7 @@ class Admin extends Dbhandler{
     {
       $sql = "SELECT ItemID, Name, Brand, QuantityInStock FROM Items ORDER BY QuantityInStock";
       $result = $this->conn()->query($sql) or die ($this->conn()->error);
-      while ($row = mysqli_fetch_assoc($result)) 
+      while ($row = $result->fetch_assoc()) 
       {
         $itemID = $row["ItemID"]; 
         $name = $row["Name"];

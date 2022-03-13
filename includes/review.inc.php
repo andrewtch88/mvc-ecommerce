@@ -41,7 +41,7 @@ if (isset($_POST["submit"]))
   } 
   else
   {
-    $sql = "UPDATE OrderItems SET Feedback = \"$review\", Rating = $rating
+    $sql = "UPDATE OrderItems SET Feedback = \"$review\", Rating = $rating, RatingDateTime = CURRENT_TIME
       WHERE OrderItemID = $orderItemID";
     $conn->conn()->query($sql) or die($conn->conn()->error);
     echo("<script>location.href = 'review.php?error=none&review_item=$orderItemID&redirect=1';</script>");
