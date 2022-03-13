@@ -17,7 +17,7 @@
 
     <div class="rounded-card-parent center" style="margin-bottom: 100px">
       <div class="card rounded-card">
-        <div class="card-content black-text">
+        <div class="card-content white-text">
           <span class="orange-text" style="font-size: 24px">Products List - Sorted by quantity
           <th>
             <button class='deep-orange btn'><a href="admin_manage_products.php"><i class='material-icons white-text'>refresh</i></a>
@@ -215,15 +215,6 @@
       });
     })
 
-    $('#pagination').pageMe({
-      pagerSelector:'#myPager',
-      activeColor: 'blue',
-      prevText:'Previous',
-      nextText:'Next',
-      showPrevNext:true,
-      hidePageNumbers:false,
-      perPage:5
-    });
   });
 
   function update_image(path)

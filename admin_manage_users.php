@@ -172,16 +172,6 @@
       });
     })
 
-    $('#pagination').pageMe({
-      pagerSelector:'#myPager',
-      activeColor: 'blue',
-      prevText:'Previous',
-      nextText:'Next',
-      showPrevNext:true,
-      hidePageNumbers:false,
-      perPage:5
-    });
-
   });
 </script>
 

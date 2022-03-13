@@ -18,13 +18,15 @@ class Admin extends Dbhandler{
       else
       {
         // limited search to prevent page overflow
-        $sql = "SELECT Username, PrivilegeLevel FROM Members WHERE Username LIKE '%$searchMember%' ORDER BY Username LIMIT 20";
+        $sql = "SELECT Username, MemberID FROM Members WHERE Username LIKE '%$searchMember%' ORDER BY Username LIMIT 20";
         $result = $this->conn()->query($sql) or die ("User does not exists!");
         while ($row = mysqli_fetch_assoc($result) ) 
         { 
-          $username = $row["Username"]; 
+          $username = $row["Username"];
+          $memberID = $row["MemberID"];
           echo(
             "<tr>
+              <td class='blue-text'>$memberID</td>
               <td class='yellow-text'>$username</td>
               <td class='center'>
                 <button name='inspect' value='$username' class='btn'>
@@ -104,20 +106,30 @@ class Admin extends Dbhandler{
           $name = $row["Name"];
           $brand = $row["Brand"];
           $quantityinstock = $row["QuantityInStock"];
+
           echo(
-            "<tr>
-              <td class='white-text'>$name</td>
-              <td class='white-text'>$brand</td>
-              <td class='white-text'>$quantityinstock</td>
+          "<tr>
+            <td class='amber-text'>$name</td>
+            <td class='amber-text'>$brand</td>
+            "
+          );
+
+          echo ("
+              <td class='center'>"); if ($quantityinstock < 10) echo("<p class='red-text bold'>$quantityinstock</p>");
+              else echo("<p class='green-text bold'>$quantityinstock</p>"); echo ("</td>");
+
+          echo ("
               <td>
+              
                 <button name='inspect_product' value='$itemID' class='btn'>
                   <i class='material-icons'>search</i>
                 </button>
-              </td>
+              </td> 
             </tr>"
           );
         }
       }
+      unset($_POST["search_product"]);
     }
 
     if (!isset($searchProduct) || $emptyInput->EmptyInputSelect($searchProduct))

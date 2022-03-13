@@ -48,8 +48,19 @@
   <script>
     $(document).ready(function() {
       $('.dropdown-trigger').dropdown({
-      coverTrigger: false
-    });
+        coverTrigger: false
+      });
+
+      $('#pagination').pageMe({
+        pagerSelector:'#myPager',
+        activeColor: 'blue',
+        prevText:'Previous',
+        nextText:'Next',
+        showPrevNext:true,
+        hidePageNumbers:false,
+        perPage:5
+      });
+      
     })
   </script>
 
