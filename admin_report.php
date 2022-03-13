@@ -31,27 +31,27 @@
 		<p style="color:white">Sales vs Week graph</p>
 		<canvas id="myChart" style="width:100%"></canvas>
 		<?php
+			$x = 0;
 			while ($row=mysqli_fetch_array($result)) {
 		?>
 		<h1>test : <?php echo $row['Amount']?></h1>
 		<h1>test : <?php echo $row['PaymentDate']?></h1>
 		<?php
-			}
+		$data[$x]=$row['Amount'];
+		$x = $x + 1;
+		}
 		?>
 		<p id="js"></p>
 	</div>
 </div>
 <?php
-	$data = array();
-	while ($row=mysqli_fetch_array($result)) {
-		$data[] = $row['Amount'];
-	}
+echo json_encode($data);
 ?>
 <input type="text" name="test" value="<?php echo json_encode($data);?>"></input>
 <script>
 
-var amt = <?php echo json_encode($data);?>;
 var result = [1255,3242,6673,3444,8888,1234];
+var result = <?php echo json_encode($data);?>;
 
 var xValues = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 var yValues = result;
