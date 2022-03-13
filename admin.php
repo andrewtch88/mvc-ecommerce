@@ -15,10 +15,10 @@
 <body>
   <div class="grid" style="margin-top: 100px;">
     <div class="grid">
-      <div style="width: 198px; height: 238px">
+      <div style="width: 340px; height: 238px">
         <div class="col s12 m6">
-          <div class="card blue darken-1">
-            <div class="card-content white-text" style="width: 198px; height: 160px">
+          <div class="card blue darken-1" style="width: 340px;">
+            <div class="card-content white-text" style="height: 160px;">
               <span class="card-title ">SignUps</span>
               <div class="grid">
                 <i class="material-icons white-text">supervisor_account</i>
@@ -33,18 +33,19 @@
                 </div>
               </div>
             </div>
-            <div class="card-action center">
+            <div class="card-action left" style="width: 340px;">
               <a href="admin_manage_users.php">View Report</a>
+              <a href="admin_manage_users.php">Manage Users</a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="grid">
-      <div style="width: 198px; height: 238px">
+      <div style="width: 340px; height: 238px">
         <div class="col s12 m6">
-          <div class="card amber darken-4">
-            <div class="card-content white-text" style="width: 198px; height: 160px">
+          <div class="card amber darken-4" style="width: 340px;"> 
+            <div class="card-content white-text" style="height: 160px;">
               <span class="card-title ">Products</span>
               <div class="grid">
                 <i class="material-icons white-text">category</i>
@@ -57,18 +58,19 @@
                 <p><?php echo($productCount); ?></p>
               </div>
             </div>
-            <div class="card-action center">
+            <div class="card-action left" style="width: 340px;">
               <a href="admin_manage_products.php">View Report</a>
+              <a href="admin_manage_products.php">Manage Products</a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="grid">
-      <div style="width: 198px; height: 238px">
+      <div style="width: 340px; height: 238px">
         <div class="col s12 m6">
-          <div class="card green darken-1">
-            <div class="card-content white-text" style="width: 198px; height: 160px">
+          <div class="card green darken-1" style="width: 340px;">
+            <div class="card-content white-text" style="height: 160px;">
               <span class="card-title ">Total Orders</span>
               <div class="grid">
                 <i class="material-icons white-text">shopping_cart</i>
@@ -84,18 +86,19 @@
                 </div>
               </div>
             </div>
-            <div class="card-action center">
+            <div class="card-action left" style="width: 340px;">
               <a href="admin_view_orders.php">View Report</a>
+              <a href="admin_view_orders.php">Manage Orders</a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="grid">
-      <div>
+      <div style="width: 340px; height: 238px">
         <div class="col s12 m6">
-          <div class="card red lighten-1">
-            <div class="card-content white-text">
+          <div class="card red lighten-1" style="width: 340px;">
+            <div class="card-content white-text" style="height: 160px;">
               <span class="card-title">Today's Orders</span>
               <div class="grid">
                 <?php 
@@ -141,24 +144,12 @@
       <div class="grid">
         <div class="rounded-card-parent">
           <div class="rounded-card amber darken-2" style="width: 910px">
+            <h5 class='white-text bold' style='padding-bottom: 20px'>Product Reviews</h5>
             <div class="card-content white-text">
-              <table class="responsive-table center" id="pagination">
-                <thead class="text-primary center">
-                  <tr>
-                    <h5 class="white-text bold" style="padding-bottom: 20px">Product Reviews</h5>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php 
-                    $oper = new adminContr;
-                    $oper->showReviews();
-                  ?>
-                </tbody>
-              </table>
-              <div class="col-md-12 center text-center">
-                <span class="left" id="total_reg"></span>
-                <ul class="pagination pager" id="myPager"></ul>
-              </div>
+              <?php 
+                $oper = new adminContr;
+                $oper->showReviews();
+              ?>
             </div>
           </div>
         </div>
@@ -172,16 +163,6 @@
     autoSyncTotalOrder();
     autoSyncTodayOrder();
     autoSyncTotalSignUp();
-
-    $('#pagination').pageMe({
-      pagerSelector:'#myPager',
-      activeColor: 'blue',
-      prevText:'Previous',
-      nextText:'Next',
-      showPrevNext:true,
-      hidePageNumbers:false,
-      perPage:5
-    });
   });
 
   function autoSyncTotalOrder(){

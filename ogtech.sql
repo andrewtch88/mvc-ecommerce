@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2022 at 09:44 AM
+-- Generation Time: Mar 13, 2022 at 06:06 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -43,14 +43,14 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `SellingPrice`, `QuantityInStock`, `Image`) VALUES
-(3, 'RTX 3070 PC - Best price to performance PC (16GB Ram 1TB SSD)', 'Mixed', 'CPU: INTEL CORE i5-10400F,\r\nCooler: CRYORIG H7 QUAD LUMI,\r\nMOBO: ASUS TUF Gaming B460-PRO WIFI, \r\nRAM: G.SKILL TRIDENT Z ROYAL 2X8GB CL18 DDR4 3600MHZ,\r\nGPU: EVGA GeForce RTX 3070 XC3 ULTRAGAMING 2x8GB GDDR6,\r\nPSU: GIGABYTE P650B 80+ BRONZE NON-MODULAR,\r\nCase: ANTEC NX410 BLACK, \r\nSSD: CORSAIR Force Series MP510 1TB M.2 NVMe, \r\nHDD: Western Digital WD BLUE 1TB SATA,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                               ', 0, 6950, 26, '3070 pc.jpg'),
+(3, 'RTX 3070 PC - Best price to performance PC (16GB Ram 1TB SSD)', 'Mixed', 'CPU: INTEL CORE i5-10400F,\r\nCooler: CRYORIG H7 QUAD LUMI,\r\nMOBO: ASUS TUF Gaming B460-PRO WIFI, \r\nRAM: G.SKILL TRIDENT Z ROYAL 2X8GB CL18 DDR4 3600MHZ,\r\nGPU: EVGA GeForce RTX 3070 XC3 ULTRAGAMING 2x8GB GDDR6,\r\nPSU: GIGABYTE P650B 80+ BRONZE NON-MODULAR,\r\nCase: ANTEC NX410 BLACK, \r\nSSD: CORSAIR Force Series MP510 1TB M.2 NVMe, \r\nHDD: Western Digital WD BLUE 1TB SATA,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                               ', 0, 6950, 30, '3070 pc.jpg'),
 (4, 'OGTECH EPIC All-Rounder RTX 3060TI PC (16GB Ram 1TB SSD)', 'Mixed', 'CPU: INTEL i5-10400F MOBO: GIGABYE B450M DS3H V2, \r\nRAM: G.SKILL AEGIS Series 8GB DDR4 3200MHz x2,\r\nGPU: GIGABYTE GeForce RTX 3060TI EAGLE OC 8G DDR6,\r\nPSU: ANTEC NE550C V2 80+ BRONZE,\r\nCASE: ANTEC NX410 BLACK\r\nSSD: GIGABYTE 1TB SATA,\r\nWIFI: ASUS PCE-AX3000 WIFI6 PCIE,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                                ', 0, 5991, 15, '3060 ti pc.jpg'),
-(5, 'Nvidia Geforce RTX 3080 PC King Value (16 GB Ram)', 'Mixed', 'CPU: AMD RYZEN 7 3700X, \r\nCooler: CRYORIG H7 MOBO: GIGABYTE B450 AORUS PRO WIFI,\r\nRAM: G.SKILL TRIDENT Z NEO 2X8GB CL16 DDR4 3200MHZ, \r\nGPU: GIGABYTE GeForce RTX 3080 GAMING OC 10GB GDDR6X,\r\nPSU: ANTEC HCG Gold Series 850W 80+ GOLD FULLY MODULAR,\r\nCase: ANTEC DF700 FLUX, \r\nSSD: CORSAIR Force Series MP510 480GB M.2 NVMe,\r\nFREE Cablemod Premium Sleeved Cables,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                ', 0, 8668, 14, '3080 pc.jpg'),
-(6, 'OGTech Best Value AMD RTX™ 3060 PC (16GB Ram)', 'Mixed', 'Graphic Card : GIGABYTE GeForce RTX™ 3060 12GB EAGLE OC,\r\nProcessor : AMD Ryzen 5 3600,\r\nMotherboard : MSI B450M-A Pro Max,\r\nRAM : GSKILL AEGIS DDR4 3200Mhz (2x8gb),\r\nSSD: GIGABYTE NVMe SSD 256GB,\r\nPower Supply :ANTEC CSK550 Bronze,\r\nCasing : ANTEC NX410 Black or White                ', 0, 4599, 14, 'pc-rtx3060.jpg'),
+(5, 'Nvidia Geforce RTX 3080 PC King Value (16 GB Ram)', 'Mixed', 'CPU: AMD RYZEN 7 3700X, \r\nCooler: CRYORIG H7 MOBO: GIGABYTE B450 AORUS PRO WIFI,\r\nRAM: G.SKILL TRIDENT Z NEO 2X8GB CL16 DDR4 3200MHZ, \r\nGPU: GIGABYTE GeForce RTX 3080 GAMING OC 10GB GDDR6X,\r\nPSU: ANTEC HCG Gold Series 850W 80+ GOLD FULLY MODULAR,\r\nCase: ANTEC DF700 FLUX, \r\nSSD: CORSAIR Force Series MP510 480GB M.2 NVMe,\r\nFREE Cablemod Premium Sleeved Cables,\r\nFREE Lamptron Flexlight Multi Programmable ARGB LED Strip                                ', 0, 8668, 20, '3080 pc.jpg'),
+(6, 'OGTech Best Value AMD RTX™ 3060 PC (16GB Ram)', 'Mixed', 'Graphic Card : GIGABYTE GeForce RTX™ 3060 12GB EAGLE OC,\r\nProcessor : AMD Ryzen 5 3600,\r\nMotherboard : MSI B450M-A Pro Max,\r\nRAM : GSKILL AEGIS DDR4 3200Mhz (2x8gb),\r\nSSD: GIGABYTE NVMe SSD 256GB,\r\nPower Supply :ANTEC CSK550 Bronze,\r\nCasing : ANTEC NX410 Black or White                ', 0, 4599, 35, 'pc-rtx3060.jpg'),
 (7, 'OGTECH STREAMER PC NVIDIA GTX1660 SUPER w 32GB RAM', 'Mixed', 'CPU: INTEL i5 10400F MOBO: GIGABYTE B460M DS3H AC RAM: G.SKILL TridentZ RGB 2x16GB DDR4 3200MHz GPU: GIGABYTE GeForce GTX1660 SUPER WF OC PSU: ANTEC CSK550 GB 80+ BRONZE CASE: ZALMAN K1 ATX RGB CASE SSD: XPG SX8200 PRO M.2 1TB SSD HDD: WESTERN DIGITAL 2TB CAVIAR BLUE', 0, 3899, 5, 'RM4761_SE580E-scaled.jpg'),
 (8, 'Asus VG258QR (24.5\')', 'Asus', '                                    Panel size 24.5″. IPS Panel. Non-glare display surface. 16:9 aspect ratio. 1920 x 1080 resolution. Refresh rate 165hz, 0.5ms reponse time. Anti-Flicker.                                ', 1, 888, 25, 'asus_monitor.jpg'),
 (9, 'OGTECH GEFORCE ESPORTS PC GTX1050Ti', 'Mixed', 'Processor : INTEL  Core I3-10105F Graphic Card : AFOX GEFORCE GTX1050TI 4GB Motherboard :GIGABYTE B460M DS3H V2 RAM : GSKILL AEGIS DDR4 3200Mhz (1 x8gb) SSD: GIGABYTE NVMe SSD 256GB Power Supply: ANTEC CSK550 Bronze Casing : ANTEC DP301M (x2 fans included)', 0, 2399, 5, 'pc-1050ti.png'),
-(10, 'OGTech Entry RTX™ PC NVIDIA® GeForce RTX™ 3050', 'Mixed', 'Graphic Card :Nvidia Geforce RTX™ 3050 8GB Processor : INTEL Core I3-10105F Motherboard : GIGABYTE B460M DS3H V2 RAM : GSKILL AEGIS 8GB DDR4 3200Mhz SSD: GIGABYTE NVMe SSD 256GB Power Supply :ANTEC CSK550 Bronze Casing : ANTEC NX270 RGB', 0, 3299, 10, 'pc-rtx3050.jpg'),
+(10, 'OGTech Entry RTX™ PC NVIDIA® GeForce RTX™ 3050', 'Mixed', 'Graphic Card :Nvidia Geforce RTX™ 3050 8GB Processor : INTEL Core I3-10105F Motherboard : GIGABYTE B460M DS3H V2 RAM : GSKILL AEGIS 8GB DDR4 3200Mhz SSD: GIGABYTE NVMe SSD 256GB Power Supply :ANTEC CSK550 Bronze Casing : ANTEC NX270 RGB', 0, 3299, 50, 'pc-rtx3050.jpg'),
 (11, 'Viewsonic XG2401 (24\')', 'Viewsonic', '1ms response time. AMD FreeSync™ technology. SmartSync technology. Black stabilisation. 144Hz Refresh Rate', 1, 799.99, 10, 'view monitor.png'),
 (12, 'ACER Predator Aethon 500 keyboard', 'Acer', 'Blue switch mechanical keys.  70 million keystroke-rated. Rgb controlled software. ', 2, 399, 2, 'acer keyboard.png'),
 (13, 'ACER basic speakers', 'Acer', '                  Sufficient for daily use. Stylish design.                 ', 1, 39.99, 15, 'acer speaker.jpg'),
@@ -74,7 +74,7 @@ INSERT INTO `items` (`ItemID`, `Name`, `Brand`, `Description`, `Category`, `Sell
 (32, 'Viewsonic Elite XG350R-C 35” Curved ', 'Viewsonic', '                  100Hz refresh rate. ClearMotion backlight strobing technology. 3440 X 1440 Ultra Wide QHD resolution. ELITE RGB Alliance. Adaptive Sync & AMD FreeSync™ technology.                 ', 1, 2077, 15, 'viewsonic monitor.png'),
 (33, 'Logitech G102 RGB mouse', 'Logitech', '                  8,000 DPI. LIGHTSYNC RGB featuring color wave effects customizable across ~16.8 million colors.                ', 2, 69.99, 30, 'logi mouse.jpg'),
 (34, 'LOGITECH G502 Gaming Mouse', 'Logitech', 'The best selling mouse in the world, featuring customizable weight. 5 programmable buttons with rgb logo. Durable materials and comfortable engineered grip. 70 millions clicks life span.', 2, 159, 50, 'g502.jpg'),
-(35, 'ACER Nitro VG270 27\" 75hz', 'Acer', '1920x1080p IPS Freesync 1ms with virtual response boost up to 0.5ms', 1, 719.99, 30, 'acer monitor.jfif'),
+(35, 'ACER Nitro VG270 27\" 75hz', 'Acer', '1920x1080p IPS Freesync 1ms with virtual response boost up to 0.5ms', 1, 719.99, 28, 'acer monitor.jfif'),
 (36, 'Acer Aopen 24CV1Y Monitor (23.8\")', 'Acer', 'Full HD, VA Panel, 5ms(GTG) Respond Time, 75Hz Refresh Rate', 1, 499, 30, 'acer budget monitor.jfif'),
 (37, 'Steelseries QCK EDGE L - 450mm x 400mm x 2mm ', 'Steelseries', '                  One of the best selling Cloth Gaming Mouse Pad in the world. Extremely smooth yet durable.                ', 2, 60, 30, 'steelseries l.png'),
 (38, 'Steelseries QCK EDGE - XL 900mm x 300mm x 2mm', 'Steelseries', 'One of the best selling mouse mat in the world. Made from premium woven and rubber. Anti slip back and smooth surface.', 2, 119, 50, 'steelseries xl.jfif'),
@@ -125,18 +125,21 @@ CREATE TABLE `orderitems` (
   `Quantity` int(11) NOT NULL,
   `AddedDatetime` datetime NOT NULL,
   `Feedback` varchar(512) DEFAULT NULL,
-  `Rating` int(11) DEFAULT NULL
+  `Rating` int(11) DEFAULT NULL,
+  `RatingDateTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orderitems`
 --
 
-INSERT INTO `orderitems` (`OrderItemID`, `OrderID`, `ItemID`, `Price`, `Quantity`, `AddedDatetime`, `Feedback`, `Rating`) VALUES
-(26, 23, 3, 6950, 3, '2022-03-11 17:50:03', NULL, NULL),
-(27, 25, 6, 4599, 3, '2022-03-11 17:54:01', NULL, NULL),
-(29, 26, 5, 8668, 3, '2022-03-11 18:20:18', NULL, NULL),
-(37, 24, 3, 6950, 1, '2022-03-13 00:43:58', 'Best PC that i ever purchased. Thanks OGTECH', 5);
+INSERT INTO `orderitems` (`OrderItemID`, `OrderID`, `ItemID`, `Price`, `Quantity`, `AddedDatetime`, `Feedback`, `Rating`, `RatingDateTime`) VALUES
+(37, 24, 3, 6950, 1, '2022-03-13 00:43:58', 'Best PC that i ever purchased. Thanks OGTECH for your service.', 5, '2022-03-13 19:36:36'),
+(56, 28, 3, 6950, 1, '2022-03-13 23:49:08', 'The PC is good as its name, best price to performance PC. The GPU is TOP 10 currently for best price to performance. Anyways, good service must buy from this shop.', 5, '2022-03-14 00:35:25'),
+(57, 28, 5, 8668, 1, '2022-03-13 23:49:39', 'EZ KATKA. GOOD SERVICE. BEST VALUE. KING OF PC. THANKS OGTECH', 5, '2022-03-14 00:35:51'),
+(58, 28, 6, 4599, 1, '2022-03-13 23:49:45', 'Best value PC ever. Thanks OGTECH for the good service and good parts and good prices. Everything works fine.', 5, '2022-03-14 00:36:24'),
+(59, 28, 10, 3299, 1, '2022-03-13 23:52:19', 'Best entry PC. 3050 basically can run cyberpunk is max settings 1080p 60fps lol. Thanks OGTECH', 5, '2022-03-14 00:37:06'),
+(60, 28, 35, 719.99, 2, '2022-03-13 23:53:25', 'No deadpixel or dead color. Good service and fast delivery. Thanks OGTECH', 5, '2022-03-14 00:37:51');
 
 -- --------------------------------------------------------
 
@@ -168,7 +171,8 @@ INSERT INTO `orders` (`OrderID`, `MemberID`, `CartFlag`) VALUES
 (25, 2, b'0'),
 (26, 2, b'0'),
 (27, 2, b'1'),
-(28, 5, b'1');
+(28, 5, b'0'),
+(29, 5, b'1');
 
 -- --------------------------------------------------------
 
@@ -190,7 +194,8 @@ INSERT INTO `payment` (`PaymentID`, `OrderID`, `PaymentDate`) VALUES
 (3, 23, '2022-03-11'),
 (4, 25, '2022-03-11'),
 (5, 26, '2022-03-12'),
-(6, 24, '2022-03-13');
+(6, 24, '2022-03-13'),
+(7, 28, '2022-03-14');
 
 --
 -- Indexes for dumped tables
@@ -250,19 +255,19 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `orderitems`
 --
 ALTER TABLE `orderitems`
-  MODIFY `OrderItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `OrderItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

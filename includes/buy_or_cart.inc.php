@@ -7,12 +7,14 @@ function buyOrCart($conn, $quantityInStock, $cartQty, $itemID, $price, $cart){
     {
       $orderID = $cart->getOrderID();
       // check if order has been added before
-      $sql = "SELECT OrderItemID, Quantity FROM OrderItems WHERE OrderID = $orderID AND ItemID = $itemID";
+      $sql = "SELECT O.OrderID, O.CartFlag, OI.OrderItemID, OI.OrderID, OI.Quantity FROM Orders O, OrderItems OI 
+        WHERE O.OrderID = OI.OrderID AND OI.OrderID = $orderID AND ItemID = $itemID";
+
       $result = $conn->conn()->query($sql) or die($conn->conn()->error);
       $row = $result->fetch_assoc();
       $orderItemID = $row["OrderItemID"];
 
-      if ($orderItemID == NULL)
+      if ($orderItemID === NULL)
       {
         // add as new order
         $sql = "INSERT INTO OrderItems(OrderID, ItemID, Price, Quantity, AddedDatetime)
@@ -21,7 +23,10 @@ function buyOrCart($conn, $quantityInStock, $cartQty, $itemID, $price, $cart){
       } else
       {
         $cartQty += $row["Quantity"];
-        $sql = "UPDATE OrderItems SET Quantity = $cartQty";
+        $sql = "SELECT O.OrderID, O.CartFlag, OI.OrderItemID, OI.OrderID, OI.Quantity FROM Orders O, OrderItems OI 
+          WHERE OI.OrderID = $orderID AND O.OrderID = OI.OrderID AND ItemID = $itemID;
+          UPDATE OrderItems SET Quantity = $cartQty WHERE O.CartFlag = 1;";
+
         $conn->conn()->query($sql) or die($conn->conn()->error);
       }
     }

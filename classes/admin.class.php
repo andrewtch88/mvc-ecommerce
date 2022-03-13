@@ -16,16 +16,20 @@ class Admin extends Dbhandler{
       $ratingDateTime = $row["RatingDateTime"];
       $image = $row["Image"];
 
-      echo(
-        "<tr>
-          <a href='product.php?item_id=$itemID'>
-            <div id='bordershadow'>
-              <div><img class='shadow-img' src='product_images/$image' style='height: 68px; float: left'></div> 
-              <div class='white-text bold' style='height: 60px; float: left; margin-left: 150px'>New Comment on $ratingDateTime</div>
-              <div class='black-text' style='height: 60px; float: left; margin-left: 10px'><i class='material-icons'>create</i></div>
-            </div>
-          </a>
-        </tr>"
+      echo("
+        <table class='responsive-table center' id='pagination'>
+          <tbody>
+            <tr>
+            <a href='product.php?item_id=$itemID'>
+              <div id='bordershadow'>
+                <div><img class='shadow-img' src='product_images/$image' style='height: 68px; float: left'></div> 
+                <div class='white-text bold' style='height: 60px; float: left; margin-left: 150px'>New Comment on $ratingDateTime</div>
+                <div class='black-text' style='height: 60px; float: left; margin-left: 10px'><i class='material-icons'>create</i></div>
+              </div>
+            </a>
+            </tr>
+          </tbody>
+        </table>"
       );
     }
   }
@@ -281,3 +285,24 @@ class Admin extends Dbhandler{
     }
   }
 }
+
+echo("
+<div class='col-md-12 center text-center'>
+  <span class='left' id='total_reg'></span>
+  <ul class='pagination pager' id='myPager'></ul>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#pagination').pageMe({
+      pagerSelector:'#myPager',
+      activeColor: 'blue',
+      prevText:'Previous',
+      nextText:'Next',
+      showPrevNext:true,
+      hidePageNumbers:false,
+      perPage:5
+    });
+  })
+</script>
+");

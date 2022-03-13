@@ -26,8 +26,7 @@ while ($row = $result->fetch_assoc())
           <td>$searchMember</td>
           <td>$email</td>
           <td>$orderID</td>
-          <td>$paymentDate</td>
-          <td
+          <td class='amber-text bold'>$paymentDate</td>
           <td>
             <form action='admin_view_orders.php' method='GET'>
               <input type='hidden' name='username' value='$searchMember'/>
@@ -43,3 +42,24 @@ while ($row = $result->fetch_assoc())
     "
   );
 }
+
+echo("
+<div class='col-md-12 center text-center'>
+  <span class='left' id='total_reg'></span>
+  <ul class='pagination pager' id='myPager'></ul>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#pagination').pageMe({
+      pagerSelector:'#myPager',
+      activeColor: 'blue',
+      prevText:'Previous',
+      nextText:'Next',
+      showPrevNext:true,
+      hidePageNumbers:false,
+      perPage:5
+    });
+  })
+</script>
+");

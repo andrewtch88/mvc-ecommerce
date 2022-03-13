@@ -47,13 +47,16 @@
       if (isset($_GET["qty"])) $cartQty = $_GET["qty"];
       
       if (isset($_GET["buy_now"])){
-        buyOrCart($conn, $quantityInStock, $cartQty+1, $itemID, $price, $cart);
-        echo("<script>location.href = 'cart.php?member_id=$memberID';</script>");
+        buyOrCart($conn, $quantityInStock, 1, $itemID, $price, $cart);
+        echo("<script>location.replace('cart.php?member_id=$memberID');</script>");
         exit();
       }
       
-      if ($cartQty > 0) 
+      if ($cartQty > 0) {
         buyOrCart($conn, $quantityInStock, $cartQty, $itemID, $price, $cart);
+        echo("<script>location.replace('product.php?item_id=$itemID');</script>");
+        exit();
+      }
 
     } else die("<h5 class='container white-text page-title' style='margin-top: 50px'>No item selected...</h5>");
   ?>
@@ -68,9 +71,9 @@
         <div class="row">
           <div class="col s4">   
             <a class="magnifier-thumb-wrapper demo">
-                <img id="thumb" style="max-height: 350px; max-width: 350px; margin-top: 30px" src="product_images/<?php echo($image); ?>"
-                data-large-img-url="product_images/<?php echo($image); ?>"
-                data-large-img-wrapper="preview">
+              <img id="thumb" style="max-height: 350px; max-width: 350px; margin-top: 30px" src="product_images/<?php echo($image); ?>"
+              data-large-img-url="product_images/<?php echo($image); ?>"
+              data-large-img-wrapper="preview">
             </a>
             <div class="magnifier-preview example heading" id="preview" style="width: 600px; height:450px"></div>
           </div>

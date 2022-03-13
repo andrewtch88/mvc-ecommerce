@@ -10,7 +10,9 @@
   }
 ?>
 
-<h4 class="page-title">Payment History / Previous Orders</h4>
+<div class="row" style="border-top: 3px solid #bbb; margin-top: 100px">
+  <h4 class="page-title">Payment History / Previous Orders</h4>
+</div>
 
 <?php
   if ($orderCount <= 0) 
