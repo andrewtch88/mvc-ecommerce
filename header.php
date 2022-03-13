@@ -109,7 +109,7 @@
   var page = path.split("/").pop().split(".")[0];
 
   var links = document.getElementsByClassName(page);
-  if (links[0] != null) links[0].classList.add("underline");
+  if (links[0] != null) links[0].classList.add("page_underline");
 
   // style search bar
   var style = document.getElementById("search-bar");

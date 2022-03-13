@@ -13,6 +13,16 @@ nav {
   top: 100;
 }
 
+.page_underline {
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 5s infinite linear;
+  text-shadow: 0px 0px 8px orange;
+  box-shadow: 0px 2px 5px orange;
+}
+
 .underline {
   font-weight: bold;
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
