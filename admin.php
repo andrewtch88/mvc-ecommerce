@@ -144,12 +144,24 @@
       <div class="grid">
         <div class="rounded-card-parent">
           <div class="rounded-card amber darken-2" style="width: 910px">
-            <h5 class='white-text bold' style='padding-bottom: 20px'>Product Reviews</h5>
             <div class="card-content white-text">
-              <?php 
-                $oper = new adminContr;
-                $oper->showReviews();
-              ?>
+              <table class="responsive-table center" id="pagination">
+                <thead class="text-primary center">
+                  <tr>
+                    <h5 class="white-text bold" style="padding-bottom: 20px">Product Reviews</h5>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php 
+                    $oper = new adminContr;
+                    $oper->showReviews();
+                  ?>
+                </tbody>
+              </table>
+              <div class="col-md-12 center text-center">
+                <span class="left" id="total_reg"></span>
+                <ul class="pagination pager" id="myPager"></ul>
+              </div>
             </div>
           </div>
         </div>
@@ -160,6 +172,15 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
+    $('#pagination').pageMe({
+      pagerSelector:'#myPager',
+      activeColor: 'blue',
+      prevText:'Previous',
+      nextText:'Next',
+      showPrevNext:true,
+      hidePageNumbers:false,
+      perPage:3
+    });
     autoSyncTotalOrder();
     autoSyncTodayOrder();
     autoSyncTotalSignUp();
@@ -183,4 +204,5 @@
     });
   }
 </script>
+
 </html>

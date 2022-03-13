@@ -44,11 +44,19 @@
                 <h6 class="blue-text bold center">Payment Date</h6>
               </div>
             </div>
-            <?php 
-              $admin = new adminContr(); 
-              $admin->showSearchMember();
-            ?>
-            <div id="tableHolder"></div>
+            <table class='responsive-table' style='table-layout: fixed; width: 100%;' id='pagination'>
+              <tbody>
+                <?php 
+                  $admin = new adminContr(); 
+                  $admin->showSearchMember();
+                ?>
+              </tbody>
+            </table>
+
+            <div class='col-md-12 center text-center'>
+              <span class='left' id='total_reg'></span>
+              <ul class='pagination pager' id='myPager'></ul>
+            </div>
           </div>
         </div>
       </div>
