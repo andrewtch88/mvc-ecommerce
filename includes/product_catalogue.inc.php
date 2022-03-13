@@ -93,7 +93,7 @@
                       $intRating = $avgRatings * 5 / 100;
                       echo(
                         "$intRating.0
-                        <div class='ratings'>
+                        <div class='ratings' style='padding-bottom: 5px'>
                           <div class='empty-stars'></div>
                           <div class='full-stars' style='width: $avgRatings%'></div>
                         </div>"
