@@ -90,30 +90,30 @@
                     if ($hasReviews)
                     {
                       $intRating = $avgRatings * 5 / 100;
-                      if ($intRating = 10) $intRating = $intRating / 2;
+                      $reviews = $item->GetReviews();
+                      $reviewCount = count($reviews);
+
+                      if ($intRating >= 10) {
+                        $intRating = $intRating / $reviewCount;
+                        $intRating = number_format((float)$intRating, 2, '.', '');
+                        $avgRatings = $intRating * 20;
+                      }
                       echo(
-                        "$intRating.0
+                        "$intRating
                         <div class='ratings' style='padding-bottom: 5px'>
                           <div class='empty-stars'></div>
                           <div class='full-stars' style='width: $avgRatings%'></div>
                         </div>"
                       );
-                    } else echo("- |");
-
-                    if ($hasReviews)
-                    {
-                      $reviews = $item->GetReviews();
-                      $reviewCount = count($reviews);
-                      echo(
-                        " | $reviewCount Ratings |"
-                      );
-                    } else echo(" 0 Ratings |");
+                    } else echo("- | ");
+                    if ($hasReviews) echo(" | $reviewCount Ratings");
+                      else echo("No ratings yet");
 
                     if ($item->checkSoldCount()){
-                      echo($item->checkSoldCount());
+                      echo(" | " . $item->checkSoldCount());
                       echo(" Sold");
                     }
-                    else echo(" 0 Sold");
+                    else echo(" | 0 Sold");
 
                   echo("</tr>
                   </tbody>

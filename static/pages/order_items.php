@@ -10,7 +10,7 @@
   }
 ?>
 
-<div class="row" style="border-top: 3px solid #bbb; margin-top: 100px">
+<div class="row" style="margin-top: 100px; margin-bottom: 50px; border-bottom: 3px solid #bbb">
   <h4 class="page-title">Payment History / Previous Orders</h4>
 </div>
 
