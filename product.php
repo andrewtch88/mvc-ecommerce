@@ -88,6 +88,7 @@
                       if ($hasReviews)
                       {
                         $intRating = $avgRatings * 5 / 100;
+                        if ($intRating = 10) $intRating = $intRating / 2;
                         echo(
                           "$intRating.0
                           <div class='ratings' style='padding-bottom: 5px'>
