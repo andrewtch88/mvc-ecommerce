@@ -15,8 +15,30 @@
 
 	<?php
 	include "conn.php";
-	$result = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
-	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 7 day group by payment.PaymentDate");
+	$result1 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 2 day and payment.PaymentDate< now() - INTERVAL 1 day");
+	
+	$result2 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 3 day and payment.PaymentDate< now() - INTERVAL 2 day");
+
+	$result3 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 4 day and payment.PaymentDate< now() - INTERVAL 3 day");
+
+	$result4 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 5 day and payment.PaymentDate< now() - INTERVAL 4 day");
+
+	$result5 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 6 day and payment.PaymentDate< now() - INTERVAL 5 day");
+
+	$result6 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 7 day and payment.PaymentDate< now() - INTERVAL 6 day");
+
+	$result7 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 8 day and payment.PaymentDate< now() - INTERVAL 7 day");
+
+	$result_tot = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 7 day");
+
 	?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -30,31 +52,164 @@
 		<h5 style="color:white">Sales graph</h5>
 		<p style="color:white">Sales vs Week graph</p>
 		<canvas id="myChart" style="width:100%"></canvas>
+		
+		<!--result1-->
 		<?php
-			$x = 0;
-			while ($row=mysqli_fetch_array($result)) {
+			while ($row=mysqli_fetch_array($result1)) {
 		?>
-		<h1>test : <?php echo $row['Amount']?></h1>
-		<h1>test : <?php echo $row['PaymentDate']?></h1>
 		<?php
-		$data[$x]=$row['Amount'];
-		$x = $x + 1;
+		$amt1=$row['Amount'];
+				
+		if(is_null($amt1)) {
+			$amt1 = 0;
+		}
+		
+		$date1=$row['PaymentDate'];
+		}
+		
+		if(is_null($date1)) {
+			$date1 = date('Y.m.d',strtotime("- 2 days"));
 		}
 		?>
-		<p id="js"></p>
+		
+		<!--result2-->
+		<?php
+			while ($row=mysqli_fetch_array($result2)) {
+		?>
+		<?php
+		$amt2=$row['Amount'];
+		
+		if(is_null($amt2)) {
+			$amt2 = 0;
+		}
+		
+		$date2=$row['PaymentDate'];
+		}
+		
+		if(is_null($date2)) {
+			$date2 = date('Y.m.d',strtotime("- 2 days"));
+		}
+		?>
+		
+		<!--result3-->
+		<?php
+			while ($row=mysqli_fetch_array($result3)) {
+		?>
+		<?php
+		$amt3=$row['Amount'];
+				
+		if(is_null($amt3)) {
+			$amt3 = 0;
+		}
+		
+		$date3=$row['PaymentDate'];
+		}
+				
+		if(is_null($date3)) {
+			$date3 = date('Y.m.d',strtotime("- 2 days"));
+		}
+		?>
+		
+		<!--result4-->
+		<?php
+			while ($row=mysqli_fetch_array($result4)) {
+		?>
+		<?php
+		$amt4=$row['Amount'];
+				
+		if(is_null($amt4)) {
+			$amt4 = 0;
+		}
+		
+		$date4=$row['PaymentDate'];
+		}
+				
+		if(is_null($date4)) {
+			$date4 = date('Y.m.d',strtotime("- 2 days"));
+		}
+		?>
+		
+		<!--result5-->
+		<?php
+			while ($row=mysqli_fetch_array($result5)) {
+		?>
+		<?php
+		$amt5=$row['Amount'];
+				
+		if(is_null($amt5)) {
+			$amt5 = 0;
+		}
+		
+		$date5=$row['PaymentDate'];
+		}
+				
+		if(is_null($date5)) {
+			$date5 = date('Y.m.d',strtotime("- 2 days"));
+		}
+		?>
+		
+		<!--result6-->
+		<?php
+			while ($row=mysqli_fetch_array($result6)) {
+		?>
+		<?php
+		$amt6=$row['Amount'];
+				
+		if(is_null($amt6)) {
+			$amt6 = 0;
+		}
+		
+		$date6=$row['PaymentDate'];
+		}
+				
+		if(is_null($date6)) {
+			$date6 = date('Y.m.d',strtotime("- 2 days"));
+		}
+		?>
+		
+		<!--result7-->
+		<?php
+			while ($row=mysqli_fetch_array($result7)) {
+		?>
+		<?php
+		$amt7=$row['Amount'];
+				
+		if(is_null($amt7)) {
+			$amt7 = 0;
+		}
+		
+		$date7=$row['PaymentDate'];
+		}
+				
+		if(is_null($date7)) {
+			$date7 = date('Y.m.d',strtotime("- 2 days"));
+		}
+		?>
+		<?php
+			while ($row=mysqli_fetch_array($result_tot)) {
+				$data_tot=$row['Amount'];
+			}
+		?>
+		<h3 style="color:white">Total sales of last 7 days: <?php echo $data_tot?></h3>
 	</div>
 </div>
 <?php
-echo json_encode($data);
+echo json_encode($amt1);
+echo json_encode($amt2);
 ?>
 <input type="text" name="test" value="<?php echo json_encode($data);?>"></input>
 <script>
 
 var result = [1255,3242,6673,3444,8888,1234];
-var result = <?php echo json_encode($data);?>;
+var amt = [<?php echo json_encode($amt1);?>,<?php echo json_encode($amt2);?>,<?php echo json_encode($amt3);?>
+,<?php echo json_encode($amt4);?>,<?php echo json_encode($amt5);?>,<?php echo json_encode($amt6);?>
+,<?php echo json_encode($amt7);?>];
+var date = [<?php echo json_encode($date1);?>,<?php echo json_encode($date2);?>,<?php echo json_encode($date3);?>
+,<?php echo json_encode($date4);?>,<?php echo json_encode($date5);?>,<?php echo json_encode($date6);?>
+,<?php echo json_encode($date7);?>];
 
-var xValues = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-var yValues = result;
+var xValues = date;
+var yValues = amt;
 
 new Chart("myChart", {
 	type: "line",
