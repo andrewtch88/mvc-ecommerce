@@ -38,6 +38,9 @@
 
 	$result_tot = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 7 day");
+	
+	$result_month1 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 30 day");
 
 	?>
 
@@ -47,11 +50,13 @@
 <body>
 
 <div class="container" style="margin-top:150px">
-	<h3 class="page-title">Report</h3>
-	<div class="rounded-card-parent center" style="margin-bottom: 100px">
+	<h3 class="page-title">Weekly report</h3>
+	<div class="rounded-card-parent center" style="margin-bottom:20px">
 		<h5 style="color:white">Sales graph</h5>
 		<p style="color:white">Sales vs Week graph</p>
+		<div>
 		<canvas id="myChart" style="width:100%"></canvas>
+		</div>
 		
 		<!--result1-->
 		<?php
@@ -68,7 +73,7 @@
 		}
 		
 		if(is_null($date1)) {
-			$date1 = date('Y.m.d',strtotime("- 2 days"));
+			$date1 = date('Y-m-d',strtotime("- 1 days"));
 		}
 		?>
 		
@@ -87,7 +92,7 @@
 		}
 		
 		if(is_null($date2)) {
-			$date2 = date('Y.m.d',strtotime("- 2 days"));
+			$date2 = date('Y-m-d',strtotime("- 2 days"));
 		}
 		?>
 		
@@ -106,7 +111,7 @@
 		}
 				
 		if(is_null($date3)) {
-			$date3 = date('Y.m.d',strtotime("- 2 days"));
+			$date3 = date('Y-m-d',strtotime("- 3 days"));
 		}
 		?>
 		
@@ -125,7 +130,7 @@
 		}
 				
 		if(is_null($date4)) {
-			$date4 = date('Y.m.d',strtotime("- 2 days"));
+			$date4 = date('Y-m-d',strtotime("- 4 days"));
 		}
 		?>
 		
@@ -144,7 +149,7 @@
 		}
 				
 		if(is_null($date5)) {
-			$date5 = date('Y.m.d',strtotime("- 2 days"));
+			$date5 = date('Y-m-d',strtotime("- 5 days"));
 		}
 		?>
 		
@@ -163,7 +168,7 @@
 		}
 				
 		if(is_null($date6)) {
-			$date6 = date('Y.m.d',strtotime("- 2 days"));
+			$date6 = date('Y-m-d',strtotime("- 6 days"));
 		}
 		?>
 		
@@ -182,7 +187,7 @@
 		}
 				
 		if(is_null($date7)) {
-			$date7 = date('Y.m.d',strtotime("- 2 days"));
+			$date7 = date('Y-m-d',strtotime("- 7 days"));
 		}
 		?>
 		<?php
@@ -190,23 +195,50 @@
 				$data_tot=$row['Amount'];
 			}
 		?>
-		<h3 style="color:white">Total sales of last 7 days: <?php echo $data_tot?></h3>
+		
+		<h4 style="color:white">Total sales of last 7 days: <?php echo $data_tot?></h4>
+		<h4 style="color:white">Start Date: <?php echo $date7?>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+		End Date: <?php echo $date1?></h4></h4>
 	</div>
+	<br><br><br>
+	<h3 class="page-title">Monthly report</h3>
+	<div class="rounded-card-parent center" style="margin-bottom:20px">
+		<h5 style="color:white">Sales graph</h5>
+		<p style="color:white">Sales vs Month graph</p>
+		<div>
+		<canvas id="myChart2" style="width:100%"></canvas>
+		</div>
+		
+		<!--result_month1-->
+		<?php
+			while ($row=mysqli_fetch_array($result_month1)) {
+		?>
+		<?php
+		$amt_m1=$row['Amount'];
+				
+		if(is_null($amt1)) {
+			$amt_m1 = 0;
+		}
+		
+		$date_m1=$row['PaymentDate'];
+		}
+		
+		if(is_null($date_m1)) {
+			$date_m1 = date('Y-m-d',strtotime("- 30 days"));
+		}
+		?>
+		
+	</div>
+	<h5><a href="admin_report.php">Back</a></h5>
 </div>
-<?php
-echo json_encode($amt1);
-echo json_encode($amt2);
-?>
-<input type="text" name="test" value="<?php echo json_encode($data);?>"></input>
 <script>
+var amt = [<?php echo json_encode($amt7);?>,<?php echo json_encode($amt6);?>,<?php echo json_encode($amt5);?>
+,<?php echo json_encode($amt4);?>,<?php echo json_encode($amt3);?>,<?php echo json_encode($amt2);?>
+,<?php echo json_encode($amt1);?>];
 
-var result = [1255,3242,6673,3444,8888,1234];
-var amt = [<?php echo json_encode($amt1);?>,<?php echo json_encode($amt2);?>,<?php echo json_encode($amt3);?>
-,<?php echo json_encode($amt4);?>,<?php echo json_encode($amt5);?>,<?php echo json_encode($amt6);?>
-,<?php echo json_encode($amt7);?>];
-var date = [<?php echo json_encode($date1);?>,<?php echo json_encode($date2);?>,<?php echo json_encode($date3);?>
-,<?php echo json_encode($date4);?>,<?php echo json_encode($date5);?>,<?php echo json_encode($date6);?>
-,<?php echo json_encode($date7);?>];
+var date = [<?php echo json_encode($date7);?>,<?php echo json_encode($date6);?>,<?php echo json_encode($date5);?>
+,<?php echo json_encode($date4);?>,<?php echo json_encode($date3);?>,<?php echo json_encode($date2);?>
+,<?php echo json_encode($date1);?>];
 
 var xValues = date;
 var yValues = amt;
@@ -250,13 +282,50 @@ new Chart("myChart", {
 		}
 	}
 });
+
+var amt2 = [0,<?php echo json_encode($amt_m1);?>];
+var date2 = [0,<?php echo json_encode($date_m1);?>];
+
+var yValues_m = amt2;
+var xValues_m = date2;
+var barColors = "rgba(0,255,0,0.4)";
+
+new Chart("myChart2", {
+	type: "bar",
+	data: {
+		labels: xValues_m,
+		datasets: [{
+		backgroundColor: barColors,
+		data: yValues_m
+		}]
+	},
+	options: {
+		legend: {display: false},
+		scales: {
+			yAxes: [{
+				gridLines: {
+					display: true,
+					color: "rgba(0,255,0,0.4)",
+				},
+				ticks: {
+					fontColor: "#00FFd0",
+					fontSize: 18,
+				}
+			}],
+			xAxes: [{
+				gridLines: {
+					display: true,
+					color: "rgba(0,255,0,0.4)",
+				},
+				ticks: {
+					fontColor: "#00FFd0",
+					fontSize: 18,
+				}
+			}],
+		}
+	}
+});
 </script>
 </body>
  <?php include "footer.php"; ?>
 </html>
-
-<!--
-Warning: Undefined variable $result in C:\xampp\htdocs\HotsTech\admin_report.php on line 20
-
-Fatal error: Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, null given in C:\xampp\htdocs\HotsTech\admin_report.php:20 Stack trace: #0 C:\xampp\htdocs\HotsTech\admin_report.php(20): mysqli_fetch_array(NULL) #1 {main} thrown in C:\xampp\htdocs\HotsTech\admin_report.php on line 20
--->
