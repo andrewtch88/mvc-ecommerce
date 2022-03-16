@@ -42,6 +42,14 @@
 	$result_month1 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 30 day");
 
+	$result_month2 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 60 day and payment.PaymentDate< now() - INTERVAL 30 day");
+
+	$result_month3 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 90 day and payment.PaymentDate< now() - INTERVAL 60 day");
+
+	$result_month_tot = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 90 day");
 	?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -219,17 +227,45 @@
 		if(is_null($amt1)) {
 			$amt_m1 = 0;
 		}
-		
-		$date_m1=$row['PaymentDate'];
-		}
-		
-		if(is_null($date_m1)) {
-			$date_m1 = date('Y-m-d',strtotime("- 30 days"));
+		$date_m1 = date('Y-m-d',strtotime("- 30 days"));
 		}
 		?>
 		
+		<!--result_month2-->
+		<?php
+			while ($row=mysqli_fetch_array($result_month2)) {
+		?>
+		<?php
+		$amt_m2=$row['Amount'];
+				
+		if(is_null($amt1)) {
+			$amt_m2 = 0;
+		}
+		$date_m2 = date('Y-m-d',strtotime("- 60 days"));
+		}
+		?>
+		
+		<!--result_month3-->
+		<?php
+			while ($row=mysqli_fetch_array($result_month3)) {
+		?>
+		<?php
+		$amt_m3=$row['Amount'];
+				
+		if(is_null($amt3)) {
+			$amt_m3 = 0;
+		}
+		$date_m3 = date('Y-m-d',strtotime("- 90 days"));
+		}
+		?>
+		
+		<?php
+			while ($row=mysqli_fetch_array($result_month_tot)) {
+				$data_m_tot=$row['Amount'];
+			}
+		?>
+		<h4 style="color:white">Total sales of last 90 days: <?php echo $data_m_tot?></h4>
 	</div>
-	<h5><a href="admin_report.php">Back</a></h5>
 </div>
 <script>
 var amt = [<?php echo json_encode($amt7);?>,<?php echo json_encode($amt6);?>,<?php echo json_encode($amt5);?>
@@ -283,8 +319,8 @@ new Chart("myChart", {
 	}
 });
 
-var amt2 = [0,<?php echo json_encode($amt_m1);?>];
-var date2 = [0,<?php echo json_encode($date_m1);?>];
+var amt2 = [<?php echo json_encode($amt_m3);?>,<?php echo json_encode($amt_m2);?>,<?php echo json_encode($amt_m1);?>];
+var date2 = [<?php echo json_encode($date_m3);?>,<?php echo json_encode($date_m2);?>,<?php echo json_encode($date_m1);?>];
 
 var yValues_m = amt2;
 var xValues_m = date2;
@@ -310,6 +346,7 @@ new Chart("myChart2", {
 				ticks: {
 					fontColor: "#00FFd0",
 					fontSize: 18,
+					beginAtZero: true,
 				}
 			}],
 			xAxes: [{
