@@ -50,9 +50,27 @@
 
 	$result_month_tot = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 90 day");
+	
+	$result_items0 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 0");
+	$result_items1 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 1");
+	$result_items2 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 2");
 	?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<style>
+	.table {
+		color:white;
+		font-size:24px;
+		text-align:center;
+		width:1000px;
+		margin:50px 100px;
+	}
+	
+	th {
+		font-size:32px;
+	}
+</style>
 </head>
 
 <body>
@@ -266,6 +284,69 @@
 		?>
 		<h4 style="color:white">Total sales of last 90 days: <?php echo $data_m_tot?></h4>
 	</div>
+	<br><br><br>
+	<h3 class="page-title">Items report</h3>
+	<div class="rounded-card-parent center" style="margin-bottom:20px">
+		<h5 style="color:white">Items pie chart</h5>
+		<p style="color:white">Quantity of stock in each category</p>
+		<div>
+		<canvas id="myChart3" style="width:100%"></canvas>
+		</div>
+		
+		<!--result_items0-->
+		<?php
+			while ($row=mysqli_fetch_array($result_items0)) {
+				$category0 = "PC Packages";
+				$quantity0 = $row['Quantity'];
+			}
+			
+			if(is_null($quantity0)) {
+				$quantity0 = 0;
+			}
+		?>
+		
+		<!--result_items1-->
+		<?php
+			while ($row=mysqli_fetch_array($result_items1)) {
+				$category1 = "Monitor & Audio";
+				$quantity1 = $row['Quantity'];
+			}
+			
+			if(is_null($quantity1)) {
+				$quantity1 = 0;
+			}
+		?>
+		
+		<!--result_items2-->
+		<?php
+			while ($row=mysqli_fetch_array($result_items2)) {
+				$category2 = "Peripherals";
+				$quantity2 = $row['Quantity'];
+			}
+			
+			if(is_null($quantity2)) {
+				$quantity2 = 0;
+			}
+		?>
+		<table class="table">
+		<tr>
+			<th>Category</th>
+			<th>Quantity</th>
+		</tr>
+		<tr>
+			<td><?php echo $category0?></td>
+			<td><?php echo $quantity0?></td>
+		</tr>
+		<tr>
+			<td><?php echo $category1?></td>
+			<td><?php echo $quantity1?></td>
+		</tr>
+		<tr>
+			<td><?php echo $category2?></td>
+			<td><?php echo $quantity2?></td>
+		</tr>
+		</table>
+	</div>
 </div>
 <script>
 var amt = [<?php echo json_encode($amt7);?>,<?php echo json_encode($amt6);?>,<?php echo json_encode($amt5);?>
@@ -319,12 +400,12 @@ new Chart("myChart", {
 	}
 });
 
-var amt2 = [<?php echo json_encode($amt_m3);?>,<?php echo json_encode($amt_m2);?>,<?php echo json_encode($amt_m1);?>];
 var date2 = [<?php echo json_encode($date_m3);?>,<?php echo json_encode($date_m2);?>,<?php echo json_encode($date_m1);?>];
+var amt2 = [<?php echo json_encode($amt_m3);?>,<?php echo json_encode($amt_m2);?>,<?php echo json_encode($amt_m1);?>];
 
-var yValues_m = amt2;
 var xValues_m = date2;
-var barColors = "rgba(0,255,0,0.4)";
+var yValues_m = amt2;
+var barColors = "rgba(0,255,0,0.8)";
 
 new Chart("myChart2", {
 	type: "bar",
@@ -359,6 +440,30 @@ new Chart("myChart2", {
 					fontSize: 18,
 				}
 			}],
+		}
+	}
+});
+
+var cate = ["<?php echo $category0?>","<?php echo $category1?>","<?php echo $category2?>"];
+var quan = [<?php echo $quantity0?>,<?php echo $quantity1?>,<?php echo $quantity2?>];
+
+var xValues_items = cate;
+var yValues_items = quan;
+var barColors2 = ["#ff7700","#00ffd0","#00ccff"]
+
+new Chart("myChart3", {
+	type: "pie",
+	data: {
+		labels: xValues_items,
+		datasets: [{
+		backgroundColor: barColors2,
+		data: yValues_items
+		}]
+	},
+	options: {
+		title:{
+			display:false,
+			text: "Quantity of stock in each category"
 		}
 	}
 });
