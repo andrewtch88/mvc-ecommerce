@@ -365,6 +365,7 @@
 				$quantity_user = $row['Quantity'];
 			}
 		?>
+		<h4 style="color:white">Number of new sign ups of last 30 days: <?php echo $quantity_user?></h4>
 	</div>
 </div>
 <script>
@@ -510,6 +511,7 @@ new Chart("myChart4", {
 					color: "rgba(0,255,0,0.4)",
 				},
 				ticks: {
+					max: 60,
 					fontColor: "#00FFd0",
 					fontSize: 18,
 					beginAtZero: true,
