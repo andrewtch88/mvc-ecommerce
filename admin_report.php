@@ -54,6 +54,8 @@
 	$result_items0 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 0");
 	$result_items1 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 1");
 	$result_items2 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 2");
+	
+	$result_user = mysqli_query($con,"SELECT count(MemberID) as Quantity FROM members where RegisteredDate > now() - INTERVAL 30 day and RegisteredDate < now() - INTERVAL 1 day")
 	?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -347,6 +349,23 @@
 		</tr>
 		</table>
 	</div>
+	<br><br><br>
+	<h3 class="page-title">User report</h3>
+	<div class="rounded-card-parent center" style="margin-bottom:20px">
+		<h5 style="color:white">User bar chart</h5>
+		<p style="color:white">New sign ups in recent 30 days</p>
+		<div>
+		<canvas id="myChart4" style="width:100%"></canvas>
+		</div>
+		
+		<!--result_user-->
+		<?php
+			while ($row=mysqli_fetch_array($result_user)) {
+				$user = "new sign ups";
+				$quantity_user = $row['Quantity'];
+			}
+		?>
+	</div>
 </div>
 <script>
 var amt = [<?php echo json_encode($amt7);?>,<?php echo json_encode($amt6);?>,<?php echo json_encode($amt5);?>
@@ -464,6 +483,48 @@ new Chart("myChart3", {
 		title:{
 			display:false,
 			text: "Quantity of stock in each category"
+		}
+	}
+});
+
+var quan_u = [<?php echo $quantity_user?>];
+
+var xValues_u = ["New Sign Ups"];
+var yValues_u = quan_u;
+
+new Chart("myChart4", {
+	type: "bar",
+	data: {
+		labels: xValues_u,
+		datasets: [{
+		backgroundColor: barColors,
+		data: yValues_u
+		}]
+	},
+	options: {
+		legend: {display: false},
+		scales: {
+			yAxes: [{
+				gridLines: {
+					display: true,
+					color: "rgba(0,255,0,0.4)",
+				},
+				ticks: {
+					fontColor: "#00FFd0",
+					fontSize: 18,
+					beginAtZero: true,
+				}
+			}],
+			xAxes: [{
+				gridLines: {
+					display: true,
+					color: "rgba(0,255,0,0.4)",
+				},
+				ticks: {
+					fontColor: "#00FFd0",
+					fontSize: 18,
+				}
+			}],
 		}
 	}
 });
