@@ -22,6 +22,9 @@ https://stackoverflow.com/questions/16965170/html5-video-autoplay-not-working-co
 https://idealtech.com.my, https://shopee.com.my - design inspiration
 https://developers.google.com/maps/documentation/javascript/adding-a-google-map
 https://stackoverflow.com/questions/19414856/how-can-i-make-all-images-of-different-height-and-width-the-same-via-css
+https://www.w3schools.com/ai/ai_chartjs.asp
+https://stackoverflow.com/questions/37292423/chart-js-label-color
 https://mark-rolich.github.io/Magnifier.js/
 https://stackoverflow.com/questions/35565128/mysql-incorrect-datetime-value-0000-00-00-000000
 https://stackoverflow.com/questions/13596821/css-align-images-and-text-on-same-line
+https://ubiq.co/database-blog/get-records-last-7-days-mysql/
