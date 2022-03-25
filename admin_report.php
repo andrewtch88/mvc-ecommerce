@@ -11,57 +11,53 @@
 	include "static/pages/side_nav.html";
 	include "static/pages/admin_nav.php";
 	require_once "includes/class_autoloader.php";
+	
 	?>
 
 	<?php
-	$con= mysqli_connect("localhost","root", "" ,"ogtech");
-	// Check connection
-	if (mysqli_connect_errno())
-	{
-	echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	}
+	$dbh = new Dbhandler();
 	
-	$result1 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result1 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 2 day and payment.PaymentDate< now() - INTERVAL 1 day");
 	
-	$result2 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result2 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 3 day and payment.PaymentDate< now() - INTERVAL 2 day");
 
-	$result3 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result3 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 4 day and payment.PaymentDate< now() - INTERVAL 3 day");
 
-	$result4 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result4 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 5 day and payment.PaymentDate< now() - INTERVAL 4 day");
 
-	$result5 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result5 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 6 day and payment.PaymentDate< now() - INTERVAL 5 day");
 
-	$result6 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result6 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 7 day and payment.PaymentDate< now() - INTERVAL 6 day");
 
-	$result7 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result7 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 8 day and payment.PaymentDate< now() - INTERVAL 7 day");
 
-	$result_tot = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result_tot = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 8 day and payment.PaymentDate< now() - INTERVAL 1 day");
 	
-	$result_month1 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result_month1 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 30 day");
 
-	$result_month2 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result_month2 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 60 day and payment.PaymentDate< now() - INTERVAL 30 day");
 
-	$result_month3 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result_month3 = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 90 day and payment.PaymentDate< now() - INTERVAL 60 day");
 
-	$result_month_tot = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
+	$result_month_tot = mysqli_query($dbh->conn(),"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 90 day");
 	
-	$result_items0 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 0");
-	$result_items1 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 1");
-	$result_items2 = mysqli_query($con,"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 2");
+	$result_items0 = mysqli_query($dbh->conn(),"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 0");
+	$result_items1 = mysqli_query($dbh->conn(),"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 1");
+	$result_items2 = mysqli_query($dbh->conn(),"SELECT sum(QuantityInStock) as Quantity, Category from items where Category = 2");
 	
-	$result_user = mysqli_query($con,"SELECT count(MemberID) as Quantity FROM members where RegisteredDate > now() - INTERVAL 30 day and RegisteredDate < now() - INTERVAL 1 day")
+	$result_user = mysqli_query($dbh->conn(),"SELECT count(MemberID) as Quantity FROM members where RegisteredDate > now() - INTERVAL 30 day and RegisteredDate < now() - INTERVAL 1 day")
 	?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -232,9 +228,9 @@
 			}
 		?>
 		
-		<h4 style="color:white">Total sales of last 7 days: <?php echo $data_tot = number_format((float)$data_tot, 2, '.', '');?></h4>
-		<h4 style="color:white">Start Date: <?php echo $date7?>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-		End Date: <?php echo $date1?></h4></h4>
+		<h4 style="color:white">Total sales of last 7 days: RM<?php echo $data_tot = number_format((float)$data_tot, 2, '.', '');?></h4>
+		<h4 style="color:white">Start Date: <?php echo $date7?></h4>
+		<h4 style="color:white">End Date: <?php echo $date1?></h4>
 	</div>
 	<br><br><br>
 	<h3 class="page-title">Monthly report</h3>
@@ -289,10 +285,10 @@
 		
 		<?php
 			while ($row=mysqli_fetch_array($result_month_tot)) {
-				$data_m_tot=$row['Amount'];
+				$month_tot =$row['Amount'];
 			}
 		?>
-		<h4 style="color:white">Total sales of last 90 days: <?php echo $data_m_tot = number_format((float)$data_m_tot, 2, '.', '');?></h4>
+		<h4 style="color:white">Total sales of last 90 days: RM<?php echo $month_tot = number_format((float)$month_tot, 2, '.', '');?></h4>
 	</div>
 	<br><br><br>
 	<div class="row" id="product" name="product"></div>
@@ -375,13 +371,17 @@
 				$quantity_user = $row['Quantity'];
 			}
 		?>
-		<h4 style="color:white">Number of new sign ups of last 30 days: <?php echo $quantity_user?></h4>
+		<h4 style="color:white">Number of new sign ups of last 30 days: <?php echo $quantity_user?> user/users</h4>
 	</div>
 </div>
 <script>
-var amt = [<?php echo json_encode($amt7);?>,<?php echo json_encode($amt6);?>,<?php echo json_encode($amt5);?>
-,<?php echo json_encode($amt4);?>,<?php echo json_encode($amt3);?>,<?php echo json_encode($amt2);?>
-,<?php echo json_encode($amt1);?>];
+var amt = [<?php echo $amt7 = number_format((float)$amt7, 2, '.', '');?>,
+<?php echo $amt6 = number_format((float)$amt6, 2, '.', '');?>,
+<?php echo $amt5 = number_format((float)$amt5, 2, '.', '');?>,
+<?php echo $amt4 = number_format((float)$amt4, 2, '.', '');?>,
+<?php echo $amt3 = number_format((float)$amt3, 2, '.', '');?>,
+<?php echo $amt2 = number_format((float)$amt2, 2, '.', '');?>,
+<?php echo $amt1 = number_format((float)$amt1, 2, '.', '');?>,];
 
 var date = [<?php echo json_encode($date7);?>,<?php echo json_encode($date6);?>,<?php echo json_encode($date5);?>
 ,<?php echo json_encode($date4);?>,<?php echo json_encode($date3);?>,<?php echo json_encode($date2);?>
@@ -431,7 +431,7 @@ new Chart("myChart", {
 });
 
 var date2 = [<?php echo json_encode($date_m3);?>,<?php echo json_encode($date_m2);?>,<?php echo json_encode($date_m1);?>];
-var amt2 = [<?php echo json_encode($amt_m3);?>,<?php echo json_encode($amt_m2);?>,<?php echo json_encode($amt_m1);?>];
+var amt2 = [<?php echo $amt_m3 = number_format((float)$amt_m3, 2, '.', '');?>,<?php echo $amt_m2 = number_format((float)$amt_m2, 2, '.', '');?>,<?php echo $amt_m1 = number_format((float)$amt_m1, 2, '.', '');?>];
 
 var xValues_m = date2;
 var yValues_m = amt2;
