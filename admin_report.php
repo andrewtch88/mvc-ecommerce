@@ -14,7 +14,13 @@
 	?>
 
 	<?php
-	include "conn.php";
+	$con= mysqli_connect("localhost","root", "" ,"ogtech");
+	// Check connection
+	if (mysqli_connect_errno())
+	{
+	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	
 	$result1 = mysqli_query($con,"SELECT sum(orderitems.Price * orderitems.Quantity) as Amount, payment.PaymentDate FROM ((payment INNER JOIN orders on payment.OrderID=orders.OrderID)
 	INNER JOIN orderitems on orders.OrderID=orderitems.OrderID)WHERE orders.CartFlag =0 and payment.PaymentDate> now() - INTERVAL 2 day and payment.PaymentDate< now() - INTERVAL 1 day");
 	
@@ -78,7 +84,9 @@
 <body>
 
 <div class="container" style="margin-top:150px">
+	<div class="row" id="order" name="order">
 	<h3 class="page-title">Weekly report</h3>
+	</div>
 	<div class="rounded-card-parent center" style="margin-bottom:20px">
 		<h5 style="color:white">Sales graph</h5>
 		<p style="color:white">Sales vs Week graph</p>
@@ -224,7 +232,7 @@
 			}
 		?>
 		
-		<h4 style="color:white">Total sales of last 7 days: <?php echo $data_tot?></h4>
+		<h4 style="color:white">Total sales of last 7 days: <?php echo $data_tot = number_format((float)$data_tot, 2, '.', '');?></h4>
 		<h4 style="color:white">Start Date: <?php echo $date7?>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 		End Date: <?php echo $date1?></h4></h4>
 	</div>
@@ -284,9 +292,10 @@
 				$data_m_tot=$row['Amount'];
 			}
 		?>
-		<h4 style="color:white">Total sales of last 90 days: <?php echo $data_m_tot?></h4>
+		<h4 style="color:white">Total sales of last 90 days: <?php echo $data_m_tot = number_format((float)$data_m_tot, 2, '.', '');?></h4>
 	</div>
 	<br><br><br>
+	<div class="row" id="product" name="product"></div>
 	<h3 class="page-title">Items report</h3>
 	<div class="rounded-card-parent center" style="margin-bottom:20px">
 		<h5 style="color:white">Items pie chart</h5>
@@ -350,6 +359,7 @@
 		</table>
 	</div>
 	<br><br><br>
+	<div class="row" id="user" name="user"></div>
 	<h3 class="page-title">User report</h3>
 	<div class="rounded-card-parent center" style="margin-bottom:20px">
 		<h5 style="color:white">User bar chart</h5>

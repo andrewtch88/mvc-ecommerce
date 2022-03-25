@@ -34,7 +34,7 @@
               </div>
             </div>
             <div class="card-action left" style="width: 340px;">
-              <a href="admin_manage_users.php">View Report</a>
+              <a href="admin_report.php#user">View Report</a>
               <a href="admin_manage_users.php">Manage Users</a>
             </div>
           </div>
@@ -59,7 +59,7 @@
               </div>
             </div>
             <div class="card-action left" style="width: 340px;">
-              <a href="admin_manage_products.php">View Report</a>
+              <a href="admin_report.php#product">View Report</a>
               <a href="admin_manage_products.php">Manage Products</a>
             </div>
           </div>
@@ -87,7 +87,7 @@
               </div>
             </div>
             <div class="card-action left" style="width: 340px;">
-              <a href="admin_view_orders.php">View Report</a>
+              <a href="admin_report.php#order">View Report</a>
               <a href="admin_view_orders.php">Manage Orders</a>
             </div>
           </div>
