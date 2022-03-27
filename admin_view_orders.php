@@ -88,20 +88,10 @@
 </body>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    refreshTable();
-  });
-
   window.onload = function() {
     var elems  = document.querySelectorAll("input[type=range]");
     M.Range.init(elems);
   };
-
-  function refreshTable(){
-    $('#tableHolder').load('includes/table.inc.php', function(){
-      setTimeout(refreshTable, 5000);
-    });
-  }
 </script>
 <?php include "footer.php"; ?>
 </html>
