@@ -47,8 +47,8 @@ class CommonUtil extends Dbhandler{
   // create member
   public function setUser($username, $pwd, $email, $privilegeLevel=0, $attempt=3) {
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO Members(Username, Password, Email, PrivilegeLevel, Attempt)
-      VALUES ('$username', '$hashedPwd', '$email', $privilegeLevel, $attempt);";
+    $sql = "INSERT INTO Members(Username, Password, Email, PrivilegeLevel, Attempt, RegisteredDate)
+      VALUES ('$username', '$hashedPwd', '$email', $privilegeLevel, $attempt, CURRENT_TIME);";
     $this->conn()->query($sql) or die("<p>*User creation error, please try again!</p>");
 
     // get member id
