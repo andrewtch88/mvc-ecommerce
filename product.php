@@ -9,7 +9,6 @@
   <?php 
     include "header.php";
     require_once "includes/class_autoloader.php";
-    require_once "includes/product_catalogue.inc.php";
     require_once "includes/buy_or_cart.inc.php";
 
     $conn = new Dbhandler();
