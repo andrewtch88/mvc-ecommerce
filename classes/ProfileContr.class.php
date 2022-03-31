@@ -45,9 +45,22 @@ class ProfileContr extends CommonUtil{
       header("location: ../manage_profile.php?error=passwords_dont_match");
       exit();
     }
-    else if ($this->emptyInput($this->username, $this->pwd, $this->repeatPwd, $this->email))
+
+    if ($this->emptyInput($this->username, $this->pwd, $this->repeatPwd, $this->email))
     {
       header("location: ../manage_profile.php?error=empty_input");
+      exit();
+    } 
+
+    if ($this->invalidUid($this->username))
+    {
+      header("location: ../manage_profile.php?error=invalid_uid");
+      exit();
+    }
+
+    if (!$this->uidExists($this->username, $this->email))
+    {
+      header("location: ../manage_profile.php?error=invalid_uid");
       exit();
     } 
 

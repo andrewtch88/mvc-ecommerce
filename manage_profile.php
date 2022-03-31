@@ -16,7 +16,7 @@
       <div class="card rounded-card black" style="width: 650px; ">
         <div class="row">
           <button id="edit" style="text-align:left" class="btn orange " onclick="confirm_edit(this)" style="margin-right: 20px">Edit</button>
-          <div class="errormsg bold"><p id="msg"></p></div>
+          <div class="errormsg bold"><p id="msg" class="red-text"></p></div>
 
           <div class="errormsg">
             <?php
@@ -25,24 +25,21 @@
                 if ($_GET["error"] == "empty_input")
                   echo "<script>document.getElementById('msg').innerHTML = '*Fill in all fields!';</script>";
 
-                else if ($_GET["error"] == "invalid_uid")
+                if ($_GET["error"] == "invalid_uid")
                   echo "<script>document.getElementById('msg').innerHTML = '*Choose a proper username!';</script>";
 
-                else if ($_GET["error"] == "invalidemail")
-                  echo "<script>document.getElementById('msg').innerHTML = '*Choose a proper email!';</script>";
-
-                else if ($_GET["error"] == "passwords_dont_match")
+                if ($_GET["error"] == "passwords_dont_match")
                   echo "<script>document.getElementById('msg').innerHTML = '*Passwords doesn't match!';</script>";
 
-                else if ($_GET["error"] == "stmtfailed")
+                if ($_GET["error"] == "stmtfailed")
                   echo "<script>document.getElementById('msg').innerHTML = '*Something went wrong, please try again!';</script>";
 
-                else if ($_GET["error"] == "username_taken")
+                if ($_GET["error"] == "username_taken")
                   echo "<script>document.getElementById('msg').innerHTML = '*Username already taken!';</script>";
 
-                else if ($_GET["error"] == "none")
+                if ($_GET["error"] == "none")
+                  echo "<script>document.getElementById('msg').className = 'green-text';</script>";
                   echo "<script>document.getElementById('msg').innerHTML = 'Profile updated!';</script>";
-                  echo "<script>document.getElementById('msg').style.color = 'green';</script>";
               }
 
             ?>
