@@ -58,7 +58,7 @@
 
               else if ($_GET["error"] == "none")
                 echo "<p class='green-text bold'>You have signed up! Redirecting to login page...</p>";
-                echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
+                echo '<META HTTP-EQUIV="Refresh" Content="2; URL=signup.php">';
                 exit();
             }
           ?>
