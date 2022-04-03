@@ -70,7 +70,7 @@
 			<td>Full name:</td>
 		</tr>
 		<tr>
-			<td><input class="text" type="email" name="name" required="required" placeholder="Example : Kristof John"></input></td>
+			<td><input class="text" name="name" required="required" placeholder="Example : Kristof John"></input></td>
 		</tr>
 		<tr>
 			<td>Address:</td>
