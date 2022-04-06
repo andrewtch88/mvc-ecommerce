@@ -87,7 +87,7 @@
 		<h5 style="color:white">Sales graph</h5>
 		<p style="color:white">Sales vs Week graph</p>
 		<div>
-		<canvas id="myChart" style="width:100%"></canvas>
+		<canvas id="myChart" style="width:70%"></canvas>
 		</div>
 		
 		<!--result1-->
@@ -238,7 +238,7 @@
 		<h5 style="color:white">Sales graph</h5>
 		<p style="color:white">Sales vs Month graph</p>
 		<div>
-		<canvas id="myChart2" style="width:100%"></canvas>
+		<canvas id="myChart2" style="width:70%"></canvas>
 		</div>
 		
 		<!--result_month1-->
@@ -297,7 +297,7 @@
 		<h5 style="color:white">Items pie chart</h5>
 		<p style="color:white">Quantity of stock in each category</p>
 		<div>
-		<canvas id="myChart3" style="width:100%"></canvas>
+		<canvas id="myChart3" style="width:70%"></canvas>
 		</div>
 		
 		<!--result_items0-->
@@ -361,7 +361,7 @@
 		<h5 style="color:white">User bar chart</h5>
 		<p style="color:white">New sign ups in recent 30 days</p>
 		<div>
-		<canvas id="myChart4" style="width:100%"></canvas>
+		<canvas id="myChart4" style="width:70%"></canvas>
 		</div>
 		
 		<!--result_user-->
@@ -403,6 +403,8 @@ new Chart("myChart", {
 		}]
 	},
 	options: {
+		responsive: true,
+		maintainAspectRatio: false,
 		legend: {display: false},
 		scales: {
 			yAxes: [{
@@ -447,6 +449,8 @@ new Chart("myChart2", {
 		}]
 	},
 	options: {
+		responsive: true,
+		maintainAspectRatio: false,
 		legend: {display: false},
 		scales: {
 			yAxes: [{
@@ -491,6 +495,8 @@ new Chart("myChart3", {
 		}]
 	},
 	options: {
+		responsive: true,
+		maintainAspectRatio: false,
 		title:{
 			display:false,
 			text: "Quantity of stock in each category"
@@ -513,6 +519,8 @@ new Chart("myChart4", {
 		}]
 	},
 	options: {
+		responsive: true,
+		maintainAspectRatio: false,
 		legend: {display: false},
 		scales: {
 			yAxes: [{
