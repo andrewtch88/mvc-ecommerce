@@ -5,9 +5,6 @@
       <p class="grey-text text-lighten-4">Your favorite online PC store.</p>
     </div>
     <div class="col s2">
-      <h5 class="white-text">Business Hours</h5>
-    </div>
-    <div class="col s2">
       <h5 class="white-text bold"  style=' text-decoration: underline'>Support</h5>
       <p><a class='dropdown-trigger white-text bold' href='#' data-target='dropdown1'>Customer Care 
         <i class='material-icons' style=' text-decoration: none !important; display: inline-flex; vertical-align: top;'>arrow_drop_down</i>
