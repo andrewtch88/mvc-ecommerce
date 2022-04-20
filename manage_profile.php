@@ -25,21 +25,23 @@
                 if ($_GET["error"] == "empty_input")
                   echo "<script>document.getElementById('msg').innerHTML = '*Fill in all fields!';</script>";
 
-                if ($_GET["error"] == "invalid_uid")
+                else if ($_GET["error"] == "invalid_uid")
                   echo "<script>document.getElementById('msg').innerHTML = '*Choose a proper username!';</script>";
 
-                if ($_GET["error"] == "passwords_dont_match")
+                else if ($_GET["error"] == "passwords_dont_match")
                   echo "<script>document.getElementById('msg').innerHTML = '*Passwords doesn't match!';</script>";
 
-                if ($_GET["error"] == "stmtfailed")
+                else if ($_GET["error"] == "stmtfailed")
                   echo "<script>document.getElementById('msg').innerHTML = '*Something went wrong, please try again!';</script>";
 
-                if ($_GET["error"] == "username_taken")
+                else if ($_GET["error"] == "username_taken")
                   echo "<script>document.getElementById('msg').innerHTML = '*Username already taken!';</script>";
 
-                if ($_GET["error"] == "none")
+                else if ($_GET["error"] == "none")
+                {
                   echo "<script>document.getElementById('msg').className = 'green-text';</script>";
                   echo "<script>document.getElementById('msg').innerHTML = 'Profile updated!';</script>";
+                }
               }
 
             ?>
