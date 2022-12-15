@@ -1,6 +1,6 @@
 # OG Tech PC
 
-PCMasterRace E-commerce web app project.
+PCMasterRace E-commerce web app project. Inspired by IdealTechPC. Cool stuff right?
 
 
 # User guide
