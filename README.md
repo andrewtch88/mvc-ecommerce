@@ -4,7 +4,7 @@ PCMasterRace E-commerce web app mvc model project. Inspired by IdealTechPC. Neon
 
 The ecommerce project. Built with ❤︎ by Andrew TCH88 and contributors
 
-#🚀 Features
+# 🚀 Features
 -List Products
 -Filter products by Category
 -Admin Functions
