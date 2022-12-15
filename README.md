@@ -5,12 +5,13 @@ PCMasterRace E-commerce web app mvc model project. Inspired by IdealTechPC. Neon
 The ecommerce project. Built with ❤︎ by Andrew TCH88 and contributors
 
 # 🚀 Features
--List Products
--Filter products by Category
--Admin Functions
--Ajax Forms
--Add products to Cart
--Neon Theme :3
+1. List Products
+2. Filter products by Category
+3. Admin Functions
+4. Ajax Forms
+5. Add products to Cart
+6. Neon Theme :3
+7. And many more.. but mainly those are the important ones
 
 # User guide
 1. Download xampp
