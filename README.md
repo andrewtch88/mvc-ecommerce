@@ -1,6 +1,6 @@
 # OG Tech PC
 
-PC e-commerce website for final year software development
+PCMasterRace E-commerce web app project.
 
 
 # User guide
