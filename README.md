@@ -4,7 +4,7 @@ PCMasterRace E-commerce web app project. Inspired by IdealTechPC. Neon theme.
 
 
 # User guide
-1. Download .
+1. Download xampp
 2. Locate the xampp folder in your machine.
 3. Navigate to htdocs inside the folder and delete everything.
 4. Clone this repository into the folder.
