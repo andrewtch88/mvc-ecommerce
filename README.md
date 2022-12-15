@@ -28,3 +28,6 @@ and many more, refer to the localhost database.
 
 # Future improvements?
 Probably make it in laravel framework and payment function. And responsive.
+
+# Open Source?
+Hmm, depends cause I prolly offer the license for sale, it's my intellectual property bro.
