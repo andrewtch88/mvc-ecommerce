@@ -24,3 +24,7 @@ and many more, refer to the localhost database.
 
 ![Screenshot (53)](https://user-images.githubusercontent.com/59404615/207912708-0ebc9b42-2a0f-48aa-8055-59670f6c42ee.png)
 ![Screenshot (69)](https://user-images.githubusercontent.com/59404615/207912747-ab8e5b9c-c8e0-45b3-aabf-f461ff3a576b.png)
+
+
+# Future improvements?
+Probably make it in laravel framework and payment function. And responsive.
