@@ -42,7 +42,7 @@ Feature requests are welcomed! Provide some details on why it would be helpful f
 Check out the contributing page to see the best places to file issues, start discussions and begin contributing.
 
 # Future improvements?
-Probably make it in laravel framework and payment function. And responsive.
+Probably make it in laravel framework and integrate Stripe with it. And responsive.
 
 # Open Source?
 Hmm, depends cause I prolly offer the license for sale, it's my intellectual property bro.
