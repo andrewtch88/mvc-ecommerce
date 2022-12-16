@@ -22,7 +22,7 @@ The ecommerce project. Built with ❤︎ by Andrew TCH88 and contributors
 4. Clone this repository into the folder.
 5. Run xampp.
 
-![image](https://user-images.githubusercontent.com/59404615/207911707-d708fbe9-2060-44b3-b76b-61de5a6ce668.png)
+![image](https://user-images.githubusercontent.com/59404615/208036586-5745fe6e-4482-486b-a706-4897b3790b4f.png)
 
 6. Next, go to phpmyadmin localhost web to create a database with ogtech as its name.
 7. Import all the sql data from the OGTECH.sql file in the root project directory.
