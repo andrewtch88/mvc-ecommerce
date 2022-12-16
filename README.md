@@ -25,6 +25,7 @@ Built with ❤︎ by Andrew TCH88 and contributors
 
 6. Next, go to phpmyadmin localhost web to create a database with ogtech as its name.
 7. Import all the sql data from the OGTECH.sql file in the root project directory.
+8. At the browser, open the web app url http://127.0.0.1//OGTECH/index.php
 8. You can now use this with the credentials stated below.
 
 # Default Accounts
