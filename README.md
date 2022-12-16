@@ -21,8 +21,7 @@ Built with ❤︎ by Andrew TCH88 and contributors
 3. Navigate to htdocs inside the folder and delete everything.
 4. Clone this repository into the folder.
 5. Run xampp.
-
-![image](https://user-images.githubusercontent.com/59404615/208036586-5745fe6e-4482-486b-a706-4897b3790b4f.png)
+![image](https://user-images.githubusercontent.com/59404615/208037550-c3c61ced-0176-49bc-ac5a-95c6b3248a5c.png)
 
 6. Next, go to phpmyadmin localhost web to create a database with ogtech as its name.
 7. Import all the sql data from the OGTECH.sql file in the root project directory.
