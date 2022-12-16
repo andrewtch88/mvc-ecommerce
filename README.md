@@ -1,4 +1,4 @@
-# OG Tech PC
+# OG Tech PC Solutions
 
 PCMasterRace E-commerce web app mvc model project. Inspired by IdealTechPC. Neon theme.
 
