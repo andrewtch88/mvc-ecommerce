@@ -13,8 +13,6 @@ class Signup extends Dbhandler {
       exit();
     }
 
-    $stmt = null;
-
     // get member id
     $sql = "SELECT MemberID FROM Members where Username = '$username';";
     $result = $this->conn()->query($sql) or die("<p>*MemberID error, please try again!</p>");
@@ -25,6 +23,8 @@ class Signup extends Dbhandler {
     // create cart
     $sql = "INSERT INTO Orders(MemberID) VALUES ($memberID);";
     $this->conn()->query($sql) or die("<p>*Cart creation error, please try again!</p>");
+    
+    $stmt->close();
   }
 
   protected function checkUser($username, $email) {

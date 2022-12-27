@@ -55,7 +55,7 @@
 
               else if ($_GET["error"] == "username_taken")
                 echo "<p>*Username/Email already taken!</p>";
-
+                
               else if ($_GET["error"] == "none")
                 echo "<p class='green-text bold'>You have signed up! Please go to Login page</p>";
                 echo '<META HTTP-EQUIV="Refresh" Content="2; URL=signup.php">';
